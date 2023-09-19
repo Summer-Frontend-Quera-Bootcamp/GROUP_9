@@ -1,8 +1,8 @@
-import '../../../index.css'; 
+import '../../index.css'; 
 import './index.css'
 import { z, ZodSchema } from 'zod';
-import Input from '../input/input';
-import Btn from '../button/button';
+import Input from '../common/input/input';
+import Btn from '../common/button/button';
 import {useForm} from "react-hook-form"
 import {zodResolver} from '@hookform/resolvers/zod'
 
@@ -30,7 +30,7 @@ const Form_base:React.FC<Iform>=({title,items,schema,contranct=false,btn_text}):
 
     const form_generator = items.map(item=>{
         return(
-            <Input type={item.type} errors={errors} hook={register} name_={item.name} text={item.label}></Input>
+            <Input type={item.type} key={item.name} errors={errors} hook={register} name_={item.name} text={item.label}></Input>
         
         )
     })

@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+.iran-yekan-font {
+  font-family: "IranYekan";
+}
+
+body {
+  font-family: "IranYekan";
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "IranYekan";
+}
+@tailwind utilities;
