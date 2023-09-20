@@ -6,7 +6,7 @@
 
 body {
   font-family: "IranYekan";
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 h1,

@@ -37,12 +37,12 @@ const Form_base:React.FC<Iform>=({title,items,schema,contranct=false,btn_text}):
 
 
     return (
-        <div dir='rtl' className='shadow  w-[640px] h-[auto] z-50 absolute top-[284px] left-[50%] translate-x-[-50%] rounded-[20px] p-[24px] bg-white flex flex-col space-y-[32px] items-center justify-center'>
+        <div dir='rtl' className='shadow  w-[640px] h-[auto] z-50 absolute top-[200px] left-[50%] translate-x-[-50%] rounded-[20px] p-[24px] bg-white flex flex-col items-center justify-center'>
            <h1 className='font-extrabold w-full text-[32px] text-center leading-[55.27px]'>{title}</h1>
            <form onSubmit={handleSubmit(data=>console.log(data))} className='flex flex-col space-y-[20px] w-[592px]'>
            {form_generator}
            {contranct && (
-                   <div className='flex flex-row h-[72px]'>
+                   <div className='flex flex-row h-auto'>
                    <input dir='rtl' type='checkbox' name='contract' id='contract' className='w-[20px] h-[20px] rounded-md bg-white border border-br text-br p-[5px] ml-[6px]'/>
                    <label htmlFor='contract' className='font-normal font-[14px] text-right leading-[24.18px] font-family:IranYekan '>قوانین و مقررات را میپذیرم.</label>
                    </div>

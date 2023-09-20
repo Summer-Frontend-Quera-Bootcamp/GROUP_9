@@ -12,7 +12,7 @@ interface Iprops{
 
 const Background:React.FC<Iprops>=({btn,text,children}):JSX.Element=>{
     return (
-        <main className="w-screen h-screen overflow-hidden " dir='rtl'>
+        <main className="w-screen h-full overflow-hidden " dir='rtl'>
 
             <header className='flex flex-row-reverse w-[1280px] h-[50px] items-center absolute left-[50%] translate-x-[-50%] mr-auto top-[80px]'>
                 <button className='w-[95px] h-[40px] bg-brand-primary rounded-md p-2.5 text-white font-family:"IranYekan" mr-2.5 text-[14px] font-extrabold leading-[24.18px]'>{btn}</button>
