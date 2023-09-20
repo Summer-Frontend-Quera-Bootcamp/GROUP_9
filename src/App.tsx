@@ -6,9 +6,8 @@ import { z, ZodSchema } from 'zod';
 function App() {
 
   return (
-  <>
     <Background text='قبلا ثبت‌ نام کرده‌ای؟' btn='ورود'>
-    <Form_base btn_text='ثبت نام' contranct items={[{type:'text',name:'name',label:'نام'},{type:'password',name:'pass',label:'فامیلی'},{type:'email',name:'email',label:'ایمیل'}]} schema={z.object({
+    <Form_base signup forget btn_text='ثبت نام' contranct items={[{type:'text',name:'name',label:'نام'},{type:'password',name:'pass',label:'فامیلی'},{type:'email',name:'email',label:'ایمیل'}]} schema={z.object({
       name:z.string().min(3,{message:"حداقل تعداد کاراکتر3 تا میباشد"}),
       pass:z.string().min(8, "Password should be at least 8 characters")
       .refine(password => /[A-Z]/.test(password), "Password should have at least one uppercase letter")
@@ -16,9 +15,9 @@ function App() {
       email:z.string().email()
     })
     } title='به کوئرا تسک منیجر خوش برگشتی :) '/>
-    </Background>
 
-  </>
+    </Background>
+  
   )
 }
 
