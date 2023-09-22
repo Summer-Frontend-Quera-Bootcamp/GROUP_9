@@ -1,12 +1,39 @@
+/* ========== Tailwind ========== */
 @tailwind base;
 @tailwind components;
-.iran-yekan-font {
-  font-family: "IranYekan";
+@tailwind utilities;
+
+
+/* ========== Font-face ========== */
+@layer base{
+  @font-face {
+    font-family: IRANYekanThin;
+    src: url(./assets/Fonts/IRANYekanThinFaNum.ttf);
+  }
+  @font-face {
+    font-family: IRANYekanRegular;
+    src: url(./assets/Fonts/IRANYekanRegularFaNum.ttf);
+  }
+  @font-face {
+    font-family: IRANYekanMedium;
+    src: url(./assets/Fonts/IRANYekanMediumFaNum.ttf);
+  }
+  @font-face {
+    font-family: IRANYekanBold;
+    src: url(./assets/Fonts/IRANYekanBoldFaNum.ttf);
+  }
+  @font-face {
+    font-family: IRANYekanExtraBold;
+    src: url(./assets/Fonts/IRANYekanExtraBoldFaNum.ttf);
+  }
 }
 
-body {
-  font-family: "IranYekan";
-  overflow-x: hidden;
+
+/* ========== Base-Style ========== */
+* {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 h1,
@@ -14,7 +41,12 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: "IranYekan";
+h6,
+p,
+pre {
+  cursor: default;
 }
-@tailwind utilities;
+
+li {
+  list-style: none;
+}

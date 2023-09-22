@@ -1,88 +1,149 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
+  ],
   theme: {
+    /* ============= Color ============= */
     colors: {
-      "gray-secondary": "#F1F3F5",
-      "gray-primary": "#868E96",
-      "gray-darker": "#343A40",
+      Black: '#1E1E1E',
+      White: '#FFFFFF',
 
-      "cyan-secondary": "#15AABF",
-      "cyan-primary": "#C5F6FA",
+      /* ===== Gray ===== */
+      Gray: {
+        Primary: '#868E96',
+        Secondary: '#F1F3F5',
+        Darker: '#343A40',
+      },
 
-      "red-secondary": "#FA5252",
-      "red-primary": "#FFE3E3",
+      /* ===== Cyan ===== */
+      Cyan: {
+        Primary: '#15AABF',
+        Secondary: '#C5F6FA',
+      },
 
-      "teal-secondary": "#C3FAE8",
-      "teal-primary": "#12B886",
+      /* ===== Red ===== */
+      Red: {
+        Primary: '#FA5252',
+        Secondary: '#FFE3E3',
+      },
 
-      "pink-secondary": "#FFDEEB",
-      "pink-primary": "#E64980",
+      /* ===== Teal ===== */
+      Teal: {
+        Primary: '#12B886',
+        Secondary: '#C3FAE8',
+      },
 
-      "brand-secondary": "#C2F7FA",
-      "brand-primary": "#208D8E",
+      /* ===== Pink ===== */
+      Pink: {
+        Primary: '#E64980',
+        Secondary: '#FFDEEB',
+      },
 
-      "grape-secondary": "#F3D9FA",
-      "grape-primary": "#BE4BDB",
+      /* ===== Brand ===== */
+      Brand: {
+        Primary: '#208D8E',
+        Secondary: '#C2F7FA',
+      },
 
-      "green-secondary": "#D3F9D8",
-      "green-primary": "#40C057",
+      /* ===== Grape ===== */
+      Grape: {
+        Primary: '#BE4BDB',
+        Secondary: '#F3D9FA',
+      },
 
-      "violet-secondary": "#E5DBFF",
-      "violet-primary": "#7950F2",
+      /* ===== Green ===== */
+      Green: {
+        Primary: '#40C057',
+        Secondary: '#D3F9D8',
+      },
 
-      "lime-secondary": "#E9FAC8",
-      "lime-primary": "#82C91E",
+      /* ===== Violet ===== */
+      Violet: {
+        Primary: '#7950F2',
+        Secondary: '#E5DBFF',
+      },
 
-      "indigo-secondary": "#DBE4FF",
-      "indigo-primary": "#4C6EF5",
+      /* ===== Lime ===== */
+      Lime: {
+        Primary: '#82C91E',
+        Secondary: '#E9FAC8',
+      },
 
-      "yellow-secondary": "#FFF3BF",
-      "yellow-primary": "#FAB005",
+      /* ===== Indigo ===== */
+      Indigo: {
+        Primary: '#4C6EF5',
+        Secondary: '#DBE4FF',
+      },
 
-      "blue-secondary": "#D0EBFF",
-      "blue-primary": "#228BE6",
+      /* ===== Yellow ===== */
+      Yellow: {
+        Primary: '#FAB005',
+        Secondary: '#FFF3BF',
+      },
 
-      "orange-secondary": "#FFE8CC",
-      "orange-primary": "#FD7E14",
+      /* ===== Blue ===== */
+      Blue: {
+        Primary: '#228BE6',
+        Secondary: '#D0EBFF',
+      },
 
-      "three":"rgba(0,0,0,0)",
-      "one":"#118C80",
-      "two":"#4AB7D8",
-      "white":"#FFFFFF",
-      "black":"#1E1E1E",
-      "br":"rgba(170, 170, 170, 1)",
-      "btn":"#208D8E"
+      /* ===== Orange ===== */
+      Orange: {
+        Primary: '#FD7E14',
+        Secondary: '#FFE8CC',
+      }
+
+      /* ===== Others ===== */
+      //++
     },
-    fontSize: {
-      "heading-l": "32pt",
-      "heading-m": "28pt",
-      "heading-s": "24pt",
-      "heading-xs": "20pt",
 
-      "body-xl": "24pt",
-      "body-l": "20pt",
-      "body-m": "16pt",
-      "body-s": "14pt",
-      "body-xs": "12pt",
 
-      "bold-xl": "24pt",
-      "bold-l": "20pt",
-      "bold-m": "16pt",
-      "bold-s": "14pt",
-      "bold-xs": "12pt",
-    },
-    fontFamily: {
-      IranYekan: ["IranYekan"],
-    },
+    /* ============= Spacing ============= */
     spacing: {
-      xs: "0.5rem",
-      s: "1rem",
-      m: "1.5rem",
-      l: "2rem",
-      xl: "2.5rem",
+      xs: '8px',
+      s: '16px',
+      m: '24px',
+      l: '32px',
+      xl: '40px',
     },
-    extend: {},
+
+    extend: {
+      /* ============= Font ============= */
+      fontFamily: {
+        IranYekan300: "'IRANYekanThin', sans-serif",
+        IranYekan400: "'IRANYekanRegular', sans-serif",
+        IranYekan500: "'IRANYekanMedium', sans-serif",
+        IranYekan700: "'IRANYekanBold', sans-serif",
+        IranYekan800: "'IRANYekanExtraBold', sans-serif",
+      },
+
+
+      /* ============= Font-Size ============= */
+      fontSize: {
+        /* ===== Heading ===== */
+        HeadingL: '2em',
+        HeadingM: '1.75em',
+        HeadingS: '1.5em',
+        HeadingXS: '1.25em',
+
+        /* ===== Body ===== */
+        BodyXL: '1.5em',
+        BodyL: '1.25em',
+        BodyM: '1em',
+        BodyS: '0.88em',
+        BodyXS: '0.75em',
+
+        /* ===== Body ===== */
+        BoldXL: '1.5em',
+        BoldL: '1.25em',
+        BoldM: '1em',
+        BoldS: '0.88em',
+        BoldXS: '0.75em',
+      }
+    },
   },
   plugins: [],
 };
