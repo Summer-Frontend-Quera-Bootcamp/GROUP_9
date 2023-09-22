@@ -1,5 +1,9 @@
 @tailwind base;
 @tailwind components;
+@font-face {
+  font-family: "IranYekan";
+  src: url(./assets/fonts/IranYekan.ttf);
+}
 .iran-yekan-font {
   font-family: "IranYekan";
 }
@@ -7,6 +11,7 @@
 body {
   font-family: "IranYekan";
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 h1,

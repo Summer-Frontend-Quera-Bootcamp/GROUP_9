@@ -1,5 +1,5 @@
 import './index.css'; 
-import Background from './pages/Authentication Pages/Layout'
+import Background from './pages/authentication pages/Layout'
 import Form_base from './components/form/form';
 import Btn from './components/common/button/button';
 import { z, ZodSchema } from 'zod';
