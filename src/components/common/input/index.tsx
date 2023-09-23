@@ -5,22 +5,22 @@ import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
 interface Iprops{
     type:string;
-    name_:string;
-    text:string;
-    hook:UseFormRegister<any>;
-    errors:FieldErrors<any>
+    name:string;
+    labelText : string;
+    hook : UseFormRegister<any>;
+    errors : FieldErrors<any>;
 }
 
 
-const Input:React.FC<Iprops>=({type ,name_,text,hook,errors}):JSX.Element=>{
+const Input: React.FC<Iprops> = ({type, name, labelText, hook, errors}):JSX.Element => {
     return (
-       <div className='flex flex-col space-y-[2px] h-[72px]'>
-       <label htmlFor={type} className='font-normal font-[14px] text-right leading-[24.18px] font-family:IranYekan '>{text}</label>
-       <input dir='rtl' type={type} {...hook(name_)} id={name_} className='w-full h-[40px] rounded-md bg-white border border-br text-br p-[5px] '/>
-       {errors[name_] && ( 
-       <p className='text-red-secondary'>{errors[name_].message}</p>
-        )}
-       </div>
+        <div className='flex flex-col gap-xs'>
+            <label htmlFor={name} className='mt-[20px] font-IranYekan400 text-BodyS text-right'>{labelText}</label>
+            <input type={type} {...hook(name)} id={name} className='w-full h-[40px] p-[5px] rounded-[6px] bg-inherite border border-[#AAA] '/>
+            {errors[name] && ( 
+                <p className='font-IranYekan400 text-BodyXS text-Red-Primary'>{errors[name]?.message}</p>
+            )}
+        </div>
     )
 }
 
