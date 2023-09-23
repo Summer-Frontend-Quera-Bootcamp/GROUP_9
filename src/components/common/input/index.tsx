@@ -1,5 +1,4 @@
-import React from "react";
-import "../../../index.css";
+// <======== Hook ========> //
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 interface Iprops {

@@ -1,5 +1,4 @@
 // <======== Code-Files ========> //
-import "../../../index.css";
 import "./style.css";
 
 // <======== Component-Files ========> //

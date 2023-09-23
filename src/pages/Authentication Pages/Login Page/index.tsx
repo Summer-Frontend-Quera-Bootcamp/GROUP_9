@@ -1,6 +1,3 @@
-// <======== Code-Files ========> //
-import "../../../index.css";
-
 // <======== Component-Files ========> //
 import AuthenticationLayout from "../Layout";
 import AuthenticationForm from "../../../components/Form";

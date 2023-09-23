@@ -1,6 +1,3 @@
-// <======== Code-Files ========> //
-import "../../../index.css";
-
 interface IButtonprops extends React.PropsWithChildren {
   ClassName: string;
 }
