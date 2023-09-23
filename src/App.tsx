@@ -1,18 +1,12 @@
 // <======== Code-Files ========> //
-import './index.css';
+import "./index.css";
 
 // <======== Component-Files ========> //
 
-
 // <======== Hook ========> //
 
-
 const App = () => {
-  return (
-    <p>
-      Hello Word!
-    </p>
-  )
-}
+  return <p>Hello Word!</p>;
+};
 
-export default App
+export default App;

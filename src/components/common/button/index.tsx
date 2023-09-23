@@ -1,15 +1,15 @@
 // <======== Code-Files ========> //
-import '../../../index.css'; 
-
+import "../../../index.css";
 
 interface IButtonprops extends React.PropsWithChildren {
-    ClassName: string;
+  ClassName: string;
 }
 
-const Button: React.FC<IButtonprops> = ({ClassName, children}): JSX.Element => {
-    return (
-        <button className={`${ClassName}`}>{children}</button>
-    )
+const Button: React.FC<IButtonprops> = ({
+  ClassName,
+  children,
+}): JSX.Element => {
+  return <button className={`${ClassName}`}>{children}</button>;
 };
 
 export default Button;

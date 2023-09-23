@@ -3,9 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* ========== Font-face ========== */
-@layer base{
+@layer base {
   @font-face {
     font-family: IRANYekanThin;
     src: url(./assets/Fonts/IRANYekanThinFaNum.ttf);
@@ -27,7 +26,6 @@
     src: url(./assets/Fonts/IRANYekanExtraBoldFaNum.ttf);
   }
 }
-
 
 /* ========== Base-Style ========== */
 * {
