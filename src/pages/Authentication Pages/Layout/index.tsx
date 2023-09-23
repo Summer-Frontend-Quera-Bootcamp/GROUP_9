@@ -3,7 +3,6 @@ import '../../../index.css';
 import './style.css'
 
 // <======== Component-Files ========> //
-import Link from '../../../components/common/LinkButton';
 import Button from '../../../components/common/Button';
 
 
@@ -16,14 +15,14 @@ interface IAuthenticationLayoutprops extends React.PropsWithChildren {
 const AuthenticationLayout: React.FC<IAuthenticationLayoutprops> = ({ buttonTextContent, linkTextContent, children}): JSX.Element => {
     return (
         <main className="w-full h-full pt-[80px] pb-0 px-[80px] flex flex-col justify-start items-center">
-            <header className='w-full max-w-[1280px] flex flex-row justify-between items-center'>
+            <header className='w-full max-w-[1280px] fixed top-[80px] flex flex-row justify-between items-center'>
                 <h1 className='font-IranYekan800 text-HeadingL'>کوئرا تسک منیجر</h1>
                 <section className='flex justify-end items-center gap-[7px]'>
-                    <Link href='#' ClassName='font-IranYekan500 text-BodyM text-Black'>{linkTextContent}</Link>
+                    <p className='font-IranYekan500 text-BodyM text-Black'>{linkTextContent}</p>
                     <Button ClassName="w-[95px] h-xl p-[10px] font-IranYekan800 text-BoldS text-White rounded-[6px] bg-Brand-Primary flex justify-center items-center">{buttonTextContent}</Button>
                 </section>
             </header>
-            <main className='w-full h-full flex justify-center items-center'>
+            <main className='w-full h-full mt-[55px] flex justify-center items-center'>
                 {children}
             </main>
 
