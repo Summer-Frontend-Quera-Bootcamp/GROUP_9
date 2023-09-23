@@ -1,3 +1,6 @@
-.custom-clip {
-    clip-path: polygon(0% 50%, 100% 0%, 100% 100%, 0 100%);
+header h1 {
+  background: linear-gradient(90deg, #118c80 0%, #4ab7d8 120%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
