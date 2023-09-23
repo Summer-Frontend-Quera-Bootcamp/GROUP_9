@@ -113,35 +113,35 @@ export default {
     extend: {
       /* ============= Font ============= */
       fontFamily: {
-        IranYekan300: "'IRANYekanThin', sans-serif",
-        IranYekan400: "'IRANYekanRegular', sans-serif",
-        IranYekan500: "'IRANYekanMedium', sans-serif",
-        IranYekan700: "'IRANYekanBold', sans-serif",
-        IranYekan800: "'IRANYekanExtraBold', sans-serif",
+        IranYekan300: 'IRANYekanThin',
+        IranYekan400: 'IRANYekanRegular',
+        IranYekan500: 'IRANYekanMedium',
+        IranYekan700: 'IRANYekanBold',
+        IranYekan800: 'IRANYekanExtraBold',
       },
 
 
       /* ============= Font-Size ============= */
       fontSize: {
         /* ===== Heading ===== */
-        HeadingL: '2em',
-        HeadingM: '1.75em',
-        HeadingS: '1.5em',
-        HeadingXS: '1.25em',
+        HeadingL: '2rem',
+        HeadingM: '1.75rem',
+        HeadingS: '1.5rem',
+        HeadingXS: '1.25rem',
 
         /* ===== Body ===== */
-        BodyXL: '1.5em',
-        BodyL: '1.25em',
-        BodyM: '1em',
-        BodyS: '0.88em',
-        BodyXS: '0.75em',
+        BodyXL: '1.5rem',
+        BodyL: '1.25rem',
+        BodyM: '1rem',
+        BodyS: '0.88rem',
+        BodyXS: '0.75rem',
 
         /* ===== Body ===== */
-        BoldXL: '1.5em',
-        BoldL: '1.25em',
-        BoldM: '1em',
-        BoldS: '0.88em',
-        BoldXS: '0.75em',
+        BoldXL: '1.5rem',
+        BoldL: '1.25rem',
+        BoldM: '1rem',
+        BoldS: '0.88rem',
+        BoldXS: '0.75rem',
       },
 
 
