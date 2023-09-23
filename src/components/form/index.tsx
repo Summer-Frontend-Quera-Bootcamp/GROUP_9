@@ -1,6 +1,5 @@
 // <======== Code-Files ========> //
 import '../../index.css'; 
-import './index.css'
 
 // <======== import Components ========> //
 import Input from '../common/Input';
