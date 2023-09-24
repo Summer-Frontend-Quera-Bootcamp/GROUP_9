@@ -7,7 +7,9 @@ export default {
     colors: {
       Black: "#1E1E1E",
       White: "#FFFFFF",
-
+      Black2: "#323232",
+      GrayLight: "#AAA",
+      GrayLight2: "#959595",
       /* ===== Gray ===== */
       Gray: {
         Primary: "#868E96",
@@ -131,7 +133,7 @@ export default {
         BodyS: "0.88rem",
         BodyXS: "0.75rem",
 
-        /* ===== Body ===== */
+        /* ===== Bold ===== */
         BoldXL: "1.5rem",
         BoldL: "1.25rem",
         BoldM: "1rem",
