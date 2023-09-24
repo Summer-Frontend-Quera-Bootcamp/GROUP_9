@@ -2,18 +2,12 @@
 import "./index.css";
 
 // <======== Component-Files ========> //
-// import LogInPage from "./pages/Authentication Pages/Login Page";
-import ListView from "./pages/Main Pages/Board Pages/ListView";
+import LogInPage from "./pages/authentication pages/Login Page";
 
 // <======== Hook ========> //
 
 const App = () => {
-  return (
-    <>
-      {/* <LogInPage /> */}
-      <ListView />
-    </>
-  );
+  return <LogInPage />;
 };
 
 export default App;
