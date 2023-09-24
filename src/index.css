@@ -1,20 +1,6 @@
 /* ========== Tailwind ========== */
 @tailwind base;
 @tailwind components;
-<<<<<<< HEAD
-@font-face {
-  font-family: "IranYekan";
-  src: url(./assets/fonts/IranYekan.ttf);
-}
-.iran-yekan-font {
-  font-family: "IranYekan";
-}
-
-body {
-  font-family: "IranYekan";
-  overflow-x: hidden;
-  box-sizing: border-box;
-=======
 @tailwind utilities;
 
 /* ========== Font-face ========== */
@@ -55,7 +41,6 @@ body {
 #root {
   width: 100%;
   height: 100%;
->>>>>>> 64ffd4e2eac128462c2f42d26638c487fadd43a9
 }
 
 h1,

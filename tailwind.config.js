@@ -83,25 +83,11 @@ export default {
         Secondary: "#FFF3BF",
       },
 
-      "blue-secondary": "#D0EBFF",
-      "blue-primary": "#228BE6",
-
-      "orange-secondary": "#FFE8CC",
-      "orange-primary": "#FD7E14",
-
-      three: "rgba(0,0,0,0)",
-      one: "#118C80",
-      two: "#4AB7D8",
-      white: "#FFFFFF",
-      black: "#1E1E1E",
-      br: "rgba(170, 170, 170, 1)",
-      btn: "#208D8E",
-    },
-    fontSize: {
-      "heading-l": "32pt",
-      "heading-m": "28pt",
-      "heading-s": "24pt",
-      "heading-xs": "20pt",
+      /* ===== Blue ===== */
+      Blue: {
+        Primary: "#228BE6",
+        Secondary: "#D0EBFF",
+      },
 
       /* ===== Orange ===== */
       Orange: {
