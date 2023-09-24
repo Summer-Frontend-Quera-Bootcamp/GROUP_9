@@ -1,41 +1,55 @@
 // <======== Code-Files ========> //
-import "../../index.css";
-import'./style.css'
-import {TbDoorExit} from 'react-icons/tb'
+import ExitDoorSVG from "../../assets/Icon/ExitDoor.svg";
+import "./style.css";
 
 // <======== import Components ========> //
-
+import Button from "../common/Button";
 
 // <======== Hook ========> //
-interface IProps extends React.PropsWithChildren {
-    Exit:()=>void;
-  }
 
-const Sidebar: React.FC<IProps> = ({children,Exit}):JSX.Element=>{
-    return (
-        <aside className="w-[340px] h-screen bg-white absolute right-0 absolute flex flex-col items-center">
-            <h1 className="text-HeadingL w-full text-center font-IranYekan800 mt-[40px] absolute top-[40px] left-1/2 translate-x-[-50%] ">کوئرا تسک منیجر</h1>
-            {children}
-            <section className="w-[276px] h-[89px] absolute  bottom-[30px] left-1/2 translate-x-[-50%] flex flex-col justify-between">
-                <div dir="rtl" className="h-[36px] flex flex-row items-center">
-                    <div className="w-[36px] h-[36px] bg-Indigo-Secondary rounded-full font-IranYekan400 text-BodyXS text-Indigo-Primary flex items-center justify-center">NM</div>
-                    <h2 dir="rtl" className="font-IranYekan500 text-BodyM mr-[5px]" >
-                        نیلوفر فرهادی
-                    </h2>
-                </div>
-                <div className="h-[36px] flex flex-row-reverse items-center justify-between">
-                <label className="switch">
-                    <input type="checkbox"  />
-                    <span className="slider round"></span>
-                </label>
-                <div  dir="rtl" className="flex flex-row">
-                    <button><TbDoorExit className="text-[24px]" onClick={Exit}/></button>
-                    <h2>خروج</h2>
-                </div>
-                </div>
-            </section>
-        </aside>
-    )
+interface ISidebarProps extends React.PropsWithChildren {}
+
+const Sidebar: React.FC<ISidebarProps> = ({ children }): JSX.Element => {
+  // ======== Exit Button HandleFunc() ======== //
+  // const handleExit = () => {}
+
+  return (
+    <aside className="w-[340px] h-full border-l-[0.5px] border-GrayLight bg-inherite fixed right-0 flex flex-col items-center">
+      <header className="w-full mt-[40px] mr-[50px]">
+        <h1 className="font-IranYekan800 text-HeadingL">کوئرا تسک‌ منیجر</h1>
+      </header>
+      <main>{children}</main>
+      <footer className="w-[276px] mx-[32px] fixed bottom-[32px] flex flex-col justify-center gap-s">
+        <div className="flex flex-row items-center gap-xs">
+          <div
+            id="PrifileImage"
+            className="w-[36px] h-[36px] bg-Indigo-Secondary rounded-full font-IranYekan400 text-BodyXS text-Indigo-Primary flex justify-center items-center"
+          >
+            NM
+          </div>
+          <h2 id="UserName" className="font-IranYekan500 text-BodyM">
+            نیلوفر موجودی
+          </h2>
+        </div>
+        <div className="flex flex-row items-center justify-between">
+          {/* ======== Dark&light Mode ========
+                    <label className="switch">
+                        <input type="checkbox"  />
+                        <span className="slider round"></span>
+                    </label>
+                    */}
+          <div className="flex flex-row">
+            <Button ClassName="flex items-center gap-[4px]">
+              <img src={`${ExitDoorSVG}`} />
+              <p className="font-IranYekan500 text-BodyM text-[#818181]">
+                خروج
+              </p>
+            </Button>
+          </div>
+        </div>
+      </footer>
+    </aside>
+  );
 };
 
 export default Sidebar;
