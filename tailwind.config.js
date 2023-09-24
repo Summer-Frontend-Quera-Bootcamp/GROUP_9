@@ -7,9 +7,7 @@ export default {
     colors: {
       Black: "#1E1E1E",
       White: "#FFFFFF",
-      Black2: "#323232",
-      GrayLight: "#AAA",
-      GrayLight2: "#959595",
+
       /* ===== Gray ===== */
       Gray: {
         Primary: "#868E96",
@@ -96,6 +94,9 @@ export default {
       },
 
       /* ===== Others ===== */
+      Black2: "#323232",
+      GrayLight: "#AAA",
+      GrayLight2: "#959595",
       //++
     },
 
