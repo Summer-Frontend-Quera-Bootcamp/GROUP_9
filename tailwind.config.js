@@ -1,44 +1,87 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    /* ============= Color ============= */
     colors: {
-      "gray-secondary": "#F1F3F5",
-      "gray-primary": "#868E96",
-      "gray-darker": "#343A40",
+      Black: "#1E1E1E",
+      White: "#FFFFFF",
+      Black2: "#323232",
+      GrayLight: "#AAA",
+      GrayLight2: "#959595",
+      /* ===== Gray ===== */
+      Gray: {
+        Primary: "#868E96",
+        Secondary: "#F1F3F5",
+        Darker: "#343A40",
+      },
 
-      "cyan-secondary": "#15AABF",
-      "cyan-primary": "#C5F6FA",
+      /* ===== Cyan ===== */
+      Cyan: {
+        Primary: "#15AABF",
+        Secondary: "#C5F6FA",
+      },
 
-      "red-secondary": "#FA5252",
-      "red-primary": "#FFE3E3",
+      /* ===== Red ===== */
+      Red: {
+        Primary: "#FA5252",
+        Secondary: "#FFE3E3",
+      },
 
-      "teal-secondary": "#C3FAE8",
-      "teal-primary": "#12B886",
+      /* ===== Teal ===== */
+      Teal: {
+        Primary: "#12B886",
+        Secondary: "#C3FAE8",
+      },
 
-      "pink-secondary": "#FFDEEB",
-      "pink-primary": "#E64980",
+      /* ===== Pink ===== */
+      Pink: {
+        Primary: "#E64980",
+        Secondary: "#FFDEEB",
+      },
 
-      "brand-secondary": "#C2F7FA",
-      "brand-primary": "#208D8E",
+      /* ===== Brand ===== */
+      Brand: {
+        Primary: "#208D8E",
+        Secondary: "#C2F7FA",
+      },
 
-      "grape-secondary": "#F3D9FA",
-      "grape-primary": "#BE4BDB",
+      /* ===== Grape ===== */
+      Grape: {
+        Primary: "#BE4BDB",
+        Secondary: "#F3D9FA",
+      },
 
-      "green-secondary": "#D3F9D8",
-      "green-primary": "#40C057",
+      /* ===== Green ===== */
+      Green: {
+        Primary: "#40C057",
+        Secondary: "#D3F9D8",
+      },
 
-      "violet-secondary": "#E5DBFF",
-      "violet-primary": "#7950F2",
+      /* ===== Violet ===== */
+      Violet: {
+        Primary: "#7950F2",
+        Secondary: "#E5DBFF",
+      },
 
-      "lime-secondary": "#E9FAC8",
-      "lime-primary": "#82C91E",
+      /* ===== Lime ===== */
+      Lime: {
+        Primary: "#82C91E",
+        Secondary: "#E9FAC8",
+      },
 
-      "indigo-secondary": "#DBE4FF",
-      "indigo-primary": "#4C6EF5",
+      /* ===== Indigo ===== */
+      Indigo: {
+        Primary: "#4C6EF5",
+        Secondary: "#DBE4FF",
+      },
 
-      "yellow-secondary": "#FFF3BF",
-      "yellow-primary": "#FAB005",
+      /* ===== Yellow ===== */
+      Yellow: {
+        Primary: "#FAB005",
+        Secondary: "#FFF3BF",
+      },
 
       "blue-secondary": "#D0EBFF",
       "blue-primary": "#228BE6",
@@ -60,29 +103,64 @@ export default {
       "heading-s": "24pt",
       "heading-xs": "20pt",
 
-      "body-xl": "24pt",
-      "body-l": "20pt",
-      "body-m": "16pt",
-      "body-s": "14pt",
-      "body-xs": "12pt",
+      /* ===== Orange ===== */
+      Orange: {
+        Primary: "#FD7E14",
+        Secondary: "#FFE8CC",
+      },
 
-      "bold-xl": "24pt",
-      "bold-l": "20pt",
-      "bold-m": "16pt",
-      "bold-s": "14pt",
-      "bold-xs": "12pt",
+      /* ===== Others ===== */
+      //++
     },
-    fontFamily: {
-      IranYekan: ["IranYekan"],
-    },
+
+    /* ============= Spacing ============= */
     spacing: {
-      xs: "0.5rem",
-      s: "1rem",
-      m: "1.5rem",
-      l: "2rem",
-      xl: "2.5rem",
+      xs: "8px",
+      s: "16px",
+      m: "24px",
+      l: "32px",
+      xl: "40px",
     },
-    extend: {},
+
+    extend: {
+      /* ============= Font ============= */
+      fontFamily: {
+        IranYekan300: "IRANYekanThin",
+        IranYekan400: "IRANYekanRegular",
+        IranYekan500: "IRANYekanMedium",
+        IranYekan700: "IRANYekanBold",
+        IranYekan800: "IRANYekanExtraBold",
+      },
+
+      /* ============= Font-Size ============= */
+      fontSize: {
+        /* ===== Heading ===== */
+        HeadingL: "2rem",
+        HeadingM: "1.75rem",
+        HeadingS: "1.5rem",
+        HeadingXS: "1.25rem",
+
+        /* ===== Body ===== */
+        BodyXL: "1.5rem",
+        BodyL: "1.25rem",
+        BodyM: "1rem",
+        BodyS: "0.88rem",
+        BodyXS: "0.75rem",
+
+        /* ===== Bold ===== */
+        BoldXL: "1.5rem",
+        BoldL: "1.25rem",
+        BoldM: "1rem",
+        BoldS: "0.88rem",
+        BoldXS: "0.75rem",
+      },
+
+      /* ============= Box-Shadow ============= */
+      boxShadow: {
+        "3xl": "0px 50px 100px -20px rgba(50, 50, 93, 0.25)",
+        "4xl": "0px 30px 60px -30px rgba(0, 0, 0, 0.30)",
+      },
+    },
   },
   plugins: [],
 };

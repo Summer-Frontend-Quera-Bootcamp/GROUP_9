@@ -5,24 +5,31 @@ import AuthenticationForm from "../../../components/Form";
 // <======== Hook ========> //
 import { z } from "zod";
 
-const ResetPasswordPage = () => {
+const LogInPage = () => {
   return (
     <AuthenticationLayout
-      linkTextContent="قبلا ثبت‌نام کرده‌ای؟"
-      buttonTextContent="ورود"
+      linkTextContent="ثبت‌نام نکرده‌ای؟"
+      buttonTextContent="ثبت‌نام"
     >
       <AuthenticationForm
-        title="فراموشی رمز عبور"
-        sucssesTitleText="لینک بازیابی رمز عبور برای شما ایمیل شد. لطفا ایمیل خود را بررسی کنید."
-        isHaveAInput={false}
+        title="به کوئرا تسک‌منیجر خوش برگشتی :)"
+        buttonTextContent="ورود"
+        forgetPageLink
+        signupPageLink
         items={[
+          {
+            type: "email",
+            name: "email",
+            label: "ایمیل",
+          },
           {
             type: "password",
             name: "password",
-            label: "رمزعبور جدید را وارد کنید",
+            label: "رمزعبور",
           },
         ]}
         schema={z.object({
+          email: z.string().email("ایمیل وارد شده صحیح نمی‌باشد!"),
           password: z
             .string()
             .min(8, "رمزعبور نباید کمتر از 8 کاراکتر باشد!")
@@ -40,4 +47,4 @@ const ResetPasswordPage = () => {
   );
 };
 
-export default ResetPasswordPage;
+export default LogInPage;

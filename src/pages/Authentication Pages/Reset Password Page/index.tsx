@@ -12,9 +12,8 @@ const ResetPasswordPage = () => {
       buttonTextContent="ورود"
     >
       <AuthenticationForm
-        title="فراموشی رمز عبور"
-        sucssesTitleText="لینک بازیابی رمز عبور برای شما ایمیل شد. لطفا ایمیل خود را بررسی کنید."
-        isHaveAInput={false}
+        title="بازیابی رمز عبور"
+        buttonTextContent="تغییر رمز عبور"
         items={[
           {
             type: "password",
