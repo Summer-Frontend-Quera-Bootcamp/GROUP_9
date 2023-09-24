@@ -2,21 +2,12 @@
 import "./index.css";
 
 // <======== Component-Files ========> //
-// import LogInPage from "./pages/Authentication Pages/Login Page";
-// import ListView from "./pages/Main Pages/Board Pages/ListView";
-
-import WorkSpace from "./pages/Main Pages/WorkSpace Page";
+import MainLayout from "./pages/Main Pages/Layout";
 
 // <======== Hook ========> //
 
 const App = () => {
-  return (
-    <>
-      {/* <LogInPage /> */}
-      {/* <ListView /> */}
-      <WorkSpace />
-    </>
-  );
+  return <MainLayout page="BoardView"></MainLayout>;
 };
 
 export default App;
