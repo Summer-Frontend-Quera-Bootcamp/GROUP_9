@@ -1,5 +1,5 @@
 // <======== Component-Files ========> //
-import Button from "../../../../components/common/Button";
+import Button from "../../../../components/common/Button/index";
 import MainLayout from "../../Layout";
 
 const BoardView = () => {

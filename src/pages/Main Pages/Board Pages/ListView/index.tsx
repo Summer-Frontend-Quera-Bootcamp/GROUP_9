@@ -1,13 +1,15 @@
-import MainLayout from "../../Layout/index";
+// <======== Code-Files ========> //
 import Arrow from "../../../assets/Icon/Arrow.svg";
+// <======== Component-Files ========> //
+import MainLayout from "../../Layout/index";
 
 const ListView = () => {
   return (
     <MainLayout page="ListView">
-      <details className="w-full h-full mr-[340px] overflow-x-scroll overflow-y-hidden">
-        <summary className=" hug top-[198px] left-[1008px] w-[76px] h-[32px] gap-[8px]">
+      <details className="w-full h-full mr-[364px] mt-[28px] overflow-x-scroll overflow-y-hidden">
+        <summary className=" hug top-[198px] left-[1008px] w-[76px] h-[32px] gap-[8px] flex items-center">
           <img src={Arrow} />
-          <p className="text-black font-IranYekan800 text-HeadingXS leading-8 cursor-pointer">
+          <p className="text-black font-IranYekan800 text-HeadingXS leading-8 marker:content-[''] cursor-pointer">
             پروژه
           </p>
         </summary>

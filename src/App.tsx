@@ -2,7 +2,7 @@
 import "./index.css";
 
 // <======== Component-Files ========> //
-import BoardView from "./pages/Main Pages/Board Pages/BoardView/index";
+// import BoardView from "./pages/Main Pages/Board Pages/BoardView/index";
 import ListView from "./pages/Main Pages/Board Pages/ListView/index";
 // <======== Hook ========> //
 
@@ -10,7 +10,7 @@ import ListView from "./pages/Main Pages/Board Pages/ListView/index";
 const App = () => {
   return (
     <>
-    <BoardView/>
+    {/* <BoardView/> */}
     <ListView/>
     </>
     
