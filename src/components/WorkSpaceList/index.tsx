@@ -12,7 +12,9 @@ interface IProps {
   SpacesList: Array<WorkSpaceList>;
 }
 
-const WorkSpaceListSidebar: React.FC<IProps> = ({ SpacesList }): JSX.Element => {
+const WorkSpaceListSidebar: React.FC<IProps> = ({
+  SpacesList,
+}): JSX.Element => {
   return (
     <details className="relative h-full overflow-scroll">
       <div className="absolute top-[2px] left-[16px]">
