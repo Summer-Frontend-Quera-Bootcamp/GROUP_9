@@ -14,11 +14,15 @@ const Sidebar: React.FC<ISidebarProps> = ({ children }): JSX.Element => {
   // const handleExit = () => {}
 
   return (
-    <aside className="w-[340px] h-full border-l-[0.5px] border-GrayLight bg-inherite fixed right-0 flex flex-col items-center">
-      <header className="w-full mt-[40px] mr-[50px]">
-        <h1 className="font-IranYekan800 text-HeadingL">کوئرا تسک‌ منیجر</h1>
+    <aside className="w-[340px] h-full border-l-[0.5px] border-GrayLight bg-inherite fixed right-0 flex flex-col items-start">
+      <header className="mt-[40px] mr-[50px] ml-[55px]">
+        <h1 className="w-[235px] font-IranYekan800 text-HeadingL">
+          کوئرا تسک‌ منیجر
+        </h1>
       </header>
-      <main>{children}</main>
+      <main className="w-[274px] mainH fixed top-[122px] right-[50px]">
+        {children}
+      </main>
       <footer className="w-[276px] mx-[32px] fixed bottom-[32px] flex flex-col justify-center gap-s">
         <div className="flex flex-row items-center gap-xs">
           <div
