@@ -1,10 +1,13 @@
 // <======== Code-Files ========> //
 import TaskPlusIcon from "../../../assets/Icon/TaskPlusIcon.svg";
+import '../../../api/SpacesAndProjectsData';
+import { SpacesAndProjectsList } from '../../../api/SpacesAndProjectsData';
 
 // <======== import Components ========> //
 import MainNavbar from "../../../components/Navbar";
 import Sidebar from "../../../components/Sidebar";
 import Button from "../../../components/common/Button";
+import WorkSpaceList from '../../../components/WorkSpaceList';
 
 // <======== Hook ========> //
 
@@ -18,7 +21,9 @@ const MainLayout: React.FC<IMainLayoutProps> = ({
 }): JSX.Element => {
   return (
     <>
-      <Sidebar />
+      <Sidebar>
+        <WorkSpaceList SpacesList={SpacesAndProjectsList}/>
+      </Sidebar>
       {page !== "WorkSpace" && (
         <>
           <MainNavbar activePage={`${page}`} />
