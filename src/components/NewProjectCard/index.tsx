@@ -1,20 +1,24 @@
 //import React from "react";
+import { WorkSpaceList } from "../../api/SpacesAndProjectsData";
 interface INewProjectCard {
-  newProjectColor:
-    | "Cyan"
-    | "Red"
-    | "Teal"
-    | "Pink"
-    | "Brand"
-    | "Grape"
-    | "Green"
-    | "Violet"
-    | "Lime"
-    | "Indigo"
-    | "Yellow"
-    | "Blue"
-    | "Orange";
+  NewProjectCard: WorkSpaceList;
 }
+// interface INewProjectCard {
+//   newProjectColor:
+//     | "Cyan"
+//     | "Red"
+//     | "Teal"
+//     | "Pink"
+//     | "Brand"
+//     | "Grape"
+//     | "Green"
+//     | "Violet"
+//     | "Lime"
+//     | "Indigo"
+//     | "Yellow"
+//     | "Blue"
+//     | "Orange";
+// }
 const plusIcon = (
   <svg
     width="24"
@@ -111,10 +115,10 @@ const plusIcon = (
     </defs>
   </svg>
 );
-const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
+const NewProjectCard = ({ NewProjectCard }: INewProjectCard) => {
   return (
     <>
-      {newProjectColor === "Cyan" && (
+      {NewProjectCard.color === "Cyan" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#15AABF] to-[#15AABF80] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -124,7 +128,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Red" && (
+      {NewProjectCard.color === "Red" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#FA5252] to-[#FA525280] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -134,7 +138,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Teal" && (
+      {NewProjectCard.color === "Teal" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#12B886] to-[#12B88680] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -144,7 +148,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Pink" && (
+      {NewProjectCard.color === "Pink" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#E64980] to-[#E6498080] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -154,7 +158,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Brand" && (
+      {NewProjectCard.color === "Brand" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#208D8E] to-[#208D8E80] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -164,7 +168,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Grape" && (
+      {NewProjectCard.color === "Grape" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#BE4BDB] to-[#BE4BDB80] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -174,7 +178,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Green" && (
+      {NewProjectCard.color === "Green" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#40C057] to-[#40C05780] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -184,7 +188,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Violet" && (
+      {NewProjectCard.color === "Violet" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#7950F2] to-[#7950F280] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -194,7 +198,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Lime" && (
+      {NewProjectCard.color === "Lime" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#82C91E] to-[#82C91E80] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -204,7 +208,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Indigo" && (
+      {NewProjectCard.color === "Indigo" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#4C6EF5] to-[#4C6EF580] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
             <div>{plusIcon}</div>
@@ -214,7 +218,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Yellow" && (
+      {NewProjectCard.color === "Yellow" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#FAB005] to-[#FAB00580] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           {" "}
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
@@ -225,7 +229,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Blue" && (
+      {NewProjectCard.color === "Blue" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#228BE6] to-[#228BE680] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           {" "}
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">
@@ -236,7 +240,7 @@ const NewProjectCard = ({ newProjectColor }: INewProjectCard) => {
           </div>
         </div>
       )}
-      {newProjectColor === "Orange" && (
+      {NewProjectCard.color === "Orange" && (
         <div className="shadow-projectCart bg-gradient-to-l from-[#FD7E14] to-[#FD7E1480] flex justify-center w-[200px] h-[80px] items-center mx-auto p-[4px] w-3 h-3  rounded-[16px] ">
           {" "}
           <div className="h-full w-full bg-White rounded-[12px] flex justify-center items-center">

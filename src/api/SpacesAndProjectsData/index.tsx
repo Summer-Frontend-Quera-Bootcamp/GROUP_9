@@ -10,7 +10,20 @@ export interface MemberWorkSpaceList {
 
 export interface WorkSpaceList {
   workSpacename: string;
-  color: string;
+  color:
+    | "Cyan"
+    | "Red"
+    | "Teal"
+    | "Pink"
+    | "Brand"
+    | "Grape"
+    | "Green"
+    | "Violet"
+    | "Lime"
+    | "Indigo"
+    | "Yellow"
+    | "Blue"
+    | "Orange";
   projectList?: Array<ProjectList>;
   members?: Array<MemberWorkSpaceList>;
 }
@@ -18,11 +31,47 @@ export interface WorkSpaceList {
 export const SpacesAndProjectsList: Array<WorkSpaceList> = [
   {
     workSpacename: "درس مدیریت پروژه",
-    color: "Green-Primary",
+    projectList: [
+      {
+        projectName: "پروژه اول",
+      },
+      {
+        projectName: "پروژه دوم",
+      },
+      {
+        projectName: "پروژه سوم",
+      },
+      {
+        projectName: "پروژه چهارم",
+      },
+      {
+        projectName: "پروژه پنجم",
+      },
+    ],
+    color: "Green",
   },
   {
     workSpacename: "کارهای شخصی",
-    color: "Yellow-Primary",
+    color: "Yellow",
+    projectList: [
+      {
+        projectName: "پروژه اول",
+      },
+      {
+        projectName: "پروژه دوم",
+      },
+      {
+        projectName: "پروژه سوم",
+      },
+    ],
+  },
+  {
+    workSpacename: "درس‌ کامپایلر",
+    color: "Red",
+  },
+  {
+    workSpacename: "درس طراحی الگوریتم",
+    color: "Blue",
     projectList: [
       {
         projectName: "پروژه اول",
@@ -31,13 +80,5 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
         projectName: "پروژه دوم",
       },
     ],
-  },
-  {
-    workSpacename: "درس‌ کامپایلر",
-    color: "Red-Primary",
-  },
-  {
-    workSpacename: "درس طراحی الگوریتم",
-    color: "Blue-Primary",
   },
 ];
