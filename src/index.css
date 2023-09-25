@@ -53,6 +53,7 @@ h6,
 p,
 pre {
   cursor: default;
+  user-select: none;
 }
 
 h1 {

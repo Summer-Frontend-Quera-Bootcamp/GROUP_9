@@ -15,6 +15,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ children }): JSX.Element => {
 
   return (
     <aside className="w-[340px] h-full border-l-[0.5px] border-GrayLight bg-inherite fixed right-0 flex flex-col items-start">
+      <div className="bg-Yellow-Primary bg-Green-Primary bg-Blue-Primary bg-Red-Primary"></div>
       <header className="mt-[40px] mr-[50px] ml-[55px]">
         <h1 className="w-[235px] font-IranYekan800 text-HeadingL">
           کوئرا تسک‌ منیجر
