@@ -1,13 +1,13 @@
 // <======== Code-Files ========> //
 import TaskPlusIcon from "../../../assets/Icon/TaskPlusIcon.svg";
-import '../../../api/SpacesAndProjectsData';
-import { SpacesAndProjectsList } from '../../../api/SpacesAndProjectsData';
+import "../../../api/SpacesAndProjectsData";
+import { SpacesAndProjectsList } from "../../../api/SpacesAndProjectsData";
 
 // <======== import Components ========> //
 import MainNavbar from "../../../components/Navbar";
 import Sidebar from "../../../components/Sidebar";
 import Button from "../../../components/common/Button";
-import WorkSpaceList from '../../../components/WorkSpaceList';
+import WorkSpaceListSidebar from "../../../components/WorkSpaceList";
 
 // <======== Hook ========> //
 
@@ -22,7 +22,7 @@ const MainLayout: React.FC<IMainLayoutProps> = ({
   return (
     <>
       <Sidebar>
-        <WorkSpaceList SpacesList={SpacesAndProjectsList}/>
+        <WorkSpaceListSidebar SpacesList={SpacesAndProjectsList} />
       </Sidebar>
       {page !== "WorkSpace" && (
         <>
