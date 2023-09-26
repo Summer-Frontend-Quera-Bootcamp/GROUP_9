@@ -97,6 +97,8 @@ export default {
       Black2: "#323232",
       GrayLight: "#AAA",
       GrayLight2: "#959595",
+      GrayLight3:"#BDC0C6",
+      GrayLight4:"#EFF0F0"
       //++
     },
 
@@ -141,7 +143,7 @@ export default {
         BoldS: "0.88rem",
         BoldXS: "0.75rem",
       },
-
+      
       /* ============= Box-Shadow ============= */
       boxShadow: {
         "3xl": "0px 50px 100px -20px rgba(50, 50, 93, 0.25)",
