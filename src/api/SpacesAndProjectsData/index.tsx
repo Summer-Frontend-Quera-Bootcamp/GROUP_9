@@ -79,6 +79,12 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
       {
         projectName: "پروژه دوم",
       },
+      {
+        projectName: "پروژه سوم",
+      },
+      {
+        projectName: "پروژه چهارم",
+      },
     ],
   },
 ];

@@ -1,6 +1,6 @@
 //import React from "react";
 import { WorkSpaceList } from "../../api/SpacesAndProjectsData";
-export interface IProjectCard {
+interface IProjectCard {
   ProjectCard: WorkSpaceList;
   ProjectName: string;
 }
