@@ -97,6 +97,7 @@ export default {
       Black2: "#323232",
       GrayLight: "#AAA",
       GrayLight2: "#959595",
+      ModalBG: 'rgba(0,0,0,0.4)',
       //++
     },
 

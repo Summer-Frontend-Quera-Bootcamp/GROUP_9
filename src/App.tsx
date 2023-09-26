@@ -1,4 +1,5 @@
 // <======== Code-Files ========> //
+import Modal from "./components/Modal";
 import "./index.css";
 
 // <======== Component-Files ========> //
