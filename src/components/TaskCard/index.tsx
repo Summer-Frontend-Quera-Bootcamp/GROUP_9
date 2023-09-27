@@ -23,16 +23,24 @@ interface Iprops{
 const TaskCard:React.FC<Iprops> = ({name,descroption,priority="Nothing",deadline,members,labels,done=false}):JSX.Element => {
 
   return (
-    <div dir="rtl" className="w-[250px] h-auto border-0 rounded-xl flex flex-col itmes-center justify-center space-y-[20px] shadow-TaskCard pt-[20px] pl-[10px] pr-[10px] pb-[20px]">
-          <div className="flex flex-row w-full itmes-center justify-start flex-wrap pl-[10px] pr-[10px]">
+    <article dir="rtl" className="w-[230px] h-auto border-0 rounded-xl flex flex-col itmes-center justify-center space-y-[20px] shadow-TaskCard pt-[20px] pl-[10px] pr-[10px] pb-[20px]">
+          <div className="flex flex-row w-full itmes-center justify-between flex-wrap pl-[10px] pr-[10px]">
             <h2 className="font-IranYekan400 text-BodyXS">{name}</h2>
-            {members.length!==0 && (
-              <div className={`w-[24px] h-[24px] rounded-full bg-${members[0]?.Color}-Secondary font-IranYekan500 text-[8.14px] text-${members[0]?.Color}-Primary mr-auto flex items-center justify-center`}>
-              {members[0]?.userName.split(" ").map(item=>item[0])}
+            <div className="flex flex-row items-center justify-center"> 
+            {members.length!==0 && 
+              
+              members.map(member=>{
+                return (
+                  <div className={`w-[24px] h-[24px] rounded-full bg-${member?.Color}-Secondary font-IranYekan500 text-[8.14px] text-${member?.Color}-Primary mr-[10px] flex items-center justify-center`}>
+                    {member?.userName.split(" ").map(item=>item[0])}
+                  </div>
+                )
+              })
+              }
             </div>
-            )}
             <h2 className={`w-full font-IranYekan400 text-BodyXS items-center mt-[${descroption?'20px':'0px'}] `}>{descroption && (<>{descroption}<button className="mr-[5px] "><BsTextLeft/></button></>)}</h2>
           </div>
+
           <div className="w-full h-[21px] flex flex-row itmes-center justify-start gap-[5px]">
             {priority=="Emergency"?(<BsFlag className="text-Red-Primary"/>):priority=="High"?(<BsFlag className="text-Orange-Primary"/>):priority=="Intermediate"?(<BsFlag className="text-Green-Primary"/>):(<BsFlag className="text-Black"/>)}
  
@@ -61,7 +69,7 @@ const TaskCard:React.FC<Iprops> = ({name,descroption,priority="Nothing",deadline
 
             )
           }
-    </div>
+    </article>
   );
 };
 

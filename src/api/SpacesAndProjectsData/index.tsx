@@ -120,7 +120,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                 members: [
                   {
                     userName: "Yasin Sahebi",
-                    Color: "Grape",
+                    Color: "Brand",
                   },
                   {
                     userName: "Alireza Novin",

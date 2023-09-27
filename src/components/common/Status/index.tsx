@@ -23,7 +23,7 @@ const Status:React.FC<Iprops> = ({text,count,color,Addtask,Setting}):JSX.Element
     });
   }
   console.log(color)
-  const color_class = `border-${color} group  w-[250px] h-[44px]  rounded-2xl bg-White border-t-2 box-border flex flex-row-reverse items-center justify-between shadow-Board`
+  const color_class = `border-${color} group  w-[230px] h-[44px]  rounded-2xl bg-White border-t-2 box-border flex flex-row-reverse items-center justify-between shadow-Board`
 
   return (
     <div className={color_class}>
