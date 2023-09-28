@@ -11,7 +11,7 @@ interface modalProps{
 const NewProjectModal: React.FC<modalProps> = ({ isOpen, onClose , buttonClick, handleBack }) => {
     if (!isOpen) return null;
     return(
-        <ModalLayout activeModal={2} title={"انتخاب رنگ ورک‌اسپیس "} onClose={onClose} isOpen={isOpen} isSlide={true} width={"501"} height={"290"} backButton={true} buttonTitle={"ادامه"} buttonClick={buttonClick} handleBack={handleBack}  >
+        <ModalLayout activeModal={0} title={"ساختن پروژه جدید"} onClose={onClose} isOpen={isOpen} isSlide={false} width={"501"} height={"290"} backButton={false} buttonTitle={"ادامه"} buttonClick={buttonClick} handleBack={handleBack}  >
 
             <div className={"w-[415px] h-[72px] flex flex-col gap-xs"}>
                 <div className={"flex w-[51px] h-[24px] font-IranYekan400 text-BodyS text-right"}>
