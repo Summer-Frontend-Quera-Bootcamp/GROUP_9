@@ -7,23 +7,23 @@
 @layer base {
   @font-face {
     font-family: IRANYekanThin;
-    src: url(./assets/Fonts/IRANYekanThinFaNum.ttf);
+    src: url(./assets/fonts/IRANYEKANTHINFANUM.TTF);
   }
   @font-face {
     font-family: IRANYekanRegular;
-    src: url(./assets/Fonts/IRANYekanRegularFaNum.ttf);
+    src: url(./assets/fonts/IRANYEKANREGULARFANUM.TTF);
   }
   @font-face {
     font-family: IRANYekanMedium;
-    src: url(./assets/Fonts/IRANYekanMediumFaNum.ttf);
+    src: url(./assets/fonts/IRANYEKANMEDIUMFANUM.TTF);
   }
   @font-face {
     font-family: IRANYekanBold;
-    src: url(./assets/Fonts/IRANYekanBoldFaNum.ttf);
+    src: url(./assets/fonts/IRANYEKANBOLDFANUM.TTF);
   }
   @font-face {
     font-family: IRANYekanExtraBold;
-    src: url(./assets/Fonts/IRANYekanExtraBoldFaNum.ttf);
+    src: url(./assets/fonts/IRANYEKANEXTRABOLDFANUM.TTF);
   }
 }
 
