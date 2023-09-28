@@ -4,7 +4,7 @@ interface modalButtonProps{
     buttonClick:() => void;
 }
 
-const NewProjectModal: React.FC<modalButtonProps> = ({ title,buttonClick}) => {
+const ModalButton: React.FC<modalButtonProps> = ({ title,buttonClick}) => {
 
     return(
         <button className={"flex justify-center w-[415px] h-[40px] rounded-[6px] p-[10px] bg-Brand-Primary"} onClick={buttonClick}>
@@ -14,4 +14,4 @@ const NewProjectModal: React.FC<modalButtonProps> = ({ title,buttonClick}) => {
         </button>
     )
 }
-export default NewProjectModal
+export default ModalButton
