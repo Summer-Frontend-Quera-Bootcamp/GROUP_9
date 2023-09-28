@@ -21,7 +21,7 @@ const MainNavbar: React.FC<IMainNavbarProps> = ({
   const handleItemClick = () => {};
   return (
     <>
-      <header className="w-full pt-[41px] pr-[356px] pl-[50px]">
+      <header className="fixed w-full top-[41px] right-[356px] left-[50px]">
         <nav className="relative flex items-center justify-between w-full mb-s py-s border-b-[0.5px] border-GrayLight">
           <ul className="flex items-center justify-between divide-x-[2px] divide-[#999] gap-s">
             <h2 className="text-black font-IranYekan800 text-HeadingXS leading-8">
