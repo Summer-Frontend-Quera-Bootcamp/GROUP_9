@@ -1,23 +1,18 @@
-// <======== Code-Files ========> //
-import "./index.css";
+// <======== Assest-Import ========> //
 
 
-// <======== Component-Files ========> //
-// import LogInPage from "./pages/Authentication Pages/Login Page";
-import ListView from "./pages/Main Pages/Board Pages/ListView";
-import Sidebar from "./components/Sidebar";
-import AuthenticationLayout from "./pages/Authentication Pages/Layout";
-// <======== Hook ========> //
+// <======== Component-Import ========> //
+
+
+// <======== Hooks ========> //
+
 
 const App = () => {
-  return (
-    <>
-      
-      {/* <LogInPage /> */}
-      <Sidebar></Sidebar>
-      <ListView />
-    </>
-  );
+  return(
+    <div>
+      Hello Word!
+    </div>
+  )
 };
 
 export default App;
