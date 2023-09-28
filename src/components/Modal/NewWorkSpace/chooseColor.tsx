@@ -6,8 +6,9 @@ interface modalProps{
     onClose: ()  => void;
     buttonClick:() => void;
     handleBack:() => void;
+    colors: string[];
 }
-const ChooseColorModal: React.FC<modalProps> = ({ isOpen, onClose ,buttonClick , handleBack}) => {
+const ChooseColorModal: React.FC<modalProps> = ({ isOpen, onClose ,buttonClick , handleBack, colors}) => {
     const [selectedColor, setSelectedColor] = useState("Gray");
     useEffect(() => {
         setSelectedColor("Gray");
@@ -31,18 +32,9 @@ const ChooseColorModal: React.FC<modalProps> = ({ isOpen, onClose ,buttonClick ,
                                 <line x1="12.3536" y1="2.85355" x2="2.35355" y2="12.8536" stroke="black"/>
                             </svg>
                         </button>
-                        <ColorButton color={"Indigo"} selected={selectedColor} onClick={() => setSelectedColor('Indigo')}/>
-                        <ColorButton color={"Blue"} selected={selectedColor} onClick={() => setSelectedColor('Blue')}/>
-                        <ColorButton color={"Cyan"} selected={selectedColor} onClick={() => setSelectedColor('Cyan')}/>
-                        <ColorButton color={"Teal"} selected={selectedColor} onClick={() => setSelectedColor('Teal')}/>
-                        <ColorButton color={"Brand"} selected={selectedColor} onClick={() => setSelectedColor('Brand')}/>
-                        <ColorButton color={"Green"} selected={selectedColor} onClick={() => setSelectedColor('Green')}/>
-                        <ColorButton color={"Lime"} selected={selectedColor} onClick={() => setSelectedColor('Lime')}/>
-                        <ColorButton color={"Orange"} selected={selectedColor} onClick={() => setSelectedColor('Orange')}/>
-                        <ColorButton color={"Red"} selected={selectedColor} onClick={() => setSelectedColor('Red')}/>
-                        <ColorButton color={"Pink"} selected={selectedColor} onClick={() => setSelectedColor('Pink')}/>
-                        <ColorButton color={"Grape"} selected={selectedColor} onClick={() => setSelectedColor('Grape')}/>
-                        <ColorButton color={"Violet"} selected={selectedColor} onClick={() => setSelectedColor('Violet')}/>
+
+                        {colors?.map((color)=>(<ColorButton color={color} selected={selectedColor} onClick={() => setSelectedColor(color)}/>))}
+
                     </div>
                 </div>
             </div>
