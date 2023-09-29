@@ -146,6 +146,8 @@ export default {
       boxShadow: {
         "3xl": "0px 50px 100px -20px rgba(50, 50, 93, 0.25)",
         "4xl": "0px 30px 60px -30px rgba(0, 0, 0, 0.30)",
+        "NewProjectModal": "0px 12px 32px rgba(0, 0, 0, 0.25)",
+        "MiniModal": "0px 4px 16px rgba(0, 0, 0, 0.16)",
         "projectCart": "0px 3px 4px rgba(0, 0, 0, 0.20)",
       },
     },
