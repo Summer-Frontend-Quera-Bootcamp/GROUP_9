@@ -37,7 +37,7 @@ export interface Label {
 }
 
 export interface Tasks {
-  id:number;
+  id:string;
   title: string;
   description?: string;
   priority: "Nothing" | "Low" | "Intermediate" | "High" | "Emergency";
@@ -113,7 +113,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
             listColor: "Orange-Primary",
             taskList: [
               { 
-                id:0,
+                id:"0",
                 title: "این یک تیتر برای این تسک هست.",
                 priority: "Emergency",
                 deadline: "5 مهر - فردا",
@@ -146,7 +146,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                 done: true,
               },
               {
-                id:1,
+                id:"1",
                 title: "این یک تیتر برای این تسک هست.",
                 priority: "Emergency",
                 deadline: "5 مهر - فردا",
@@ -195,7 +195,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
             listColor: "Yellow-Primary",
             taskList: [
               {
-                id:2,
+                id:"2",
                 title: "این یک تیتر برای این تسک هست.",
                 priority: "High",
                 deadline: "5 مهر - فردا",
@@ -212,7 +212,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                 done: false,
               },
               {
-                id:3,
+                id:"3",
                 title: "این یک تیتر برای این تسک هست.",
                 priority: "High",
                 deadline: "5 مهر - فردا",
@@ -229,7 +229,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                 done: false,
               },
               {
-                id:4,
+                id:"4",
                 title: "این یک تیتر برای این تسک هست.",
                 priority: "Emergency",
                 deadline: "5 مهر - فردا",
@@ -246,7 +246,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                 done: false,
               },
               {
-                id:5,
+                id:"5",
                 title: "این یک تیتر برای این تسک هست.",
                 priority: "Low",
                 deadline: "5 مهر - فردا",
@@ -263,7 +263,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                 done: false,
               },
               {
-                id:6,
+                id:"6",
                 title: "این یک تیتر برای این تسک هست.",
                 priority: "Nothing",
                 deadline: "5 مهر - فردا",
@@ -280,7 +280,7 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                 done: false,
               },
               {
-                id:7,
+                id:"7",
                 title: "این یک تیتر برای این تسک هست.",
                 priority: "Intermediate",
                 deadline: "5 مهر - فردا",
