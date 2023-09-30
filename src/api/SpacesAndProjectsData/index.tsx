@@ -123,8 +123,12 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                     Color: "Brand",
                   },
                   {
+                    userName: "Abolfazl Mikaniki",
+                    Color: "Blue",
+                  },
+                  {
                     userName: "Alireza Novin",
-                    Color: "Brand",
+                    Color: "Yellow",
                   },
                 ],
                 labels: [
@@ -153,15 +157,15 @@ export const SpacesAndProjectsList: Array<WorkSpaceList> = [
                   },
                   {
                     userName: "Alireza Khosravani",
-                    Color: "Pink",
+                    Color: "Yellow",
                   },
                   {
                     userName: "Mahdi Alipour",
-                    Color: "Red",
+                    Color: "Brand",
                   },
                   {
                     userName: "Sadegh Mohammadi",
-                    Color: "Blue",
+                    Color: "Orange",
                   },
                 ],
                 labels: [

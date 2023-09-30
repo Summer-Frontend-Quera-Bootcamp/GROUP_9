@@ -5,9 +5,9 @@ import {BsTextLeft,BsFlag} from 'react-icons/bs'
 import {CiSquareCheck} from 'react-icons/ci'
 import {FiCheckCircle} from 'react-icons/fi'
 import {BiDotsHorizontalRounded} from 'react-icons/bi'
-import { Label } from "../../api/SpacesAndProjectsData";
-import { Member } from "../../api/SpacesAndProjectsData";
-import { Tasks } from "../../api/SpacesAndProjectsData";
+import { Label } from "../../../../api/SpacesAndProjectsData";
+import { Member } from "../../../../api/SpacesAndProjectsData";
+import { Tasks } from "../../../../api/SpacesAndProjectsData";
 
 interface Iprops{
   name:string;
@@ -26,12 +26,15 @@ const TaskCard:React.FC<Iprops> = ({name,descroption,priority="Nothing",deadline
     <article dir="rtl" className="w-[230px] h-auto border-0 rounded-xl flex flex-col itmes-center justify-center space-y-[20px] shadow-TaskCard pt-[20px] pl-[10px] pr-[10px] pb-[20px]">
           <div className="flex flex-row w-full itmes-center justify-between flex-wrap pl-[10px] pr-[10px]">
             <h2 className="font-IranYekan400 text-BodyXS">{name}</h2>
-            <div className="flex flex-row items-center justify-center"> 
+            <div className="w-[100px] flex flex-row items-center justify-end gap-1 overflow-visible" > 
             {members.length!==0 && 
               
-              members.map(member=>{
+              members.map((member,index)=>{
+                console.log("index : ",index);
+                const class_ = `w-[24px] h-[24px]  z-[${index}] rounded-full bg-${member?.Color}-Secondary font-IranYekan500 text-[8.14px] text-${member?.Color}-Primary flex items-center justify-center`;
                 return (
-                  <div className={`w-[24px] h-[24px] rounded-full bg-${member?.Color}-Secondary font-IranYekan500 text-[8.14px] text-${member?.Color}-Primary mr-[10px] flex items-center justify-center`}>
+                  
+                  <div className={class_}>
                     {member?.userName.split(" ").map(item=>item[0])}
                   </div>
                 )
