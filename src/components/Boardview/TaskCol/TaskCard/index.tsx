@@ -24,9 +24,9 @@ export interface ITaskCard{
 }
 
 
-const TaskCard:React.FC<ITaskCard> = ({item,name,descroption,priority="Nothing",deadline,members,labels,done=false,movecard}):JSX.Element => {
+const TaskCard:React.FC<ITaskCard> = ({item,name,descroption,priority="Nothing",deadline,members,labels,done=false}):JSX.Element => {
   
-
+  // console.log("task is : ",item);
   // const [{handleid},drop]=useDrop(()=>({
   //   accept:"task",
   //   collect(monitor){
@@ -47,6 +47,7 @@ const TaskCard:React.FC<ITaskCard> = ({item,name,descroption,priority="Nothing",
     item:item,
     end: (item, monitor) => {
       if (monitor.didDrop()) {
+        console.log("droooooooooooooooooooooooooooooped");
         // removeItem(item.id);
       }
     },

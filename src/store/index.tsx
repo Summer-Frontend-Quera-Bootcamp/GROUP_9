@@ -1,1 +1,3 @@
-//add to be pushed
+import { createContext } from "react";
+
+export const AppContext = createContext<any>({});

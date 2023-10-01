@@ -1,10 +1,11 @@
 import Status from "./Status"
-import {ProjectList, Tasks } from "../../../api/SpacesAndProjectsData";
+import {ColumnTasksList, ProjectList, SpacesAndProjectsList, Tasks } from "../../../api/SpacesAndProjectsData";
 import TaskCard from "./TaskCard";
 import {useDrop} from 'react-dnd'
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import update from 'immutability-helper'
 import { v4 as uuidv4 } from 'uuid';
+import { AppContext } from "../../../store";
 
 interface Iprops{
     id:number;
@@ -16,44 +17,62 @@ interface Iprops{
 
 
 const TaskCol:React.FC<Iprops>=({id,name,color,taskList,res}):JSX.Element=>{
-    const [tasks,SetTasks]=useState<Tasks[]>(taskList);
-
-    // const movecard = useCallback((dragindex:number, hoverindex:number  )=>{
-    //     // return update(tasks,{
-    //     //   $splice:[
-    //     //     [dragindex,1],
-    //     //     [hoverindex,0,tasks[dragindex]]
-    //     //   ]
-    //     // })
-    // },[])
-
+  // console.log("in col , tasks is : ",taskList," and its length is : ",taskList.length);  
+  //const [tasks,SetTasks]=useState<Tasks[]>(taskList);
+  console.log("task.length is : ",taskList.length);
+  const {data,setData} = useContext(AppContext)
     // const removeitem=(id_:string)=>{
-    //   const new_task = tasks.filter(i=>i.id!==id_);
-    //   console.log(tasks,new_task);
-    //   SetTasks([...new_task]);
+        
+    //     let new_task = JSON.parse(JSON.stringify(tasks));
+    //     new_task = new_task.filter((i:Tasks)=>i.id!==id_);
+    //     console.log(name,"new tasks is : ",new_task);
+    //     SetTasks([...new_task]);
     // }
-    // console.log(tasks);
+    // console.log(name,tasks);
+    let res_ = SpacesAndProjectsList.filter(item=>item.workSpacename=="کارهای شخصی")[0].projectList as Array<ProjectList>;
+    let list  = res[0].TaskList;
+
     const [{},Drop]=useDrop(()=>({
       accept:"task",
       drop:(item:Tasks,monitor)=>{
-        console.log("tasks is : ",tasks,"\n and item is : ",item);
-        console.log("\n \n this is repeat or not : ",tasks.filter(i=>i.id===item.id));
-        SetTasks(prevTasks => {
-          if(prevTasks.filter(i => i.id === item.id).length === 0) {
-              item.id = uuidv4();
-              return [...prevTasks, item];
+        console.log("before find : data is : ",data);
+        let up:ColumnTasksList[]= JSON.parse(JSON.stringify(data));
+        // console.log("up is : ",up);
+        up.forEach((col:ColumnTasksList,index:number)=>{
+          col.taskList?.forEach((task,index1)=>{
+            if(task.id==item.id){
+              console.log("found the old position : ",col.taskList);
+              col.taskList?.splice(index1,1);
+              console.log(col.taskList);
+            }
+            
+          })
+          if(col.id==id){
+            console.log("find the new position : ",col.taskList);
+            col.taskList.push(item);
+            console.log(col.taskList);
           }
-          return prevTasks;
-      });
+        })
+        console.log("update up is : ",up);
+        list = up;
+        setData(up);
+
+      //  SetTasks(prevTasks => {
+      //     if(prevTasks.filter(i => i.id === item.id).length === 0) {
+      //         item.id = uuidv4();
+      //         return [...prevTasks, item];
+      //     }
+      //     return prevTasks;
+      // });
       }
     }))
 
     return (
 
         <section ref={Drop} key={id} className="h-full overflow-y-hidden overflow-x-hidden flex-shrink-0">
-        <Status count={tasks?.length || 0} text={name} color={color}></Status>
+        <Status count={taskList?.length || 0} text={name} color={color}></Status>
         <div className="overflow-y-scroll max-h-[450px] flex flex-col space-y-[30px] overflow-x-hidden pt-[30px] pb-[50px]">
-          {tasks?.map(task=><TaskCard item={task} id={task.id} key={task.id} priority={task.priority} members={task.members||[]} labels={task.labels||[]} name={res[0].projectName} done={task.done} descroption={task?.description || ""} deadline={task.deadline}></TaskCard>)}
+          {taskList?.map(task=><TaskCard  item={task} id={task.id} key={task.id} priority={task.priority} members={task.members||[]} labels={task.labels||[]} name={res[0].projectName} done={task.done} descroption={task?.description || ""} deadline={task.deadline}></TaskCard>)}
         </div>
       </section>
 
