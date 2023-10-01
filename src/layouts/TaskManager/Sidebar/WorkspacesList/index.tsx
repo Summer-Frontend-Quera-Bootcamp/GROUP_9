@@ -1,20 +1,22 @@
 import "./index.css";
 
 // <======== Assest-Import ========> //
-import { WorkSpaceList } from "../../../../api";
 import { SearchIcon } from "../../../../assets/Icons/CommonIcon/SearchIcon";
 import { SummaryOpenArrowIcon } from "../../../../assets/Icons/TaskManager/Layout/Sidebar/SummaryOpenArrow";
 import { WorkSpacePlusButtonIcon } from "../../../../assets/Icons/TaskManager/Layout/Sidebar/WorkSpacePlusButton";
+
+// <======== Interface-Import ========> //
+import { Workspaces } from "../../../../interfaces";
 
 // <======== Component-Import ========> //
 
 // <======== Hooks ========> //
 
 interface IProps {
-  SpacesList: Array<WorkSpaceList>;
+  SpacesList: Array<Workspaces>;
 }
 
-const WorkSpacesListSidebar: React.FC<IProps> = ({
+const SidebarWorkSpacesList: React.FC<IProps> = ({
   SpacesList,
 }): JSX.Element => {
   return (
@@ -46,25 +48,25 @@ const WorkSpacesListSidebar: React.FC<IProps> = ({
               return (
                 <>
                   <dt
-                    key={space.workSpacename}
+                    key={space.id}
                     className="w-full p-[4px] rounded-[4px] flex items-center gap-xs"
                   >
                     <div
                       className={`w-[20px] h-[20px] bg-${space.color} rounded-[4px]`}
                     ></div>
                     <p className="font-IranYekan500 text-BodyM">
-                      {space.workSpacename}
+                      {space.title}
                     </p>
                   </dt>
-                  {space.projectList ? (
-                    space.projectList?.map((project) => {
+                  {space.projects?.length ? (
+                    space.projects?.map((project) => {
                       return (
                         <dd
-                          key={project.projectName}
+                          key={project.id}
                           className="w-[246px] mr-[28px] px-[6px] py-[4px] rounded-[4px]"
                         >
                           <p className="font-IranYekan500 text-BodyM">
-                            {project.projectName}
+                            {project.title}
                           </p>
                         </dd>
                       );
@@ -84,4 +86,4 @@ const WorkSpacesListSidebar: React.FC<IProps> = ({
   );
 };
 
-export default WorkSpacesListSidebar;
+export default SidebarWorkSpacesList;
