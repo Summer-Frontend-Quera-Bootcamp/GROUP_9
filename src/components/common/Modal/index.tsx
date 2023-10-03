@@ -20,7 +20,7 @@ const Modal: React.FC<modalProps> = ({ activeModal, isOpen, onClose, title,child
     if (!isOpen) return null;
     return(
         <>
-            <div className="opacity-100 fixed inset-[0px] z-40 bg-Gray-Primary"></div>
+            <div className="opacity-70 fixed inset-[0px] z-40 bg-Black"></div>
             <div className={"h-screen w-screen flex flex-col justify-center items-center fixed outline-none focus:outline-none inset-[0px] z-50"}>
                 <div className={"bg-White p-m w-["+ width +"px] h-["+height+"px] rounded-[8px] border-2 flex flex-col items-center gap-xl relative"}>
                     <div className={" flex items-center flex-col gap-xl"}>
