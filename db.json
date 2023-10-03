@@ -25,6 +25,7 @@
           "title": "پروژه اول",
           "boards": [
             {
+              "id":1,
               "title": "Open",
               "color": "Orange-Primary",
               "tasks": [
@@ -130,11 +131,13 @@
               ]
             },
             {
+              "id":2,
               "title": "In Progress",
               "color": "Indigo-Primary",
               "tasks": []
             },
             {
+              "id":3,
               "title": "Pending",
               "color": "Yellow-Primary",
               "tasks": [
@@ -229,16 +232,19 @@
               ]
             },
             {
+              "id":4,
               "title": "To Do",
               "color": "Orange-Primary",
               "tasks": []
             },
             {
+              "id":5,
               "title": "Review",
               "color": "Pink-Primary",
               "tasks": []
             },
             {
+              "id":6,
               "title": "Done",
               "color": "Blue-Primary",
               "tasks": []

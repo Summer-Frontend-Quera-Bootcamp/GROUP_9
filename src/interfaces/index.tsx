@@ -57,6 +57,7 @@ export interface Tasks {
 }
 
 export interface Boards {
+  id:number;
   title: string;
   color:
     | "Red-Primary"

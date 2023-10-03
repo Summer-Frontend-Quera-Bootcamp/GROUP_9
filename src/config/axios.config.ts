@@ -1,6 +1,8 @@
-import axios from "axios"
+import axios , {CanceledError} from "axios"
 
 export const AXIOS = axios.create({
-    baseURL: "http://localhost:5173",
+    baseURL: "http://localhost:3000/",
     timeout: 20000
-})
+});
+
+export {CanceledError}
