@@ -7,9 +7,7 @@ export default {
     colors: {
       Black: "#1E1E1E",
       White: "#FFFFFF",
-      Black2: "#323232",
-      GrayLight: "#AAA",
-      GrayLight2: "#959595",
+
       /* ===== Gray ===== */
       Gray: {
         Primary: "#868E96",
@@ -96,6 +94,10 @@ export default {
       },
 
       /* ===== Others ===== */
+      Black2: "#323232",
+      GrayLight: "#AAA",
+      GrayLight2: "#959595",
+      ModalBG: 'rgba(0,0,0,0.4)',
       //++
     },
 
@@ -145,6 +147,7 @@ export default {
       boxShadow: {
         "3xl": "0px 50px 100px -20px rgba(50, 50, 93, 0.25)",
         "4xl": "0px 30px 60px -30px rgba(0, 0, 0, 0.30)",
+        "projectCart": "0px 3px 4px rgba(0, 0, 0, 0.20)",
       },
     },
   },
