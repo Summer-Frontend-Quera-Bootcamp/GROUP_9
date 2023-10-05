@@ -1,6 +1,7 @@
 // <======== Assest-Import ========> //
 
-import ShareTask from "./components/TaskManager/Modals/Share/Task";
+import TaskInformation from "./components/TaskManager/Modals/Information/Task";
+//import ShareTask from "./components/TaskManager/Modals/Share/Task";
 
 // <======== Component-Import ========> //
 // --------------------- AuthenticationPage --------------------- //
@@ -10,7 +11,7 @@ import ShareTask from "./components/TaskManager/Modals/Share/Task";
 // <======== Hooks ========> //
 
 const App = () => {
-  return <ShareTask />;
+  return <TaskInformation />;
 };
 
 export default App;
