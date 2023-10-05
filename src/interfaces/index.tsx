@@ -53,7 +53,7 @@ export interface Tasks {
   labels?: Array<Labels>;
   coments?: Array<Comments>;
   backGround?: string;
-  done: boolean;
+  done?: boolean;
 }
 
 export interface Boards {

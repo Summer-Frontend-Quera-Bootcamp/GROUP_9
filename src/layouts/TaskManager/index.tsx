@@ -21,7 +21,7 @@ const TaskManager: React.FC<IMainLayoutProps> = ({
   children,
   page,
 }): JSX.Element => {
-  const [state, setState] = useState()
+  const [state, setState] = useState<Workspaces[]>([])
 
   const fetchWorkspaces = async () => {
     const response = await AXIOS.get(API_URLS.GetWorkspaces);
@@ -35,7 +35,7 @@ const TaskManager: React.FC<IMainLayoutProps> = ({
   return (
     <>
       <Sidebar>
-        <SidebarWorkSpacesList SpacesList={state?.workspaces} />
+        <SidebarWorkSpacesList SpacesList={state} />
       </Sidebar>
       {page !== "WorkSpace" && (
         <>
