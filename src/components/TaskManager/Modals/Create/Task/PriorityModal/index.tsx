@@ -8,10 +8,10 @@ interface IpriorityModal {
 const PriorityModal = ({ show = false }: IpriorityModal) => {
   return show ? (
     <MiniModal>
-      <PriorityOption url="src\assets\Icon\Flag(Red).svg" text="فوری" />
-      <PriorityOption url="src\assets\Icon\Flag(Yellow).svg" text="بالا" />
-      <PriorityOption url="src\assets\Icon\Flag(Cyan).svg" text="متوسط" />
-      <PriorityOption url="src\assets\Icon\Flag(Gray).svg" text="پایین" />
+      <PriorityOption color="red" text="فوری" />
+      <PriorityOption color="yellow" text="بالا" />
+      <PriorityOption color="cyan" text="متوسط" />
+      <PriorityOption color="gray" text="پایین" />
       <PriorityDeleteButton />
     </MiniModal>
   ) : null;

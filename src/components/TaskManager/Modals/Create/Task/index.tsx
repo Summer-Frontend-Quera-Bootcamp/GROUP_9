@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AvatarDotted from "./AvatarDotted";
+import AvatarDotted from "../../Information/Task/AvatarDotted";
 import PriorityModal from "./PriorityModal";
 import TagModal from "./TagModal";
 import { GrayRectangle } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/Rectangle";

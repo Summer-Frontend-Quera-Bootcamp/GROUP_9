@@ -10,13 +10,13 @@ const TagModal = ({ show = false }: ITagModal) => {
       <MiniModalSearch
         MiniModalSearchArray={[
           {
-            TagFrame: { content: "درس", color: "Blue" },
+            TagFrame: { title: "درس", color: "Blue" },
           },
           {
-            TagFrame: { content: "کار", color: "Grape" },
+            TagFrame: { title: "کار", color: "Grape" },
           },
           {
-            TagFrame: { content: "پروژه", color: "Cyan" },
+            TagFrame: { title: "پروژه", color: "Cyan" },
           },
         ]}
       />

@@ -1,9 +1,8 @@
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { Labels } from "../../../../../../../interfaces";
 import EditModal from "../EditModal";
-import { SearchIcon } from "../../../../../../../assets/Icons/CommonIcon/SearchIcon";
-import { FilterSearchIcon } from "../../../../../../../assets/Icons/TaskManager/Modals/Filter/FilterSearchIcon";
 import { SearchTagModalIcon } from "../../../../../../../assets/Icons/TaskManager/Modals/Task/Create/TagModal/SearchIcon";
+import { MoreTagModalIcon } from "../../../../../../../assets/Icons/TaskManager/Modals/Task/Create/TagModal/MoreTag";
 interface ITagFrame {
   TagFrame: Labels;
 }
@@ -53,19 +52,19 @@ const MiniModalSearch = ({
         {!(tags.length === 0) ? (
           tags.map((item) => (
             <li
-              key={item.TagFrame.content}
+              key={item.TagFrame.title}
               className="w-[153px] mt-[12px] h-fit flex justify-between"
             >
               <div
                 className={`w-fit h-m px-xs bg-${item.TagFrame.color}-Secondary text-${item.TagFrame.color}-Primary font-IranYekan800  text-[12px] rounded-full flex justify-center items-center`}
               >
-                {item.TagFrame.content}
+                {item.TagFrame.title}
               </div>
               <div
                 onClick={() => setEditModalShow(!editModalShow)}
                 className="cursor-pointer"
               >
-                <img src="src\assets\Icon\Dots(Gray).svg" alt="options" />
+                <div>{MoreTagModalIcon}</div>
               </div>
             </li>
           ))
