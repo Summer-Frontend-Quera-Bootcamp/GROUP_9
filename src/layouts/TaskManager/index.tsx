@@ -2,8 +2,8 @@
 import { TaskPlusButtonIcon } from "../../assets/Icons/TaskManager/Layout/TaskPlusButton";
 
 // <======== Component-Import ========> //
-import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import Navbar from "../../components/TaskManager/Navbar";
 
 // <======== Hooks ========> //
 
