@@ -1,17 +1,11 @@
-import { Workspaces } from "../../interfaces";
-import { AXIOS } from "../../config/axios.config";
-import { API_URLS } from "../../constants/api.urls";
-
 // <======== Assest-Import ========> //
 import { TaskPlusButtonIcon } from "../../assets/Icons/TaskManager/Layout/TaskPlusButton";
 
 // <======== Component-Import ========> //
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import SidebarWorkSpacesList from "./Sidebar/WorkspacesList";
 
 // <======== Hooks ========> //
-import { useEffect, useState } from "react";
 
 interface IMainLayoutProps extends React.PropsWithChildren {
   page: "BoardView" | "ListView" | "CalenderView" | "WorkSpace";
@@ -21,22 +15,9 @@ const TaskManager: React.FC<IMainLayoutProps> = ({
   children,
   page,
 }): JSX.Element => {
-  const [state, setState] = useState<Workspaces[]>([])
-
-  const fetchWorkspaces = async () => {
-    const response = await AXIOS.get(API_URLS.GetWorkspaces);
-    setState(response.data)
-  };
-
-  useEffect(() => {
-    fetchWorkspaces();
-  }, [])
-
   return (
     <>
-      <Sidebar>
-        <SidebarWorkSpacesList SpacesList={state} />
-      </Sidebar>
+      <Sidebar />
       {page !== "WorkSpace" && (
         <>
           <Navbar activePage={`${page}`} />

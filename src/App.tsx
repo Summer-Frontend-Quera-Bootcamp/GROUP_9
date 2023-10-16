@@ -28,7 +28,7 @@ const App = () => {
         </Route>
         // --------------------- TaskManagerPage --------------------- //
         <Route path="/taskmanager">
-          
+          <Route index element={<TaskManager page="BoardView" />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -4,15 +4,12 @@ import "./index.css";
 import { ExitDoorIcon } from "../../../assets/Icons/TaskManager/Layout/Sidebar/ExitDoor";
 
 // <======== Component-Import ========> //
+import ProfileSection from "./ProfileSection";
+import WorkSpacesSummary from "./WorkspacesSummary";
 
 // <======== Hooks ========> //
 
-interface ISidebarProps extends React.PropsWithChildren {}
-
-const Sidebar: React.FC<ISidebarProps> = ({ children }): JSX.Element => {
-  // ======== Exit Button HandleFunc() ======== //
-  // const handleExit = () => {}
-
+const Sidebar: React.FC = (): JSX.Element => {
   return (
     <aside className="w-[340px] h-full border-l-[0.5px] border-GrayLight bg-inherite fixed right-0 flex flex-col items-start">
       <div className="bg-Yellow-Primary bg-Green-Primary bg-Blue-Primary bg-Red-Primary"></div>
@@ -22,31 +19,15 @@ const Sidebar: React.FC<ISidebarProps> = ({ children }): JSX.Element => {
         </h1>
       </header>
       <main className="w-[274px] mainH fixed top-[122px] right-[50px]">
-        {children}
+        <WorkSpacesSummary />
       </main>
       <footer className="w-[276px] mx-[32px] fixed bottom-[32px] flex flex-col justify-center gap-s">
-        <div className="flex flex-row items-center gap-xs">
-          <div
-            id="PrifileImage"
-            className="w-[36px] h-[36px] bg-Indigo-Secondary rounded-full font-IranYekan400 text-BodyXS text-Indigo-Primary flex justify-center items-center"
-          >
-            NM
-          </div>
-          <h2 id="UserName" className="font-IranYekan500 text-BodyM">
-            نیلوفر موجودی
-          </h2>
-        </div>
+        <ProfileSection />
         <div className="flex flex-row items-center justify-between">
-          {/* ======== Dark&light Mode ========
-                    <label className="switch">
-                        <input type="checkbox"  />
-                        <span className="slider round"></span>
-                    </label>
-                    */}
           <div className="flex flex-row">
-            <button className="flex items-center gap-[4px]">
+            <button className="flex items-center gap-[4px] cursor-pointer">
               {ExitDoorIcon}
-              <p className="font-IranYekan500 text-BodyM text-[#818181]">
+              <p className="font-IranYekan500 text-BodyM text-[#818181] cursor-pointer">
                 خروج
               </p>
             </button>
