@@ -10,8 +10,12 @@ import ResetPassword from "./pages/Authentication/ResetPassword";
 import Success from "./pages/Authentication/Success";
 // --------------------- TaskManagerPage --------------------- //
 import TaskManager from "./layouts/TaskManager";
+import ListViewPage from "./pages/TaskManager/ListView";
+import BoardViewPage from "./pages/TaskManager/BoardView";
+import CalenderViewPage from "./pages/TaskManager/CalenderView";
 
 // <======== Hooks ========> //
+
 
 const App = () => {
   return (
@@ -27,8 +31,11 @@ const App = () => {
           <Route path="success" element={<Success />}></Route>
         </Route>
         // --------------------- TaskManagerPage --------------------- //
-        <Route path="/taskmanager">
-          <Route index element={<TaskManager page="CalenderView" />}></Route>
+        <Route path="/taskmanager" element={<TaskManager />}>
+          <Route index />
+          <Route path="listview" element={<ListViewPage />} />
+          <Route path="boardview" element={<BoardViewPage />} />
+          <Route path="calenderview" element={<CalenderViewPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

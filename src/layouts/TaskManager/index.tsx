@@ -1,35 +1,17 @@
+import { Outlet } from "react-router-dom";
 // <======== Assest-Import ========> //
-import { TaskPlusButtonIcon } from "../../assets/Icons/TaskManager/Layout/TaskPlusButton";
 
 // <======== Component-Import ========> //
 import Sidebar from "./Sidebar";
-import Navbar from "../../components/TaskManager/Navbar";
 
 // <======== Hooks ========> //
 
-interface IMainLayoutProps extends React.PropsWithChildren {
-  page: "BoardView" | "ListView" | "CalenderView" | "WorkSpace";
-}
 
-const TaskManager: React.FC<IMainLayoutProps> = ({
-  children,
-  page,
-}): JSX.Element => {
+const TaskManager: React.FC = (): JSX.Element => {
   return (
     <>
       <Sidebar />
-      {page !== "WorkSpace" && (
-        <>
-          <Navbar activePage={`${page}`} />
-          <button className="w-[118px] fixed bottom-[30px] left-[50px] bg-Brand-Primary px-xs py-[12px] rounded-[6px] flex items-center gap-[4px] z-10">
-            {TaskPlusButtonIcon}
-            <p className="font-IranYekan800 text-BodyS text-White cursor-pointer">
-              تسک جدید
-            </p>
-          </button>
-        </>
-      )}
-      {children}
+      <Outlet />
     </>
   );
 };

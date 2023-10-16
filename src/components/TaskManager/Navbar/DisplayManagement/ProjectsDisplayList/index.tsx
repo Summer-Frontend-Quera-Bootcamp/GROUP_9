@@ -1,4 +1,5 @@
 // <======== Assest-Import ========> //
+import { Link } from "react-router-dom";
 import { ActiveBoardIcon } from "../../../../../assets/Icons/TaskManager/Layout/Navbar/ActiveBoard";
 import { ActiveCalenderIcon } from "../../../../../assets/Icons/TaskManager/Layout/Navbar/ActiveCalendar";
 import { ActiveListIcon } from "../../../../../assets/Icons/TaskManager/Layout/Navbar/ActiveList";
@@ -41,25 +42,27 @@ const ProjectsDisplayList: React.FC<IProjectsDisplayProps> = ({ activePage = "Bo
         <>
             {Pages?.map((item) => {
                 return (
-                    <li className={"flex items-center pl-s gap-[5px] cursor-pointer"}>
-                        {activePage === item.name ? (
-                            item.activeIcon
-                        ) : (
-                            item.normalIcon
-                        )}
-                        {activePage === item.name ? (
-                            item.underline
-                        ) : null}
-                        <p
-                            className={`font-IranYekan500 text-BodyM cursor-pointer ${
-                              activePage === item.name
-                                ? "text-Brand-Primary"
-                                : "text-Black2"
-                            }`}
-                        >
-                            {item.title}
-                        </p>
-                    </li>
+                    <Link to={`/taskmanager/${item.name}`}>
+                        <li className={"flex items-center pl-s gap-[5px] cursor-pointer"}>
+                            {activePage === item.name ? (
+                                item.activeIcon
+                            ) : (
+                                item.normalIcon
+                            )}
+                            {activePage === item.name ? (
+                                item.underline
+                            ) : null}
+                            <p
+                                className={`font-IranYekan500 text-BodyM cursor-pointer ${
+                                activePage === item.name
+                                    ? "text-Brand-Primary"
+                                    : "text-Black2"
+                                }`}
+                            >
+                                {item.title}
+                            </p>
+                        </li>
+                    </Link>
                 )
             })}
         </>
