@@ -1,33 +1,57 @@
-export const NewWorkspaceButtonRedIcon = (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M18 20.0002H6C4.895 20.0002 4 19.1052 4 18.0002V6.00018C4 4.89518 4.895 4.00018 6 4.00018H18C19.105 4.00018 20 4.89518 20 6.00018V18.0002C20 19.1052 19.105 20.0002 18 20.0002Z"
-      stroke="#FA5252"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M12 8.00018V16.0002"
-      stroke="#FA5252"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M16 12.0002H8"
-      stroke="#FA5252"
-      stroke-width="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-);
+import { ColorList } from "../../../../../constants";
+
+
+interface IPlusButtonColorProps {
+  color: string | undefined;
+}
+
+let Color: {
+  name?: string;
+  startColor?: string;
+  endColor?: string;
+} = {}
+
+const WorkspacePlusButton: React.FC<IPlusButtonColorProps> = ({ color }): JSX.Element => {
+  ColorList.map((item) => {
+    if (color === item.name) {
+      Color = item;
+    }    
+  })
+  return (
+    <>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M18 20.0002H6C4.895 20.0002 4 19.1052 4 18.0002V6.00018C4 4.89518 4.895 4.00018 6 4.00018H18C19.105 4.00018 20 4.89518 20 6.00018V18.0002C20 19.1052 19.105 20.0002 18 20.0002Z"
+          stroke={`${Color.startColor}`}
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M12 8.00018V16.0002"
+          stroke={`${Color.startColor}`}
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M16 12.0002H8"
+          stroke={`${Color.startColor}`}
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </>
+  )
+}
+
+export default WorkspacePlusButton;

@@ -13,6 +13,7 @@ import TaskManager from "./layouts/TaskManager";
 import ListViewPage from "./pages/TaskManager/ListView";
 import BoardViewPage from "./pages/TaskManager/BoardView";
 import CalenderViewPage from "./pages/TaskManager/CalenderView";
+import WorkspacesPage from "./pages/TaskManager/Workspaces";
 
 // <======== Hooks ========> //
 
@@ -32,7 +33,7 @@ const App = () => {
         </Route>
         // --------------------- TaskManagerPage --------------------- //
         <Route path="/taskmanager" element={<TaskManager />}>
-          <Route index />
+          <Route index element={<WorkspacesPage />}/>
           <Route path="listview" element={<ListViewPage />} />
           <Route path="boardview" element={<BoardViewPage />} />
           <Route path="calenderview" element={<CalenderViewPage />} />
