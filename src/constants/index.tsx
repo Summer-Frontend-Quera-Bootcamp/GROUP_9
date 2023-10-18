@@ -32,7 +32,7 @@ export const workspaces = [
                   title: "این یک تیتر برای این تسک هست.",
                   priority: "Emergency",
                   madeHistory: "",
-                  deadline: "5 مهر - فردا",
+                  deadline: "5 مهر",
                   members: [
                     {
                       userName: "Yasin Sahebi",
@@ -80,7 +80,7 @@ export const workspaces = [
                   title: "این یک تیتر برای این تسک هست.",
                   priority: "Emergency",
                   madeHistory: "",
-                  deadline: "5 مهر - فردا",
+                  deadline: "5 مهر",
                   members: [
                     {
                       userName: "Abolfazl Mikaniki",
@@ -142,7 +142,7 @@ export const workspaces = [
                   title: "این یک تیتر برای این تسک هست.",
                   priority: "High",
                   madeHistory: "",
-                  deadline: "5 مهر - فردا",
+                  deadline: "5 مهر",
                   members: [],
                   labels: [
                     {
@@ -164,7 +164,7 @@ export const workspaces = [
                   title: "این یک تیتر برای این تسک هست.",
                   priority: "Low",
                   madeHistory: "",
-                  deadline: "5 مهر - فردا",
+                  deadline: "5 مهر",
                   members: [],
                   labels: [
                     {
@@ -186,7 +186,7 @@ export const workspaces = [
                   title: "این یک تیتر برای این تسک هست.",
                   priority: "Nothing",
                   madeHistory: "",
-                  deadline: "5 مهر - فردا",
+                  deadline: "5 مهر",
                   members: [],
                   labels: [
                     {
@@ -208,7 +208,7 @@ export const workspaces = [
                   title: "این یک تیتر برای این تسک هست.",
                   priority: "Intermediate",
                   madeHistory: "",
-                  deadline: "5 مهر - فردا",
+                  deadline: "5 مهر",
                   members: [],
                   labels: [
                     {

@@ -16,6 +16,7 @@ const ProjectCard = ({ project, workspaceColor }: IProjectCardProps) => {
   ColorList.map((color) => {
     if (workspaceColor === color.name) {
       Color = color;
+      console.log(Color)
     }    
   })
   return (

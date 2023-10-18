@@ -14,6 +14,7 @@ import ListViewPage from "./pages/TaskManager/ListView";
 import BoardViewPage from "./pages/TaskManager/BoardView";
 import CalenderViewPage from "./pages/TaskManager/CalenderView";
 import WorkspacesPage from "./pages/TaskManager/Workspaces";
+// --------------------- ProfilePage --------------------- //
 
 // <======== Hooks ========> //
 
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="boardview" element={<BoardViewPage />} />
           <Route path="calenderview" element={<CalenderViewPage />} />
         </Route>
+        // --------------------- ProfilePage --------------------- //
       </Routes>
     </BrowserRouter>
   )
