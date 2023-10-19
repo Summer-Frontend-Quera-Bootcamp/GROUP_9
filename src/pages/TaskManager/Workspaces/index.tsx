@@ -1,4 +1,4 @@
-import "./index.css"
+import "./index.css";
 import { workspaces } from "../../../constants";
 // <======== Assest-Import ========> //
 
@@ -7,15 +7,14 @@ import ProjectCardContainer from "../../../components/TaskManager/Workspaces/Pro
 
 // <======== Hooks ========> //
 
-
 const WorkspacesPage = () => {
   return (
     <div className="WHWorkspaces fixed right-[340px] py-[64px] pr-l overflow-x-hidden overflow-y-scroll">
-      {workspaces?.map((item) =>
+      {workspaces?.map((item) => (
         <div className="mb-l pb-l border-b-2 border-Gray-Secondary last:border-none">
-            <ProjectCardContainer workspace={item} />
+          <ProjectCardContainer workspace={item} />
         </div>
-      )}
+      ))}
     </div>
   );
 };

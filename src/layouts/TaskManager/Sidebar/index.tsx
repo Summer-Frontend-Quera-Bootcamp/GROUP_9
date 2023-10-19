@@ -9,6 +9,7 @@ import WorkSpacesSummary from "./WorkspacesSummary";
 
 // <======== Hooks ========> //
 
+
 const Sidebar: React.FC = (): JSX.Element => {
   return (
     <aside className="w-[340px] h-full border-l-[0.5px] border-GrayLight bg-inherite fixed right-0 flex flex-col items-start">

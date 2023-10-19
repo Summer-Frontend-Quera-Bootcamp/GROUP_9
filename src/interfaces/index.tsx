@@ -37,9 +37,9 @@ export interface Labels {
 }
 
 export interface Comments {
-    member: Members;
-    date: string;
-    content: string;
+  member: Members;
+  date: string;
+  content: string;
 }
 
 export interface Tasks {

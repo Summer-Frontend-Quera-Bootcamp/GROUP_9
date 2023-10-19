@@ -18,12 +18,11 @@ import WorkspacesPage from "./pages/TaskManager/Workspaces";
 // <======== Hooks ========> //
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/authentication" />}/>
+        <Route path="/" element={<Navigate to="/authentication" />} />
         // --------------------- AuthenticationPage --------------------- //
         <Route path="/authentication">
           <Route index element={<Login />}></Route>
@@ -34,7 +33,7 @@ const App = () => {
         </Route>
         // --------------------- TaskManagerPage --------------------- //
         <Route path="/taskmanager" element={<TaskManager />}>
-          <Route index element={<WorkspacesPage />}/>
+          <Route index element={<WorkspacesPage />} />
           <Route path="listview" element={<ListViewPage />} />
           <Route path="boardview" element={<BoardViewPage />} />
           <Route path="calenderview" element={<CalenderViewPage />} />
@@ -42,7 +41,7 @@ const App = () => {
         // --------------------- ProfilePage --------------------- //
       </Routes>
     </BrowserRouter>
-  )
+  );
 };
 
 export default App;

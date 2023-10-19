@@ -10,31 +10,39 @@ import AuthenticationForm from "../../../components/Athentication/Form";
 const Register = () => {
   return (
     <Authentication page="register">
-      <AuthenticationForm 
-        title="ثبت‌نام در کوئرا تسک‌منیجر" 
+      <AuthenticationForm
+        title="ثبت‌نام در کوئرا تسک‌منیجر"
         page="register"
         inputItems={[
           {
             type: "text",
             name: "fullName",
-            label: "نام کامل"
+            label: "نام کامل",
           },
           {
             type: "text",
             name: "userName",
-            label: "نام کاربری"
+            label: "نام کاربری",
           },
           {
             type: "password",
             name: "password",
-            label: "رمز عبور"
-          }
-        ]} 
+            label: "رمز عبور",
+          },
+        ]}
       >
         <>
           <div className="mt-[20px] flex justify-start items-center gap-xs">
-            <input type="checkbox" name="contract" id="contract" className="w-[20px] h-[20px] rounded-[4px] border border-[#999] cursor-pointer"/>
-            <label htmlFor="contract" className="font-IranYekan500 font-BodyM text-right cursor-pointer">
+            <input
+              type="checkbox"
+              name="contract"
+              id="contract"
+              className="w-[20px] h-[20px] rounded-[4px] border border-[#999] cursor-pointer"
+            />
+            <label
+              htmlFor="contract"
+              className="font-IranYekan500 font-BodyM text-right cursor-pointer"
+            >
               قوانین و مقررات را می‌پذیرم.
             </label>
           </div>
@@ -44,7 +52,7 @@ const Register = () => {
         </>
       </AuthenticationForm>
     </Authentication>
-  )
-}
+  );
+};
 
 export default Register;

@@ -1,20 +1,19 @@
-import { Workspaces } from "../../../../interfaces";
 // <======== Assest-Import ========> //
 
 // <======== Component-Import ========> //
 import ProjectCard from "../ProjectCard";
 import NewProjectCard from "../NewProjectCard";
 
-// <======== Hooks ========> //
+// <======== Intefaces ========> //
+import { Workspaces } from "../../../../interfaces";
 
+// <======== Hooks ========> //
 
 interface IProjectCardContainer {
   workspace: Workspaces;
 }
 
-const ProjectCardContainer = ({
-    workspace,
-}: IProjectCardContainer) => {
+const ProjectCardContainer = ({ workspace }: IProjectCardContainer) => {
   return (
     <div className="w-full h-[144px] flex flex-col justify-between items-start overflow-x-hidden">
       <div>
@@ -25,7 +24,7 @@ const ProjectCardContainer = ({
       {workspace.projects?.length ? (
         <div className="width-full flex gap-l overflow-x-scroll">
           {workspace.projects?.map((item) => (
-            <ProjectCard project={item} workspaceColor={workspace.color}/>
+            <ProjectCard project={item} workspaceColor={workspace.color} />
           ))}
         </div>
       ) : (

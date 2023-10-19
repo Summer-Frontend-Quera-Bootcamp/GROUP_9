@@ -1,48 +1,58 @@
-import { Boards } from "../../../../interfaces";
 // <======== Assest-Import ========> //
 import { SmallCircleArrowBottomIcon } from "../../../../assets/Icons/TaskManager/Pages/ListView/SmallArrow";
 
 // <======== Component-Import ========> //
 import ListViewProjectTask from "../ListViewTask";
 
+// <======== Intefaces ========> //
+import { Boards } from "../../../../interfaces";
+
 // <======== Hooks ========> //
 
 
 interface IBoardProps {
-    board: Boards;
+  board: Boards;
 }
 
-const ListViewProjectBoard: React.FC<IBoardProps> = ({ board }): JSX.Element => {
-    return (
-        <table className="flex flex-col gap-[19px]">
-            <thead>
-                <tr className="flex flex-row gap-[70px]">
-                    <th className="ml-auto flex gap-xs items-center">
-                        <div className="flex gap-[5px] items-center">
-                            {SmallCircleArrowBottomIcon}
-                            <h4 className={`px-[6px] py-[4px] rounded-[4px] bg-${board.color} font-IranYekan400 text-[16px] text-White`}>
-                                {board.title}
-                            </h4>
-                        </div>
-                        <p className="font-IranYekan400 text-BodyXS">
-                            {`${board.tasks?.length} تسک`}
-                        </p>
-                    </th>
-                    <th className="w-[70px] px-[10px] font-IranYekan400 text-BodyM">اعضا</th>
-                    <th className="w-[70px] px-[10px] font-IranYekan400 text-BodyM">ددلاین</th>
-                    <th className="w-[70px] px-[10px] font-IranYekan400 text-BodyM">اولویت</th>
-                    <th className="w-[70px] font-IranYekan400 text-BodyM">توضیحات</th>
-                </tr>
-            </thead>
-            <tbody className="flex flex-col gap-[19px]">
-                {board.tasks?.map((task) => {
-                    return (
-                        <ListViewProjectTask task={task} boardColor={board.color}/>
-                    )
-                })}
-            </tbody>
-        </table>
-    )
-}
+const ListViewProjectBoard: React.FC<IBoardProps> = ({
+  board,
+}): JSX.Element => {
+  return (
+    <table className="flex flex-col gap-[19px]">
+      <thead>
+        <tr className="flex flex-row gap-[70px]">
+          <th className="ml-auto flex gap-xs items-center">
+            <div className="flex gap-[5px] items-center">
+              {SmallCircleArrowBottomIcon}
+              <h4
+                className={`px-[6px] py-[4px] rounded-[4px] bg-${board.color} font-IranYekan400 text-[16px] text-White`}
+              >
+                {board.title}
+              </h4>
+            </div>
+            <p className="font-IranYekan400 text-BodyXS">
+              {`${board.tasks?.length} تسک`}
+            </p>
+          </th>
+          <th className="w-[70px] px-[10px] font-IranYekan400 text-BodyM">
+            اعضا
+          </th>
+          <th className="w-[70px] px-[10px] font-IranYekan400 text-BodyM">
+            ددلاین
+          </th>
+          <th className="w-[70px] px-[10px] font-IranYekan400 text-BodyM">
+            اولویت
+          </th>
+          <th className="w-[70px] font-IranYekan400 text-BodyM">توضیحات</th>
+        </tr>
+      </thead>
+      <tbody className="flex flex-col gap-[19px]">
+        {board.tasks?.map((task) => {
+          return <ListViewProjectTask task={task} boardColor={board.color} />;
+        })}
+      </tbody>
+    </table>
+  );
+};
 
 export default ListViewProjectBoard;
