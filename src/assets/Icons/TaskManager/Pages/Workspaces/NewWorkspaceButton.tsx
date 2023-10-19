@@ -1,4 +1,4 @@
-import { ColorList } from "../../../../../constants";
+import { ColorList } from "../../../../../constants/ColorList";
 
 
 interface IPlusButtonColorProps {
