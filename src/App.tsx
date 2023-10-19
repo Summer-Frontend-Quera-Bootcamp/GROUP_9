@@ -1,10 +1,9 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // <======== Assest-Import ========> //
 
 // <======== Component-Import ========> //
 // --------------------- AuthenticationPage --------------------- //
 import ForgetPassword from "./pages/Authentication/ForgetPassword";
-import LogIn from "./pages/Authentication/LogIn";
+import Login from "./pages/Authentication/LogIn";
 import Register from "./pages/Authentication/Register";
 import ResetPassword from "./pages/Authentication/ResetPassword";
 import Success from "./pages/Authentication/Success";
@@ -17,6 +16,7 @@ import WorkspacesPage from "./pages/TaskManager/Workspaces";
 // --------------------- ProfilePage --------------------- //
 
 // <======== Hooks ========> //
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 
 const App = () => {
@@ -26,7 +26,7 @@ const App = () => {
         <Route path="/" element={<Navigate to="/authentication" />}/>
         // --------------------- AuthenticationPage --------------------- //
         <Route path="/authentication">
-          <Route index element={<LogIn />}></Route>
+          <Route index element={<Login />}></Route>
           <Route path="register" element={<Register />}></Route>
           <Route path="resetpassword" element={<ResetPassword />}></Route>
           <Route path="forgetpassword" element={<ForgetPassword />}></Route>

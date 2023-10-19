@@ -5,40 +5,28 @@ import Authentication from "../../../layouts/Authentication";
 import AuthenticationForm from "../../../components/Athentication/Form";
 
 // <======== Hooks ========> //
-import { z } from "zod";
+
 
 const ResetPassword = () => {
   return (
-    <Authentication
-      linkTextContent="قبلا ثبت‌نام کرده‌ای؟"
-      buttonTextContent="ورود"
-    >
-      <AuthenticationForm
-        title="بازیابی رمز عبور"
-        buttonTextContent="تغییر رمز عبور"
-        items={[
+    <Authentication page="resetpassword">
+      <AuthenticationForm 
+        title="بازیابی رمز عبور" 
+        page="resetpassword"
+        inputItems={[
           {
             type: "password",
             name: "password",
-            label: "رمزعبور جدید را وارد کنید",
-          },
+            label: "رمز عبور جدید را وارد کنید"
+          }
         ]}
-        schema={z.object({
-          password: z
-            .string()
-            .min(8, "رمزعبور نباید کمتر از 8 کاراکتر باشد!")
-            .refine(
-              (password) => /[A-Z]/.test(password),
-              "رمزعبور باید شامل حداقل یک حرف بزرگ باشد."
-            )
-            .refine(
-              (password) => /\d/.test(password),
-              "رمزعبور باید شامل حداقل یک عدد باشد."
-            ),
-        })}
-      />
+      >
+        <button className="w-full h-[48px] p-[10px] mt-[20px] rounded-[6px] bg-Brand-Primary font-IranYekan800 text-BoldS text-White flex justify-center items-center">
+          تغییر رمز عبور
+        </button>
+      </AuthenticationForm>
     </Authentication>
-  );
-};
+  )
+}
 
 export default ResetPassword;

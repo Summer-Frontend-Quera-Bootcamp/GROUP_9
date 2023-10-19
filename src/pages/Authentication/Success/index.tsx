@@ -3,43 +3,28 @@
 // <======== Component-Import ========> //
 import Authentication from "../../../layouts/Authentication";
 import AuthenticationForm from "../../../components/Athentication/Form";
+import { Link } from "react-router-dom";
 
 // <======== Hooks ========> //
-import { z } from "zod";
 
-const Success = () => {
+
+const Success: React.FC = (): JSX.Element => {
   return (
-    <Authentication
-      linkTextContent="قبلا ثبت‌نام کرده‌ای؟"
-      buttonTextContent="ورود"
-    >
-      <AuthenticationForm
-        title="فراموشی رمز عبور"
-        sucssesTitleText="لینک بازیابی رمز عبور برای شما ایمیل شد. لطفا ایمیل خود را بررسی کنید."
-        isHaveAInput={false}
-        items={[
-          {
-            type: "password",
-            name: "password",
-            label: "رمزعبور جدید را وارد کنید",
-          },
-        ]}
-        schema={z.object({
-          password: z
-            .string()
-            .min(8, "رمزعبور نباید کمتر از 8 کاراکتر باشد!")
-            .refine(
-              (password) => /[A-Z]/.test(password),
-              "رمزعبور باید شامل حداقل یک حرف بزرگ باشد."
-            )
-            .refine(
-              (password) => /\d/.test(password),
-              "رمزعبور باید شامل حداقل یک عدد باشد."
-            ),
-        })}
-      />
+    <Authentication page="success">
+      <AuthenticationForm title="فراموشی رمز عبور" page="success">
+        <>
+          <p className="w-full mt-[29px] font-IranYekan400 text-BodyS text-center">
+            لینک بازیابی رمز عبور برای شما ایمیل شد. لطفا ایمیل خود را بررسی کنید.
+          </p>
+          <Link to={"/authentication/resetpassword"} className="w-full">
+            <button className="w-full h-[48px] p-[10px] mt-[20px] rounded-[6px] bg-Brand-Primary font-IranYekan800 text-BoldS text-White flex justify-center items-center">
+              ادامه
+            </button>
+          </Link>
+        </>
+      </AuthenticationForm>
     </Authentication>
-  );
-};
+  )
+}
 
 export default Success;
