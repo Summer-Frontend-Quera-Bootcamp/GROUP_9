@@ -4,6 +4,8 @@ export type FormData = {
   phone?: string;
 
   password?: string;
+  password1?: string;
+  password2?: string;
   confirmPassword?: string;
 
   fullName?: string;

@@ -22,14 +22,23 @@ interface IFormProps extends React.PropsWithChildren {
     | "بازیابی رمز عبور";
   inputItems?: {
     type: "text" | "password" | "email";
-    name: "userName" | "password" | "fullName" | "email";
+    name:
+      | "userName"
+      | "password"
+      | "password1"
+      | "password2"
+      | "fullName"
+      | "email";
     label:
       | "نام کاربری"
       | "رمز عبور"
       | "نام کامل"
       | "ایمیل"
       | "ایمیل خود را وارد کنید"
-      | "رمز عبور جدید را وارد کنید";
+      | "رمز عبور جدید را وارد کنید"
+      | "تکرار رمز عبور جدید";
+    //adding handler
+    handler: (arg: React.ChangeEvent<HTMLInputElement>) => void;
   }[];
 }
 
@@ -66,6 +75,8 @@ const AuthenticationForm: React.FC<IFormProps> = ({
               label={item.label}
               hook={register}
               error={errors}
+              handler={item.handler}
+              key={item.name}
             />
           ))}
           {children}
