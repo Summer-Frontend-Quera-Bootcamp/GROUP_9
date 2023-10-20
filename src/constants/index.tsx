@@ -2,7 +2,7 @@ export const workspaces = [
     {
       id: 1,
       title: "درس مدیریت پروژه",
-      color: "Green-Primary",
+      color: "Green",
       projects: [],
       members: [
         {
@@ -17,7 +17,7 @@ export const workspaces = [
     {
       id: 2,
       title: "کار های شخصی",
-      color: "Yellow-Primary",
+      color: "Yellow",
       projects: [
         {
           id: 1,
@@ -25,7 +25,7 @@ export const workspaces = [
           boards: [
             {
               title: "Open",
-              color: "Orange-Primary",
+              color: "Orange",
               tasks: [
                 {
                   id: 1,
@@ -130,12 +130,12 @@ export const workspaces = [
             },
             {
               title: "In Progress",
-              color: "Indigo-Primary",
+              color: "Indigo",
               tasks: []
             },
             {
               title: "Pending",
-              color: "Yellow-Primary",
+              color: "Yellow",
               tasks: [
                 {
                   id: 1,
@@ -229,17 +229,17 @@ export const workspaces = [
             },
             {
               title: "To Do",
-              color: "Orange-Primary",
+              color: "Orange",
               tasks: []
             },
             {
               title: "Review",
-              color: "Pink-Primary",
+              color: "Pink",
               tasks: []
             },
             {
               title: "Done",
-              color: "Blue-Primary",
+              color: "Blue",
               tasks: []
             }
           ]
@@ -270,7 +270,7 @@ export const workspaces = [
     {
       id: 3,
       title: "درس کامپایلر",
-      color: "Red-Primary",
+      color: "Red",
       projects: [],
       members: [
         {
@@ -285,7 +285,7 @@ export const workspaces = [
     {
       id: 4,
       title: "درس طراحی الگوریتم",
-      color: "Blue-Primary",
+      color: "Blue",
       projects: [
         {
           id: 1,
