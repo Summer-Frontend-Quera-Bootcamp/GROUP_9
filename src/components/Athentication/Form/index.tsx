@@ -38,7 +38,7 @@ interface IFormProps extends React.PropsWithChildren {
       | "رمز عبور جدید را وارد کنید"
       | "تکرار رمز عبور جدید";
     //adding handler
-    handler: any;
+    handler: (arg: React.ChangeEvent<HTMLInputElement>) => void;
   }[];
 }
 

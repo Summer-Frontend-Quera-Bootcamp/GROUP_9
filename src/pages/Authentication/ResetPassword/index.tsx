@@ -24,7 +24,7 @@ const ResetPassword = () => {
     setPassword2(e.target.value);
   };
   const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3ODEzMzE4LCJpYXQiOjE2OTc3OTE3MTgsImp0aSI6ImViZDdiMGMxZDBhMTQzMjliNjQzNjMyYWQ1ODQ2YWI0IiwidXNlcl9pZCI6MTIwfQ.U2Wj-B8nVaHS2GdEoghWnJsQhPZs5hmItU_zY8kTSTE";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3ODM1MzIxLCJpYXQiOjE2OTc4MTM3MjEsImp0aSI6ImVkNTg1YTBhZGJjOTRkNDViNDkxNmFmZWRhNjU1NjljIiwidXNlcl9pZCI6MTIwfQ.gfQX5FIbQ2DcGbKY2CcDDeA4c92GdAeW7ISzuX1-0D8";
   const handleSubmit = () => {
     dispatch(resetPassword({ token, password1, password2 }))
       .then((response) => {

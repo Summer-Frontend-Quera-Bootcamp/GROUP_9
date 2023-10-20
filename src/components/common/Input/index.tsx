@@ -41,7 +41,7 @@ interface IInputProps {
   hook: UseFormRegister<FormData>;
   error: FieldErrors<FormData>;
   //adding handler
-  handler: any;
+  handler: (arg: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: React.FC<IInputProps> = ({

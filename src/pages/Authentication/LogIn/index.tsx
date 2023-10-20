@@ -54,7 +54,7 @@ const Login: React.FC = (): JSX.Element => {
       >
         <>
           <Link
-            to={"/authentication/forgetpassword"}
+            to={"/Forget-password"}
             className="text-right font-IranYekan800 text-BoldXS text-Brand-Primary mt-xs cursor-pointer"
           >
             رمز عبور را فراموش کرده‌ای؟
@@ -70,7 +70,7 @@ const Login: React.FC = (): JSX.Element => {
             <span>
               <Link
                 className="mr-[7px] text-Brand-Primary font-IranYekan800 text-BoldM"
-                to={"/authentication/register"}
+                to={"/Register"}
               >
                 ثبت‌نام
               </Link>

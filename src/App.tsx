@@ -22,15 +22,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to="/authentication" />} />
+        <Route path="/" element={<Navigate to="/Login" />} />
         // --------------------- AuthenticationPage --------------------- //
-        <Route path="/authentication">
-          <Route index element={<Login />}></Route>
-          <Route path="register" element={<Register />}></Route>
-          <Route path="resetpassword" element={<ResetPassword />}></Route>
-          <Route path="forgetpassword" element={<ForgetPassword />}></Route>
-          <Route path="success" element={<Success />}></Route>
-        </Route>
+        <Route path="/Login" element={<Login />}></Route>
+        <Route path="/Register" element={<Register />}></Route>
+        <Route path="/Forget-password" element={<ForgetPassword />}></Route>
+        <Route path="/Success" element={<Success />}></Route>
+        <Route path="/Reset-password" element={<ResetPassword />}></Route>
         // --------------------- TaskManagerPage --------------------- //
         <Route path="/taskmanager" element={<TaskManager />}>
           <Route index element={<WorkspacesPage />} />
