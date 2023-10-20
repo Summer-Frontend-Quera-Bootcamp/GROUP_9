@@ -28,6 +28,8 @@ interface IInputProps {
   name:
     | "userName"
     | "password"
+    | "password1"
+    | "password2"
     | "fullName"
     | "email"
     | "projectName"
