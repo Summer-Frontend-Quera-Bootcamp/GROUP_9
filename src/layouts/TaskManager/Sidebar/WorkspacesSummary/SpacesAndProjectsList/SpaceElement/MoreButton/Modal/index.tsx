@@ -8,10 +8,14 @@ import { ColumnPlusButtonIcon } from "../../../../../../../../assets/Icons/TaskM
 
 // <======== Component-Import ========> //
 
+// <======== Constants ========> //
+import { ColorList } from "../../../../../../../../constants/ColorList";
+
 // <======== Hooks ========> //
 
 
 const WorkspaceMoreModal = () => {
+  const color = ColorList.get("Brand")
   return (
     <div className="absolute left-[0px] w-[210px] p-[12px] rounded-[8px] shadow-moreModal bg-White flex flex-col gap-s items-start z-20">
       <div className="w-full flex flex-col gap-xs items-start">
@@ -46,7 +50,7 @@ const WorkspaceMoreModal = () => {
           </p>
         </div>
       </div>
-      <button className="w-full px-[12px] py-[6px] rounded-[6px] bg-Brand-Primary flex gap-[4px] justify-start items-center hover:bg-[#25a2a3]">
+      <button className={`w-full px-[12px] py-[6px] rounded-[6px] ${color?.bgPrimary} ${color?.hover} flex gap-[4px] justify-start items-center`}>
         {WhiteShareButtonIcon}
         <p className="font-IranYekan400 text-BodyXS text-White cursor-pointer">
           اشتراک‌گذاری

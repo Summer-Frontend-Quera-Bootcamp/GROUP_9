@@ -21,7 +21,7 @@ const ListViewProjectBoard: React.FC<IBoardProps> = ({
 }): JSX.Element => {
   const color = ColorList.get(board.color);
   return (
-    <table className="flex flex-col gap-[19px]">
+    <table className="flex flex-col gap-[19px] select-none">
       <thead>
         <tr className="flex flex-row gap-[70px]">
           <th className="ml-auto flex gap-xs items-center">
@@ -49,7 +49,7 @@ const ListViewProjectBoard: React.FC<IBoardProps> = ({
           <th className="w-[70px] font-IranYekan400 text-BodyM">توضیحات</th>
         </tr>
       </thead>
-      <tbody className="flex flex-col gap-[19px]">
+      <tbody className="flex flex-col gap-[11px]">
         {board.tasks?.map((task) => {
           return <ListViewProjectTask task={task} boardColor={board.color} />;
         })}

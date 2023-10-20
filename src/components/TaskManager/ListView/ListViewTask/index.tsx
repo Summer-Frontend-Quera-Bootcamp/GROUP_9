@@ -28,7 +28,7 @@ const ListViewProjectTask: React.FC<ITaskProps> = ({
 }): JSX.Element => {
   const color = ColorList.get(boardColor);
   return (
-    <tr className="flex flex-row gap-[70px]">
+    <tr className="py-[4px] rounded-[4px] flex flex-row gap-[70px] hover:bg-Gray-Secondary">
       <td className="py-[7px] pr-[25px] ml-auto flex gap-[7px] items-start">
         <div className={`w-s h-s ${color?.bgPrimary} rounded-[3px]`}></div>
         <p className="font-IranYekan400 text-BodyXS">{task.title}</p>
