@@ -30,6 +30,8 @@ interface IFormProps extends React.PropsWithChildren {
       | "ایمیل"
       | "ایمیل خود را وارد کنید"
       | "رمز عبور جدید را وارد کنید";
+    //adding handler
+    handler: any;
   }[];
 }
 
@@ -66,6 +68,8 @@ const AuthenticationForm: React.FC<IFormProps> = ({
               label={item.label}
               hook={register}
               error={errors}
+              handler={item.handler}
+              key={item.name}
             />
           ))}
           {children}

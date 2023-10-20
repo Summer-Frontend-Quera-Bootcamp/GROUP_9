@@ -38,6 +38,8 @@ interface IInputProps {
     | "confirmPassword";
   hook: UseFormRegister<FormData>;
   error: FieldErrors<FormData>;
+  //adding handler
+  handler: any;
 }
 
 const Input: React.FC<IInputProps> = ({
@@ -46,6 +48,7 @@ const Input: React.FC<IInputProps> = ({
   label,
   hook,
   error,
+  handler,
 }): JSX.Element => {
   return (
     <div className="flex flex-col gap-xs">
@@ -60,6 +63,7 @@ const Input: React.FC<IInputProps> = ({
         {...hook(name)}
         id={name}
         className="w-full h-[40px] p-[5px] rounded-[6px] bg-inherite border border-[#AAA]"
+        onChange={handler}
       />
       {error[name] && (
         <p className="font-IranYekan400 text-BodyXS text-Red-Primary">
