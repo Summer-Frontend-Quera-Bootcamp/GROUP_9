@@ -16,7 +16,7 @@ const initialState: InitialState = {
 export const resetPassword = createAsyncThunk(
   "reset/resetPassword",
   (
-    userData: { token: string; password1: string; password2: string },
+    userData: { token: string | null; password1: string; password2: string },
     { rejectWithValue }
   ) => {
     return axios

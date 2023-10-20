@@ -5,26 +5,29 @@ import Authentication from "../../../layouts/Authentication";
 import AuthenticationForm from "../../../components/Athentication/Form";
 
 // <======== Hooks ========> //
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { resetPassword } from "../../../services/features/authentication/resetSlice";
 import { useAppDispatch } from "../../../services/app/hooks";
-
+import { useSearchParams } from "react-router-dom";
 const ResetPassword = () => {
   const dispatch = useAppDispatch();
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
-
+  const [token, setToken] = useState<string | null>("");
   const [error, setError] = useState("");
-
+  useEffect(() => {
+    searchParams.has("token")
+      ? setToken(searchParams.get("token"))
+      : setToken("");
+  }, []);
+  const [searchParams] = useSearchParams();
   const handlePassword1Change = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword1(e.target.value);
   };
-
   const handlePassword2Change = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword2(e.target.value);
   };
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk3ODM1MzIxLCJpYXQiOjE2OTc4MTM3MjEsImp0aSI6ImVkNTg1YTBhZGJjOTRkNDViNDkxNmFmZWRhNjU1NjljIiwidXNlcl9pZCI6MTIwfQ.gfQX5FIbQ2DcGbKY2CcDDeA4c92GdAeW7ISzuX1-0D8";
+
   const handleSubmit = () => {
     dispatch(resetPassword({ token, password1, password2 }))
       .then((response) => {
