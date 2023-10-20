@@ -16,7 +16,7 @@ import { ColorList } from "../../../../../../../../constants/ColorList";
 const ProjectMoreModal = () => {
   const color = ColorList.get("Brand")
   return (
-    <div className="absolute left-[0px] w-[210px] p-[12px] rounded-[8px] shadow-moreModal bg-White flex flex-col gap-s items-start z-20">
+    <div className="absolute top-[16px] left-[0px] w-[210px] p-[12px] rounded-[8px] shadow-moreModal bg-White flex flex-col gap-s items-start z-20">
       <div className="w-full flex flex-col gap-xs items-start">
         <div className="w-full h-l pl-[12px] pr-[4px] rounded-[8px] flex gap-xs justify-start items-center hover:bg-[#F0F1F3] cursor-pointer">
           {ColumnPlusButtonIcon}
