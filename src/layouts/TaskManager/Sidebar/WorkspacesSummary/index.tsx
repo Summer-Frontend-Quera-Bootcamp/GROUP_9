@@ -6,7 +6,10 @@ import { WorkSpacePlusButtonIcon } from "../../../../assets/Icons/TaskManager/La
 
 // <======== Component-Import ========> //
 import SearchBox from "../../../../components/common/SearchBox";
-import WorkspacesList from "./WorkspacesList";
+import SpacesAndProjectsList from "./SpacesAndProjectsList";
+
+// <======== Constants ========> //
+import { workspaces } from "../../../../constants";
 
 // <======== Hooks ========> //
 
@@ -14,7 +17,7 @@ import WorkspacesList from "./WorkspacesList";
 const WorkSpacesSummary: React.FC = (): JSX.Element => {
   return (
     <>
-      <div className="absolute top-[2px] left-[16px]">
+      <div className="absolute top-[2px] left-[0px]">
         {SummaryOpenArrowIcon}
       </div>
       <details className="relative h-full">
@@ -27,11 +30,11 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
           <SearchBox placeholder="جستجو کنید" backgroundColor="[#F6F7F9]" />
         </div>
         <div className="w-full dlHeight mt-s flex flex-col gap-s overflow-hidden">
-          <button className="w-full h-l bg-[#D3D3D3] rounded-[6px] font-IranYekan400 text-BodyXS flex justify-center items-center gap-[4px]">
+          <button className="w-full h-[36px] bg-[#D3D3D3] rounded-[6px] font-IranYekan400 text-BodyXS flex justify-center items-center gap-[4px]">
             {WorkSpacePlusButtonIcon}
             ساختن اسپیس جدید
           </button>
-          <WorkspacesList />
+          <SpacesAndProjectsList SpacesList={workspaces}/>
         </div>
       </details>
     </>

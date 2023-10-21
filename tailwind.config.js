@@ -148,7 +148,8 @@ export default {
         "3xl": "0px 50px 100px -20px rgba(50, 50, 93, 0.25)",
         "4xl": "0px 30px 60px -30px rgba(0, 0, 0, 0.30)",
         "projectCart": "0px 3px 4px rgba(0, 0, 0, 0.20)",
-        "toast": "1px 7px 14px -5px rgba(0,0,0,0.2)"
+        "toast": "1px 7px 14px -5px rgba(0,0,0,0.2)",
+        "moreModal": "0px 4px 16px 0px rgba(0, 0, 0, 0.16)"
       },
     },
   },

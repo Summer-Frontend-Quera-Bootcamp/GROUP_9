@@ -5,6 +5,7 @@ export const MoreButtonIcon = (
     viewBox="0 0 22 22"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className="rounded-[4px] cursor-pointer hover:bg-[#e5e7ea]"
   >
     <path
       d="M16.4191 10.9998C16.4191 11.2301 16.2325 11.4167 16.0023 11.4167C15.7721 11.4167 15.5854 11.2301 15.5854 10.9998C15.5854 10.7696 15.7721 10.583 16.0023 10.583C16.2325 10.583 16.4191 10.7696 16.4191 10.9998"

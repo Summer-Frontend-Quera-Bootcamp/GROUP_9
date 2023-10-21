@@ -16,23 +16,12 @@ interface IProjectCardProps {
   workspaceColor: string;
 }
 
-let Color: {
-  name?: string;
-  startColor?: string;
-  endColor?: string;
-} = {};
-
 const ProjectCard = ({ project, workspaceColor }: IProjectCardProps) => {
-  ColorList.map((color) => {
-    if (workspaceColor === color.name) {
-      Color = color;
-      console.log(Color);
-    }
-  });
+  const color = ColorList.get(workspaceColor);
   return (
     <>
       <div
-        className={`shadow-projectCart bg-gradient-to-l from-[${Color.startColor}] to-[${Color.endColor}] flex justify-center w-[200px] h-[80px] items-center mx-auto py-[26px] w-3 h-3 rounded-[16px]`}
+        className={`shadow-projectCart bg-gradient-to-l ${color?.gradient} flex justify-center w-[200px] h-[80px] items-center mx-auto py-[26px] w-3 h-3 rounded-[16px]`}
       >
         <p className="font-IranYekan800 text-BoldM text-White">
           {project.title}
