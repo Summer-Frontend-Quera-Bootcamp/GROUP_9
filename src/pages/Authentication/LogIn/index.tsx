@@ -9,12 +9,16 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { fetchUsers } from "../../../services/features/authentication/loginSlice";
 import { useAppDispatch } from "../../../services/app/hooks";
-
+import { showToast } from "../../../services/features/authentication/toastSlice";
+import { useDispatch } from "react-redux";
+import store from "../../../services/app/store";
 const Login: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const Dispatch = useDispatch();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
   };
@@ -27,9 +31,13 @@ const Login: React.FC = (): JSX.Element => {
     dispatch(fetchUsers({ username, password }))
       .then((response) => {
         console.log(response);
+        store.getState().user.error
+          ? (Dispatch(showToast(response.payload)),
+            setTimeout(() => Dispatch(showToast("")), 3000))
+          : null;
       })
       .catch((error) => {
-        setError(error.message || "Something went wrong");
+        console.log(error);
       });
   };
   return (

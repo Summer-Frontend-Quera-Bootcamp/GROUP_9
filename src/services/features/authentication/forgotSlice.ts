@@ -41,7 +41,8 @@ const forgetSlice = createSlice({
     builder.addCase(forgetPassword.rejected, (state, action) => {
       state.loading = false;
       state.success = "";
-      state.error = action.error.message || "Something went wrong";
+      state.error = String(action.payload) || "Something went wrong";
+      console.log(action.payload);
     });
   },
 });

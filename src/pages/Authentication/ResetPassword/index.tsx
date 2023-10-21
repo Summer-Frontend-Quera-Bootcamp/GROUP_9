@@ -9,12 +9,15 @@ import React, { useState, useEffect } from "react";
 import { resetPassword } from "../../../services/features/authentication/resetSlice";
 import { useAppDispatch } from "../../../services/app/hooks";
 import { useSearchParams } from "react-router-dom";
+import store from "../../../services/app/store";
+import { useDispatch } from "react-redux";
+import { showToast } from "../../../services/features/authentication/toastSlice";
 const ResetPassword = () => {
   const dispatch = useAppDispatch();
+  const Dispatch = useDispatch();
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [token, setToken] = useState<string | null>("");
-  const [error, setError] = useState("");
   useEffect(() => {
     searchParams.has("token")
       ? setToken(searchParams.get("token"))
@@ -32,9 +35,13 @@ const ResetPassword = () => {
     dispatch(resetPassword({ token, password1, password2 }))
       .then((response) => {
         console.log(response);
+        store.getState().reset.error
+          ? (Dispatch(showToast(response.payload)),
+            setTimeout(() => Dispatch(showToast("")), 3000))
+          : null;
       })
       .catch((error) => {
-        setError(error.message || "Something went wrong");
+        console.log(error);
       });
   };
   return (
