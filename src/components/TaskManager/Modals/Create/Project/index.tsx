@@ -1,29 +1,20 @@
 import React from "react";
-import Modal from "../../../../common/Modal";
+import Modal from "../../CommonModal";
+import { ColorList } from "../../../../../constants/ColorList";
 
-interface modalProps{
-    isOpen: boolean;
-    onClose: ()  => void;
-    buttonClick: () => void;
-    handleBack:() => void;
-}
-const NewProjectModal: React.FC<modalProps> = ({ isOpen, onClose , buttonClick, handleBack }) => {
-    if (!isOpen) return null;
-    return(
-        <Modal activeModal={0} title={"ساختن پروژه جدید"} onClose={onClose} isOpen={isOpen} isSlide={false} width={"501"} height={"290"} backButton={false} buttonTitle={"ادامه"} hasButton={true} buttonClick={buttonClick} handleBack={handleBack}  >
-
-            <div className={"w-[415px] h-[72px] flex flex-col gap-xs"}>
-                <div className={"flex w-[51px] h-[24px] font-IranYekan400 text-BodyS text-right"}>
-                    {"نام پروژه"}
-                </div>
-                <div className={"flex justify-center items-center"}>
-                    <input className={"w-[415px] h-[40px] rounded-[6px] border-[1px] border-[#AAAAAA]"}
-                           type="text"
-                           name="projectName"
-                           id={"projectName"}/>
-                </div>
-            </div>
-        </Modal>
-    )
-}
-export default NewProjectModal
+const NewProjectModal: React.FC = (): JSX.Element => {
+  const color = ColorList.get("Brand")
+  return (
+    <Modal title="ساختن پروژه جدید" visibility="invisible">
+      <main className="w-full">
+        {/* <Input type="text" name="projectName" label="نام پروژه" /> */}
+        <button
+          className={`w-full h-xl p-[10px] rounded-[6px] ${color?.bgPrimary} ${color?.hover} font-IranYekan800 text-[14px] text-White flex justify-center items-center`}
+        >
+          ساختن پروژه
+        </button>
+      </main>
+    </Modal>
+  );
+};
+export default NewProjectModal;
