@@ -11,7 +11,7 @@ const WorkspacesPage = () => {
   return (
     <div className="WHWorkspaces fixed right-[340px] py-[64px] pr-l overflow-x-hidden overflow-y-scroll">
       {workspaces?.map((item) => (
-        <div className="mb-l pb-l border-b-2 border-Gray-Secondary last:border-none">
+        <div className="pl-[50px] py-l first:pt-[0px] last:pb-[0px] border-b-2 border-Gray-Secondary last:border-none flex flex-col gap-l justify-center items-start overflow-x-scroll">
           <ProjectCardContainer workspace={item} />
         </div>
       ))}

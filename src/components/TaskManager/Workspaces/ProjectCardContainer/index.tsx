@@ -15,24 +15,20 @@ interface IProjectCardContainer {
 
 const ProjectCardContainer = ({ workspace }: IProjectCardContainer) => {
   return (
-    <div className="w-full h-[144px] flex flex-col justify-between items-start overflow-x-hidden">
-      <div>
-        <p className="font-IranYekan800 text-[24px] text-Gray-Darker">
-          {workspace.title}
-        </p>
-      </div>
-      {workspace.projects?.length ? (
-        <div className="width-full flex gap-l overflow-x-scroll">
-          {workspace.projects?.map((item) => (
+    <>
+      <header className="font-IranYekan800 text-[24px] text-Gray-Darker">
+        {workspace.title}
+      </header>
+      <main className="flex gap-l items-start">
+        {workspace.projects?.length ? (
+          workspace.projects?.map((item) => (
             <ProjectCard project={item} workspaceColor={workspace.color} />
-          ))}
-        </div>
-      ) : (
-        <div>
+          ))
+        ) : (
           <NewProjectCard workspaceColor={workspace.color} />
-        </div>
-      )}
-    </div>
+        )}
+      </main>
+    </>
   );
 };
 
