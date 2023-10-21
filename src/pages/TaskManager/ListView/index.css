@@ -1,0 +1,4 @@
+.WHListView {
+  max-width: calc(100vw - 406px);
+  height: calc(100vh - 198px);
+}

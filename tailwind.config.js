@@ -97,9 +97,7 @@ export default {
       Black2: "#323232",
       GrayLight: "#AAA",
       GrayLight2: "#959595",
-      GrayLight3:"#BDC0C6",
-      GrayLight4:"#EFF0F0",
-      GrayLight5:'#F4F4F4'
+      ModalBG: 'rgba(0,0,0,0.4)',
       //++
     },
 
@@ -161,8 +159,9 @@ export default {
       boxShadow: {
         "3xl": "0px 50px 100px -20px rgba(50, 50, 93, 0.25)",
         "4xl": "0px 30px 60px -30px rgba(0, 0, 0, 0.30)",
-        "TaskCard":'0 2px 4px 0px rgba(0, 0, 0, 0.4), 0 7px 6px -3px rgba(0, 0, 0, 0.3)',
-        "Board":'0 3px 4px 0px rgba(0, 0, 0, 0.2)'
+        "projectCart": "0px 3px 4px rgba(0, 0, 0, 0.20)",
+        "toast": "1px 7px 14px -5px rgba(0,0,0,0.2)",
+        "moreModal": "0px 4px 16px 0px rgba(0, 0, 0, 0.16)"
       },
     },
   },
