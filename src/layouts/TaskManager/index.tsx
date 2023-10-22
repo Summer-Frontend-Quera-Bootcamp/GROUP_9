@@ -2,7 +2,8 @@
 
 // <======== Component-Import ========> //
 import NewProjectModal from "../../components/TaskManager/Modals/Create/Project";
-import NewSpaceModal from "../../components/TaskManager/Modals/Create/Workspace";
+import NewSpaceModalNameSelection from "../../components/TaskManager/Modals/Create/Workspace/Step1NameSelection";
+import NewSpaceModalColorSelection from "../../components/TaskManager/Modals/Create/Workspace/Step2ColorSelection";
 import Sidebar from "./Sidebar";
 
 // <======== Hooks ========> //
@@ -11,8 +12,10 @@ import { Outlet } from "react-router-dom";
 const TaskManager: React.FC = (): JSX.Element => {
   return (
     <>
+      {/* ============ Create-Modals ============ */}
       <NewProjectModal/>
-      <NewSpaceModal/>
+      <NewSpaceModalNameSelection/>
+      <NewSpaceModalColorSelection/>
       <Sidebar />
       <Outlet />
     </>

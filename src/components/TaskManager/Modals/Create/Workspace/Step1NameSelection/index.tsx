@@ -1,22 +1,22 @@
 // <======== Assest-Import ========> //
 
 // <======== Component-Import ========> //
-import Modal from "../../CommonModal";
-import Input from "../../../../common/Input";
+import Modal from "../../../CommonModal";
+import Input from "../../../../../common/Input";
 
 // <======== Interfaces ========> //
-import { FormData } from "../../../../../interfaces/FormData";
+import { FormData } from "../../../../../../interfaces/FormData";
 
 // <======== Constants ========> //
-import { ColorList } from "../../../../../constants/ColorList";
-import { schema } from "../../../../../constants/ZodValidation";
+import { ColorList } from "../../../../../../constants/ColorList";
+import { schema } from "../../../../../../constants/ZodValidation";
 
 // <======== Hooks ========> //
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 
-const NewSpaceModal: React.FC = (): JSX.Element => {
+const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
   const color = ColorList.get("Brand");
 
   const handleSpaceNameChange = () => {
@@ -55,4 +55,4 @@ const NewSpaceModal: React.FC = (): JSX.Element => {
     </Modal>
   );
 };
-export default NewSpaceModal;
+export default NewSpaceModalNameSelection;

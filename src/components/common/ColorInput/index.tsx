@@ -1,27 +1,68 @@
-import React from "react";
-import {NoColorIcon} from "../../../assets/Icons/TaskManager/Modals/Share/NoColoreIcon.tsx";
-import ColorButton from "./ColorButton";
+// <======== Assest-Import ========> //
+import { ColorSectionIcon } from "../../../assets/Icons/CommonComponents/ColorInput/ColorSectionIcon";
+import { NoColorIcon } from "../../../assets/Icons/TaskManager/Modals/Share/NoColoreIcon";
+import { SelectedColorIcon } from "../../../assets/Icons/CommonComponents/ColorInput/SelectedColorIcon";
 
-interface colorInputProps {
-    colors: string[];
-    height: string;
-    hasNoColor: boolean;
-    selectedColor: string;
-    onColorButtonClick: (color: string) => void;
-}
-const ColorInput: React.FC<colorInputProps> = ({colors,height,hasNoColor,selectedColor,onColorButtonClick }) =>
-{
-    return(
-        <div className={`flex w-full h-[${height}] gap-[10px] flex-wrap items-center`}>
-            {hasNoColor && <button onClick={() => onColorButtonClick("Gray")} className={"w-[15px] h-[15px]"}>
-                {NoColorIcon}
-            </button>}
-            {colors?.map(color => {
-                return (<ColorButton key={color} color={color} selected={selectedColor} onClick={() => onColorButtonClick(color)}/>)})
-            }
+// <======== Component-Import ========> //
 
-        </div>
-    )
+// <======== Constants ========> //
+import { ColorList } from "../../../constants/ColorList";
+
+// <======== Hooks ========> //
+import { useState } from "react";
+
+
+interface IColorInputProps {
+  isNoColorButton?: boolean;
+  func: (color: string) => void;
 }
 
-export default ColorInput
+const ColorInput: React.FC<IColorInputProps> = ({
+  isNoColorButton = false,
+  func,
+}) => {
+  const [selectedColor, setSelectedColor] = useState<string>();
+  const Colors = [
+    "Indigo",
+    "Blue",
+    "Cyan",
+    "Teal",
+    "Brand",
+    "Green",
+    "Lime",
+    "Yellow",
+    "Orange",
+    "Red",
+    "Pink",
+    "Grape",
+    "Violet",
+  ];
+  const handleClicked = (sColor: string) => {
+    setSelectedColor(sColor);
+    func(sColor);
+  };
+  return (
+    <>
+      {isNoColorButton && NoColorIcon}
+      {Colors.map((item) => {
+        const color = ColorList.get(item);
+        return (
+          <div
+            onClick={() => {
+              handleClicked(item);
+            }}
+            className="cursor-pointer"
+          >
+            {selectedColor === item ? (
+              <SelectedColorIcon ColorCode={color?.primaryColorCode} />
+            ) : (
+              <ColorSectionIcon ColorCode={color?.primaryColorCode} />
+            )}
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+export default ColorInput;
