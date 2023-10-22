@@ -4,6 +4,8 @@ import registerReducer from "../features/authentication/registerSlice";
 import resetReducer from "../features/authentication/resetSlice";
 import forgetReducer from "../features/authentication/forgotSlice";
 import authToastReducer from "../features/authentication/toastSlice";
+import workSpaceReducer from '../features/workspace/workspaceSlice';
+import projectReducer from '../features/workspace/projectsSlice'
 const store = configureStore({
   reducer: {
     user: userReducer,
@@ -11,6 +13,8 @@ const store = configureStore({
     reset: resetReducer,
     forget: forgetReducer,
     authToast: authToastReducer,
+    workspace: workSpaceReducer,
+    project: projectReducer
   },
 });
 

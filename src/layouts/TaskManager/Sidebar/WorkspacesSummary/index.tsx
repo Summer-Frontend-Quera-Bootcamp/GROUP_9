@@ -7,14 +7,24 @@ import { WorkSpacePlusButtonIcon } from "../../../../assets/Icons/TaskManager/La
 // <======== Component-Import ========> //
 import SearchBox from "../../../../components/common/SearchBox";
 import SpacesAndProjectsList from "./SpacesAndProjectsList";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchworkspace } from "../../../../services/features/workspace/workspaceSlice";
 
 // <======== Constants ========> //
-import { workspaces } from "../../../../constants";
+// import { workspaces } from "../../../../constants";
 
 // <======== Hooks ========> //
 
 
 const WorkSpacesSummary: React.FC = (): JSX.Element => {
+
+  const dispatch=useDispatch();
+  const workspace = useSelector((state)=>(state.workspace))
+  useEffect(()=>{
+      dispatch(fetchworkspace);
+  },[])
+  console.log("here in side bar : ",workspace )
   return (
     <>
       <div className="absolute top-[2px] left-[0px]">
@@ -34,7 +44,7 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
             {WorkSpacePlusButtonIcon}
             ساختن اسپیس جدید
           </button>
-          <SpacesAndProjectsList SpacesList={workspaces}/>
+          <SpacesAndProjectsList SpacesList={workspace}/>
         </div>
       </details>
     </>
