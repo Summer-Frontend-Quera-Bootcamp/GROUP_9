@@ -1,0 +1,185 @@
+@font-face {
+  font-family: IranYekan;
+  src: url(../../../assets/Fonts/IRANYEKANREGULARFANUM.TTF);
+}
+.fc-button-group {
+  background-color: white;
+}
+
+.fc-button-group > .fc-button > .fc-icon {
+  color: #7d828c;
+}
+.fc-button-group {
+  background-color: white;
+}
+
+.fc .fc-button-primary {
+  background-color: white;
+  border: none;
+}
+.fc .fc-button-primary:hover,
+.fc .fc-button-primary:focus {
+  background-color: white;
+}
+.fc .fc-button-primary:disabled {
+  background-color: white;
+  border-color: none;
+  color: #3d3d3d;
+  font-family: IRANYekan;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.fc-prev-button:active {
+  background-color: white;
+  border: none;
+}
+.fc-prev-button:active {
+  background-color: white;
+  border: none;
+}
+
+.fc-prev-button:active:hover {
+  background-color: white;
+}
+.fc-prev-button {
+  background-color: transparent;
+  border: none;
+}
+
+.fc-header-toolbar {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+}
+
+.fc-header-title {
+  flex: 1 1 auto;
+  text-align: right;
+}
+
+.fc-header-left {
+  flex: 0 0 auto;
+  order: 1;
+  margin-right: 2px;
+}
+
+.fc-header-right {
+  flex: 0 0 auto;
+  order: 2;
+  margin-left: 2px;
+}
+.fc .fc-toolbar {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.fc .fc-col-header-cell-cushion {
+  /* display: none; */
+  padding: 2px 4px;
+  font-family: "IranYekan";
+  position: fixed;
+  margin-right: -75px;
+  color: #1e1e1e;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.fc-prev-button,
+.fc-next-button {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.fc-prev-button:before,
+.fc-next-button:before {
+  background-color: transparent !important;
+}
+
+.fc-prev-button:after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.fc-next-button:after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-image: url("path/to/your/svg/icon.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.fc .fc-toolbar-title {
+  font-family: IRANYekan;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #1e1e1e;
+}
+.fc .fc-button .fc-icon {
+  font-size: 12px;
+  vertical-align: middle;
+  color: #7d828c;
+}
+.fc-header {
+  display: flex;
+  align-items: center;
+}
+.fc-button {
+  display: flex;
+  align-items: center;
+}
+.fc .fc-daygrid-day-top {
+  display: flex;
+  /* flex-direction: row-reverse; */
+}
+.fc-event-container {
+  height: 400px;
+  width: 500px;
+}
+.fc .fc-daygrid-day-top {
+  display: flex;
+  /* flex-direction: row-reverse; */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left: 8px;
+  padding-bottom: 8px;
+  font-family: "IranYekan";
+}
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: white;
+  border: 2px solid #208d8e !important;
+}
+.fc .fc-day-other .fc-daygrid-day-top {
+  opacity: 1;
+}
+.fc-direction-rtl .fc-toolbar > * > :not(:first-child) {
+  margin-right: 0;
+}
+.fc-direction-rtl .fc-button-group > .fc-button:not(:last-child) {
+  padding: 0;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  padding-top: 15px;
+  margin-left: 400px;
+}
+thead {
+  border: none !important;
+}
+
+th {
+  border: none !important;
+}
