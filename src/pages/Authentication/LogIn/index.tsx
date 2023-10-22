@@ -15,10 +15,8 @@ import store from "../../../services/app/store";
 const Login: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const Dispatch = useDispatch();
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
   };
@@ -31,6 +29,8 @@ const Login: React.FC = (): JSX.Element => {
     dispatch(fetchUsers({ username, password }))
       .then((response) => {
         console.log(response);
+        console.log(store.getState().user.access);
+        console.log(store.getState().user.refresh);
         store.getState().user.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("")), 3000))
