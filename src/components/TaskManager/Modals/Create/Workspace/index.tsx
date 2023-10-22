@@ -34,7 +34,7 @@ const NewSpaceModal: React.FC = (): JSX.Element => {
   };
 
   return (
-    <Modal title="ساختن ورک‌اسپیس جدید" visibility="invisible">
+    <Modal title="ساختن ورک‌اسپیس جدید" gap="gap-[20px]" visibility="invisible">
       <main className="w-full">
         <form className="w-full flex flex-col gap-xl" onSubmit={handleSubmit(submitData)}>
           <Input

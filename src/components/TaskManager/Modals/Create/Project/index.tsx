@@ -34,7 +34,7 @@ const NewProjectModal: React.FC = (): JSX.Element => {
   };
 
   return (
-    <Modal title="ساختن پروژه جدید" visibility="visible">
+    <Modal title="ساختن پروژه جدید" gap="gap-[20px]" visibility="visible">
       <main className="w-full">
         <form
           className="w-full flex flex-col gap-xl"
