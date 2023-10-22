@@ -29,9 +29,9 @@ const Login: React.FC = (): JSX.Element => {
     dispatch(fetchUsers({ username, password }))
       .then((response) => {
         console.log(response);
-        console.log(store.getState().user.access);
-        console.log(store.getState().user.refresh);
-        store.getState().user.error
+        console.log(store.getState().PersistReducer.user.access);
+        console.log(store.getState().PersistReducer.user.refresh);
+        store.getState().PersistReducer.user.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("")), 3000))
           : null;
