@@ -23,8 +23,8 @@ const ForgetPassword = () => {
     dispatch(forgetPassword({ email }))
       .then((response) => {
         console.log(response);
-        console.log(store.getState().PersistReducer.user.access);
-        console.log(store.getState().PersistReducer.user.refresh);
+        console.log(store.getState().user.access);
+        console.log(store.getState().user.refresh);
         store.getState().forget.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("")), 3000))

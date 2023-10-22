@@ -4,24 +4,10 @@ import registerReducer from "../features/authentication/registerSlice";
 import resetReducer from "../features/authentication/resetSlice";
 import forgetReducer from "../features/authentication/forgotSlice";
 import authToastReducer from "../features/authentication/toastSlice";
-import storage from "redux-persist/lib/storage";
-import { persistReducer } from "redux-persist";
-import { combineReducers } from "@reduxjs/toolkit";
-
-const persistConfig = {
-  key: "root",
-  storage,
-};
-
-const loginReducer = combineReducers({
-  user: userReducer,
-});
-
-const PersistReducer = persistReducer(persistConfig, loginReducer);
 
 const store = configureStore({
   reducer: {
-    PersistReducer,
+    user: userReducer,
     register: registerReducer,
     reset: resetReducer,
     forget: forgetReducer,
