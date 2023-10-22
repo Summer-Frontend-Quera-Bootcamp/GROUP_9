@@ -16,7 +16,7 @@ const initialState: InitialState = {
 export const resetPassword = createAsyncThunk(
   "reset/resetPassword",
   (
-    userData: { token: string; password1: string; password2: string },
+    userData: { token: string | null; password1: string; password2: string },
     { rejectWithValue }
   ) => {
     return axios
@@ -29,7 +29,17 @@ export const resetPassword = createAsyncThunk(
         }
       )
       .then((response) => response.data)
-      .catch((error) => rejectWithValue(error.response.data.detail));
+      .catch((error) =>
+        rejectWithValue(
+          JSON.parse(error.response.request.response).details
+            ? JSON.parse(error.response.request.response).details[0]
+            : JSON.parse(error.response.request.response).password
+            ? JSON.parse(error.response.request.response).password[0]
+            : JSON.parse(error.response.request.response).password1
+            ? JSON.parse(error.response.request.response).password1[0]
+            : null
+        )
+      );
   }
 );
 
@@ -49,7 +59,7 @@ const resetSlice = createSlice({
     builder.addCase(resetPassword.rejected, (state, action) => {
       state.loading = false;
       state.success = "";
-      state.error = action.error.message || "Something went wrong";
+      state.error = String(action.payload) || "Something went wrong";
     });
   },
 });

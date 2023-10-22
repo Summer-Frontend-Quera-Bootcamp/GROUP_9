@@ -42,7 +42,7 @@ const userSlice = createSlice({
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.loading = false;
       state.success = "";
-      state.error = action.error.message || "Something went wrong";
+      state.error = String(action.payload) || "Something went wrong";
     });
   },
 });

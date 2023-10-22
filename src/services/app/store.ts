@@ -1,14 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../features/authentication/loginSlice";
 import registerReducer from "../features/authentication/registerSlice";
-// import resetReducer from "../features/reset/resetSlice";
+import resetReducer from "../features/authentication/resetSlice";
 import forgetReducer from "../features/authentication/forgotSlice";
+import authToastReducer from "../features/authentication/toastSlice";
 const store = configureStore({
   reducer: {
     user: userReducer,
     register: registerReducer,
-    // reset: resetReducer,
+    reset: resetReducer,
     forget: forgetReducer,
+    authToast: authToastReducer,
   },
 });
 
