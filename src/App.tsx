@@ -21,14 +21,13 @@ import { useEffect } from "react";
 import { useAppDispatch } from "./services/app/hooks";
 import { fetchAccess } from "./services/features/authentication/refreshSlice";
 import axios from "axios";
+import { fetchworkspace } from "./services/features/workspace/workspaceSlice";
+import { AXIOS } from "./config/axios.config";
 const App = () => {
   const dispatch = useAppDispatch();
   //reHydration on state change:
   useEffect(() => {
-    axios
-      .get("https://quera.iran.liara.run/workspaces/", {
-        headers: { Authorization: `Bearer ${localStorage.access}` },
-      })
+    AXIOS.get("workspaces/")
       .then(() => console.log("no error"))
       .catch((error) =>
         error.message === "Request failed with status code 401"
@@ -38,6 +37,9 @@ const App = () => {
           : null
       );
   }, []);
+  // useEffect(() => {
+  //   dispatch(fetchworkspace());
+  // }, []);
   return (
     <BrowserRouter>
       <Routes>

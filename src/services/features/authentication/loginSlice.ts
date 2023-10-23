@@ -44,6 +44,7 @@ const userSlice = createSlice({
       state.access = action.payload.access;
       state.refresh = action.payload.refresh;
       state.error = "";
+      console.log(action.payload.username);
     });
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.loading = false;
