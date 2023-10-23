@@ -1,7 +1,7 @@
 import React from "react";
 interface modalButtonProps{
-    title:string;
-    buttonClick:() => void;
+    title?:string;
+    buttonClick?:() => void;
 }
 
 const ModalButton: React.FC<modalButtonProps> = ({ title,buttonClick}) => {

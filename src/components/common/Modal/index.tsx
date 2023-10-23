@@ -11,8 +11,8 @@ interface modalProps{
     height:string
     backButton:boolean;
     buttonTitle:string;
-    buttonClick:() => void;
-    handleBack:() => void;
+    buttonClick?:() => void;
+    handleBack?:() => void;
     activeModal:number;
     hasButton:boolean;
 }

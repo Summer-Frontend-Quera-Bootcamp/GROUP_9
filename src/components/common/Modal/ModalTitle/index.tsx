@@ -5,7 +5,7 @@ interface modalTitleProps{
     title:string;
     backButton:boolean;
     onClose: ()  => void;
-    handleBack:() => void;
+    handleBack?:() => void;
 }
 const ModalTitle: React.FC<modalTitleProps> = ({title,backButton, onClose, handleBack}) => {
 
@@ -14,7 +14,7 @@ const ModalTitle: React.FC<modalTitleProps> = ({title,backButton, onClose, handl
             <button className={"w-[24px] h-[24px] text-HeadingM"} onClick={onClose}>
                 {PrimaryModalCloseButtonIcon}
             </button>
-            <div className={"font-IranYekan800 text-HeadingS text-center  gap-xl"}>
+            <div className={"font-IranYekan800 text-HeadingS text-center qgap-xl"}>
                 {title}
             </div>
             {!backButton && <div className={"w-[24px] h-[24px]"}> </div>}

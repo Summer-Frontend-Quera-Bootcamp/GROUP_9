@@ -20,9 +20,9 @@ const InfoModal: React.FC<modalProps> = ({ isOpen, onClose, workSpaceName,color,
                     <div> نام ورک‌اسپیس </div>
                     <div> {workSpaceName} </div>
                 </div>
-                <div className={"w-[429px] h-[34px] flex flex-row justify-between"}>
+                <div className={"w-[429px] h-[34px] flex flex-row justify-between items-center"}>
                     <div> رنگ ورک‌اسپیس </div>
-                    <div className={`w-[15px] h-[15px] rounded-[2px] bg-${color}-Primary`}> </div>
+                    <div className={`w-[15px] h-[15px] rounded-[2px] ${color}`}> </div>
                 </div>
                 <div className={"w-[429px] h-[34px] flex flex-row justify-between"}>
                     <div> اعضا </div>
