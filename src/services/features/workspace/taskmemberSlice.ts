@@ -71,11 +71,11 @@ const taskmemberSlice = createSlice({
       console.log("new tasks members",state)
     });
     builder.addCase(deletetaskmember.fulfilled, (state, action) => {
-      // state.forEach((space,index)=>{
-      //   if(space.id == action.payload.id){
-      //     state.splice(index,1);
-      //   }
-      // })
+      state.forEach((space,index)=>{
+        if(space.user.id == action.payload.id){
+          state.splice(index,1);
+        }
+      })
       console.log("delete task members",state)
     });
   },
