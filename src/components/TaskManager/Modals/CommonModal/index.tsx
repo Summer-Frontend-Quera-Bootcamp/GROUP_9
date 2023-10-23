@@ -21,6 +21,7 @@ interface IModalProps extends React.PropsWithChildren {
   visibility?: "visible" | "invisible";
   padding?: "p-m" | "p-[20px]";
   rounded?: "rounded-[8px]" | "rounded-[12px]";
+  gap?: "gap-xl" | "gap-[20px]";
 }
 
 const Modal: React.FC<IModalProps> = ({
@@ -29,6 +30,7 @@ const Modal: React.FC<IModalProps> = ({
   visibility = "invisible",
   padding = "p-m",
   rounded = "rounded-[8px]",
+  gap= "gap-xl",
   children,
 }): JSX.Element => {
   return (
@@ -36,7 +38,7 @@ const Modal: React.FC<IModalProps> = ({
       className={`${visibility} fixed top-0 left-0 w-screen h-screen bg-ModalBG flex justify-center items-center z-30`}
     >
       <div
-        className={`relative w-[500px] ${padding} ${rounded} bg-White flex flex-col gap-xl justify-center items-center`}
+        className={`relative w-[500px] ${padding} ${rounded} bg-White flex flex-col ${gap} justify-center items-center`}
       >
         <header className="w-full flex justify-between items-center">
           <div className="p-[2px] rounded-[4px] hover:bg-Gray-Secondary cursor-pointer">
