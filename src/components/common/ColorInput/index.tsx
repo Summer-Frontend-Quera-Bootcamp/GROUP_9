@@ -13,7 +13,7 @@ const ColorInput: React.FC<colorInputProps> = ({colors,height,hasNoColor,selecte
 {
     return(
         <div className={`flex w-full h-[${height}] gap-[10px] flex-wrap items-center`}>
-            {hasNoColor && <button onClick={() => onColorButtonClick("Gray")} className={"w-[15px] h-[15px]"}>
+            {hasNoColor && <button onClick={() => onColorButtonClick("bg-Gray-Primary")} className={"w-[15px] h-[15px]"}>
                 {NoColorIcon}
             </button>}
             {colors?.map(color => {
