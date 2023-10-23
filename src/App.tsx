@@ -17,8 +17,27 @@ import WorkspacesPage from "./pages/TaskManager/Workspaces";
 
 // <======== Hooks ========> //
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
+import { useEffect } from "react";
+import { useAppDispatch } from "./services/app/hooks";
+import { fetchAccess } from "./services/features/authentication/refreshSlice";
+import axios from "axios";
 const App = () => {
+  const dispatch = useAppDispatch();
+  //reHydration on state change:
+  useEffect(() => {
+    axios
+      .get("https://quera.iran.liara.run/workspaces/", {
+        headers: { Authorization: `Bearer ${localStorage.access}` },
+      })
+      .then(() => console.log("no error"))
+      .catch((error) =>
+        error.message === "Request failed with status code 401"
+          ? dispatch(
+              fetchAccess({ refresh: String(localStorage.getItem("refresh")) })
+            )
+          : null
+      );
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

@@ -11,6 +11,7 @@ import { forgetPassword } from "../../../services/features/authentication/forgot
 import store from "../../../services/app/store";
 import { showToast } from "../../../services/features/authentication/toastSlice";
 import { useDispatch } from "react-redux";
+//import { fetchAccess } from "../../../services/features/authentication/refreshSlice";
 const ForgetPassword = () => {
   const dispatch = useAppDispatch();
   const Dispatch = useDispatch();
@@ -20,11 +21,12 @@ const ForgetPassword = () => {
   };
 
   const handleSubmit = () => {
+    //dispatch(fetchAccess({ refresh: String(localStorage.getItem("refresh")) }));
     dispatch(forgetPassword({ email }))
       .then((response) => {
         console.log(response);
-        console.log(store.getState().user.access);
-        console.log(store.getState().user.refresh);
+        console.log(localStorage.access);
+        console.log(localStorage.refresh);
         store.getState().forget.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("")), 3000))
