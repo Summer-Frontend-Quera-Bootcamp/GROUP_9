@@ -1,4 +1,5 @@
 import axios from "axios";
+import {AXIOS} from '../../../config/axios.config'
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { act } from "react-dom/test-utils";
 
@@ -13,10 +14,8 @@ const initialState: InitialState[] = [];
 export const fetchworkspace = createAsyncThunk(
   "workspace/fetchworkspace",
   () => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .get("https://quera.iran.liara.run/workspaces/")
+    return AXIOS
+      .get("workspaces/")
       .then((response) => response.data)
   }
 );
@@ -24,10 +23,8 @@ export const fetchworkspace = createAsyncThunk(
 export const newworkspace = createAsyncThunk<any,any>(
   "workspace/new",
   (workspace:{name:string,color:string} , { rejectWithValue }) => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .post("https://quera.iran.liara.run/workspaces/", {
+    return AXIOS
+      .post("workspaces/", {
         name:workspace.name,
         color:workspace.color
       })
@@ -39,10 +36,9 @@ export const newworkspace = createAsyncThunk<any,any>(
 export const editworkspace = createAsyncThunk<any,any>(
   "workspace/edit",
   (workspace:{id:number,name:string,color:string} , { rejectWithValue }) => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .patch(`https://quera.iran.liara.run/workspaces/${workspace.id}/`, {
+
+    return AXIOS
+      .patch(`workspaces/${workspace.id}/`, {
         name:workspace.name,
         color:workspace.color
       })
@@ -55,10 +51,8 @@ export const editworkspace = createAsyncThunk<any,any>(
 export const deleteworkspace = createAsyncThunk<any,any>(
   "workspace/delete",
   (workspace:{id:number} , { rejectWithValue }) => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .delete(`https://quera.iran.liara.run/workspaces/${workspace.id}/`)
+    return AXIOS
+      .delete(`workspaces/${workspace.id}/`)
       .then((response) => response.data)
       .catch((error) => rejectWithValue(error.response.data.detail));
   }

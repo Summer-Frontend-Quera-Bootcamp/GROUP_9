@@ -1,6 +1,6 @@
 import axios from "axios"
 
 export const AXIOS = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://quera.iran.liara.run/",
     timeout: 20000
 })

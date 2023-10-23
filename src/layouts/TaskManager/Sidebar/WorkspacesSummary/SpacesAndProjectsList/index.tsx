@@ -22,18 +22,9 @@ interface ISpacesAndProjectsListProps {
 const SpacesAndProjectsList: React.FC<ISpacesAndProjectsListProps> = ({
   SpacesList,
 }): JSX.Element => {
-  const dispatch=useDispatch();
-  const projects = useSelector((state)=>(state.projects));
-  const workspace = useSelector(state=>state.Workspaces);
   return (
     <dl className="h-full flex flex-col gap-s overflow-scroll">
       {SpacesList?.map((space)=> {
-        dispatch(editworkspace({id:space.id,name:"ahmad",color:"red"}));
-        dispatch(fetchworkspace);
-        console.log(workspace)
-        // dispatch(newproject({id:space.id,name:"hello ladf"}))
-        // dispatch(fetchprojects(space.id));
-        // console.log("+++++++++++++++++++",space.id,projects)
         return (
           <>
             <WorkspaceElement workspace={space}/>

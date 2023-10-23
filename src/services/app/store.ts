@@ -7,6 +7,11 @@ import authToastReducer from "../features/authentication/toastSlice";
 import workSpaceReducer from '../features/workspace/workspaceSlice';
 import projectReducer from '../features/workspace/projectsSlice'
 import refreshReducer from "../features/authentication/refreshSlice";
+import taskReducer from '../features/workspace/taskSlice';
+import boardReducer from '../features/workspace/boardSlice';
+import taskmemberReducer from '../features/workspace/taskmemberSlice';
+import taskcommentReducer from '../features/workspace/taskcommentSlice';
+import tasklogsReducer from '../features/workspace/tasklogSlice'
 // const listenerMiddleware = createListenerMiddleware();
 // listenerMiddleware.startListening({
 //   predicate: (action, currState, prevState) =>
@@ -42,6 +47,11 @@ const store = configureStore({
     workspace: workSpaceReducer,
     project: projectReducer,
     refresh: refreshReducer,
+    task:taskReducer,
+    board:boardReducer,
+    taskmember:taskmemberReducer,
+    taskcommente:taskcommentReducer,
+    tasklog:tasklogsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(localStorageMiddleware),
