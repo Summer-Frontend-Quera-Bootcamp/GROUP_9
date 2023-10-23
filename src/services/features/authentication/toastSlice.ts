@@ -10,7 +10,6 @@ const toastSlice = createSlice({
   reducers: {
     showToast: (state, value) => {
       state.text = value.payload;
-      console.log(state.text);
     },
     hideToast: (state) => {
       state.text = "";
