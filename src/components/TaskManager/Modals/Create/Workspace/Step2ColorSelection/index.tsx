@@ -12,6 +12,7 @@ import ColorInput from "../../../../../common/ColorInput";
 // <======== Hooks ========> //
 import { useState } from "react";
 
+
 const NewSpaceModalColorSelection: React.FC = (): JSX.Element => {
   const [divColor, setDivColor] = useState<string | undefined>("bg-[#7D828C]");
   const pullColor = (color: string) => {
@@ -20,7 +21,11 @@ const NewSpaceModalColorSelection: React.FC = (): JSX.Element => {
   };
   const color = ColorList.get("Brand");
   return (
-    <Modal title="ساختن ورک‌اسپیس جدید" visibility="visible">
+    <Modal
+      title="انتخاب رنگ ورک‌اسپیس"
+      visibility="invisible"
+      isBackButton={true}
+    >
       <main className="w-full flex flex-col justify-center items-center gap-xl">
         <div className="w-full flex gap-s justify-start items-start">
           <div
