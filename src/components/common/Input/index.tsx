@@ -37,7 +37,8 @@ interface IInputProps {
     | "firstName"
     | "lastName"
     | "phone"
-    | "confirmPassword";
+    | "confirmPassword"
+    | "newworkspacename";
   hook: UseFormRegister<FormData>;
   error: FieldErrors<FormData>;
   //adding handler

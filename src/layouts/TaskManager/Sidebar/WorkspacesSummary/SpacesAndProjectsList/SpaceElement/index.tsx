@@ -8,12 +8,13 @@ import { Workspaces } from "../../../../../../interfaces";
 
 // <======== Constants ========> //
 import { ColorList } from "../../../../../../constants/ColorList";
+import { InitialState } from "../../../../../../services/features/workspace/workspaceSlice";
 
 // <======== Hooks ========> //
 
 
 interface IWorkspaceElementProps {
-  workspace: Workspaces;
+  workspace: InitialState;
 }
 
 const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
@@ -26,7 +27,7 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
       <div
         className={`w-[20px] h-[20px] ${color?.bgPrimary} rounded-[4px]`}
       ></div>
-      <p className="ml-auto font-IranYekan500 text-BodyM">{workspace.title}</p>
+      <p className="ml-auto font-IranYekan500 text-BodyM">{workspace.name}</p>
       <SpaceMoreButton/>
     </dt>
   );

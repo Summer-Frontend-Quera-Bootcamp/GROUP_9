@@ -26,7 +26,13 @@ export const registerUsers = createAsyncThunk(
         password: userData.password,
       })
       .then((response) => response.data)
-      .catch((error) => rejectWithValue(error.response.data.detail));
+      .catch((error) =>
+        rejectWithValue(
+          JSON.parse(error.response.request.response).username
+            ? JSON.parse(error.response.request.response).username[0]
+            : JSON.parse(error.response.request.response).email[0]
+        )
+      );
   }
 );
 
@@ -46,7 +52,7 @@ const registerSlice = createSlice({
     builder.addCase(registerUsers.rejected, (state, action) => {
       state.loading = false;
       state.success = "";
-      state.error = action.error.message || "Something went wrong";
+      state.error = String(action.payload) || "Something went wrong";
     });
   },
 });

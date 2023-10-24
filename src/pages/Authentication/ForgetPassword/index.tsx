@@ -8,24 +8,32 @@ import AuthenticationForm from "../../../components/Athentication/Form";
 import React, { useState } from "react";
 import { useAppDispatch } from "../../../services/app/hooks";
 import { forgetPassword } from "../../../services/features/authentication/forgotSlice";
-
+import store from "../../../services/app/store";
+import { showToast } from "../../../services/features/authentication/toastSlice";
+import { useDispatch } from "react-redux";
+//import { fetchAccess } from "../../../services/features/authentication/refreshSlice";
 const ForgetPassword = () => {
   const dispatch = useAppDispatch();
+  const Dispatch = useDispatch();
   const [email, setEmail] = useState("");
-
-  const [error, setError] = useState("");
-
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
   const handleSubmit = () => {
+    //dispatch(fetchAccess({ refresh: String(localStorage.getItem("refresh")) }));
     dispatch(forgetPassword({ email }))
       .then((response) => {
         console.log(response);
+        console.log(localStorage.access);
+        console.log(localStorage.refresh);
+        store.getState().forget.error
+          ? (Dispatch(showToast(response.payload)),
+            setTimeout(() => Dispatch(showToast("")), 3000))
+          : null;
       })
       .catch((error) => {
-        setError(error.message || "Something went wrong");
+        console.log(error);
       });
   };
   return (

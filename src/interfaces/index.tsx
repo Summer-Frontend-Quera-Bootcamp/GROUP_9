@@ -14,8 +14,10 @@ export interface Members {
     | "Green"
     | "Lime"
     | "Yellow"
-    | "Orange";
-  userImage?: string;
+    | "Orange"
+    | string;
+  userImage?: string | null;
+  userEmail?: string;
 }
 
 export interface Labels {
