@@ -14,4 +14,6 @@ export type FormData = {
 
   projectName?: string;
   workspaceName?: string;
+
+  newworkspacename?:string;
 };

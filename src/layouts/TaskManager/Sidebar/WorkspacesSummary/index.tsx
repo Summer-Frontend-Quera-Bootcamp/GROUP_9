@@ -23,7 +23,12 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
   const workspace = useSelector((state)=>(state.workspace))
   useEffect(()=>{
       dispatch(fetchworkspace);
-  },[])
+  },[]);
+
+  const handleclick = ()=>{
+    
+  }
+
   console.log("here in side bar : ",workspace )
   return (
     <>
@@ -40,7 +45,7 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
           <SearchBox placeholder="جستجو کنید" backgroundColor="[#F6F7F9]" />
         </div>
         <div className="w-full dlHeight mt-s flex flex-col gap-s overflow-hidden">
-          <button className="w-full h-[36px] bg-[#D3D3D3] rounded-[6px] font-IranYekan400 text-BodyXS flex justify-center items-center gap-[4px]">
+          <button onClick={()=>handleclick()} className="w-full h-[36px] bg-[#D3D3D3] rounded-[6px] font-IranYekan400 text-BodyXS flex justify-center items-center gap-[4px]">
             {WorkSpacePlusButtonIcon}
             ساختن اسپیس جدید
           </button>

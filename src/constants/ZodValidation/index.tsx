@@ -5,6 +5,8 @@ import { FormData } from "../../interfaces/FormData";
 import { ZodType, z } from "zod";
 
 export const schema: ZodType<FormData> = z.object({
+  newworkspacename:z
+  .string().min(5,"hey bro "),
   userName: z
     .string()
     .min(5, "نام‌کاربری نمی‌تواند کمتر از 5 حرف باشد!")

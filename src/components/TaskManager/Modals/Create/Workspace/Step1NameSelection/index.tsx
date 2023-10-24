@@ -12,15 +12,15 @@ import { ColorList } from "../../../../../../constants/ColorList";
 import { schema } from "../../../../../../constants/ZodValidation";
 
 // <======== Hooks ========> //
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 
 const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
   const color = ColorList.get("Brand");
 
-  const handleSpaceNameChange = () => {
-    null;
+  const handleSpaceNameChange = (event) => {
+    console.log(event.target.value);
   };
 
   const {
@@ -29,23 +29,23 @@ const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
     formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const submitData = (data: FormData) => {
-    console.log(data);
-  };
+  const submitData:SubmitHandler<FormData> = (data) => {console.log(data)}
 
   return (
-    <Modal title="ساختن ورک‌اسپیس جدید" gap="gap-[20px]" visibility="invisible">
+    <Modal title="ساختن ورک‌اسپیس جدید" gap="gap-[20px]" visibility="visible">
       <main className="w-full">
-        <form className="w-full flex flex-col gap-xl" onSubmit={handleSubmit(submitData)}>
+        <form className="w-full flex flex-col gap-xl" onSubmit={(data)=>{
+          data.preventDefault()
+          console.log(data.target)}}>
           <Input
             type="text"
-            name="workspaceName"
+            name="newworkspacename"
             label="نام ورک‌اسپیس"
             hook={register}
             error={errors}
             handler={handleSpaceNameChange}
           />
-          <button
+          <button type="submit"
             className={`w-full h-xl p-[10px] rounded-[6px] ${color?.bgPrimary} ${color?.hover} font-IranYekan800 text-[14px] text-White flex justify-center items-center`}
           >
             ادامه

@@ -28,7 +28,7 @@ const SpacesAndProjectsList: React.FC<ISpacesAndProjectsListProps> = ({
         return (
           <>
             <WorkspaceElement workspace={space}/>
-            {projects?.length ? (
+            {/* {projects?.length ? (
 
                 projects?.map((project) => {
                     return (
@@ -39,7 +39,7 @@ const SpacesAndProjectsList: React.FC<ISpacesAndProjectsListProps> = ({
                 <button className="w-full min-h-[36px] border-[2px] border-Brand-Primary rounded-[8px] font-IranYekan400 text-BodyS text-Brand-Primary flex justify-center items-center hover:bg-Brand-Primary hover:text-White">
                   ساختن پروژه جدید
                 </button>
-            )}
+            )} */}
           </>
         );
       })}
