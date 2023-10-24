@@ -14,7 +14,8 @@ import taskcommentReducer from "../features/workspace/taskcommentSlice";
 import tasklogsReducer from "../features/workspace/tasklogSlice";
 import subscription from "../features/workspace/subscriptionSlice";
 import workspacemembersReducer from "../features/workspace/workspacemembersSlice";
-import workspacemodalReducer from '../features/workspace/workspacemodalSlice'
+import workspacemodalReducer from "../features/workspace/workspacemodalSlice";
+import projectModalReducer from "../features/modals/createProjectSlice";
 // const listenerMiddleware = createListenerMiddleware();
 // listenerMiddleware.startListening({
 //   predicate: (action, currState, prevState) =>
@@ -60,7 +61,8 @@ const store = configureStore({
     tasklog: tasklogsReducer,
     subscription: subscription,
     workspacemembers: workspacemembersReducer,
-    workspacemodal:workspacemodalReducer,
+    workspacemodal: workspacemodalReducer,
+    projectModal: projectModalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(localStorageMiddleware),

@@ -12,13 +12,12 @@ import { InitialState } from "../../../../../../services/features/workspace/work
 
 // <======== Hooks ========> //
 
-
 interface IWorkspaceElementProps {
   workspace: InitialState;
 }
 
 const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
-  const color = ColorList.get(workspace.color)
+  const color = ColorList.get(workspace.color);
   return (
     <dt
       key={workspace.id}
@@ -28,7 +27,7 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
         className={`w-[20px] h-[20px] ${color?.bgPrimary} rounded-[4px]`}
       ></div>
       <p className="ml-auto font-IranYekan500 text-BodyM">{workspace.name}</p>
-      <SpaceMoreButton/>
+      <SpaceMoreButton id={workspace.id} />
     </dt>
   );
 };

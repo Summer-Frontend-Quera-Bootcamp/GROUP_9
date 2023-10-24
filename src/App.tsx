@@ -20,15 +20,13 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAppDispatch } from "./services/app/hooks";
 import { fetchAccess } from "./services/features/authentication/refreshSlice";
-import axios from "axios";
-import { fetchworkspace } from "./services/features/workspace/workspaceSlice";
 import { AXIOS } from "./config/axios.config";
 const App = () => {
   const dispatch = useAppDispatch();
   //reHydration on state change:
   useEffect(() => {
     AXIOS.get("workspaces/")
-      .then(() => console.log("no error"))
+      //.then(() => console.log("no error"))
       .catch((error) =>
         error.message === "Request failed with status code 401"
           ? dispatch(
@@ -37,9 +35,6 @@ const App = () => {
           : null
       );
   }, []);
-  // useEffect(() => {
-  //   dispatch(fetchworkspace());
-  // }, []);
   return (
     <BrowserRouter>
       <Routes>
