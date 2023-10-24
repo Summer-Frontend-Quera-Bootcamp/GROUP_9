@@ -183,3 +183,15 @@ thead {
 th {
   border: none !important;
 }
+
+.fc .fc-highlight:first-child {
+  background: #4bece2;
+  border-radius: 4px;
+}
+.fc .fc-highlight {
+  background: red;
+}
+.fc .fc-highlight:last-child {
+  background: #4bece2;
+  border-radius: 4px;
+}
