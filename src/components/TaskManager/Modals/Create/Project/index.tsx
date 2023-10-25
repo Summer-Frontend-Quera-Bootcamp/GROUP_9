@@ -29,7 +29,7 @@ const NewProjectModal: React.FC = (): JSX.Element => {
   const handleProjectNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
-  const projects = useSelector(state=>state.project)
+  const projects = useSelector((state: any) => state.project);
   const visibility = useSelector((state: any) => state.projectModal.visibility);
   console.log(store.getState().projectModal.visibility);
   const {
@@ -43,12 +43,19 @@ const NewProjectModal: React.FC = (): JSX.Element => {
   };
   const handleCreate = () => {
     //
-    Dispatch(newproject({ id:store.getState().projectModal.id , name: name }));
+    Dispatch(newproject({ id: store.getState().projectModal.id, name: name }));
     dispatch(calledOff());
   };
-
+  const handleClose = () => {
+    dispatch(calledOff());
+  };
   return (
-    <Modal title="ساختن پروژه جدید" gap="gap-[20px]" visibility={visibility}>
+    <Modal
+      close={handleClose}
+      title="ساختن پروژه جدید"
+      gap="gap-[20px]"
+      visibility={visibility}
+    >
       <main className="w-full">
         <form
           className="w-full flex flex-col gap-xl"
