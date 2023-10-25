@@ -40,7 +40,7 @@ const Login: React.FC = (): JSX.Element => {
         store.getState().user.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("error")), 3000))
-          : navigate("/taskmanager/ListView");
+          : navigate("/taskmanager");
       })
       .catch((error) => {
         console.log(error);
