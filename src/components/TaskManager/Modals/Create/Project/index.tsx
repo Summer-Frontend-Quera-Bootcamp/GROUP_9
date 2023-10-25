@@ -29,6 +29,7 @@ const NewProjectModal: React.FC = (): JSX.Element => {
   const handleProjectNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
+  const projects = useSelector(state=>state.project)
   const visibility = useSelector((state: any) => state.projectModal.visibility);
   console.log(store.getState().projectModal.visibility);
   const {
@@ -41,7 +42,8 @@ const NewProjectModal: React.FC = (): JSX.Element => {
     console.log(data);
   };
   const handleCreate = () => {
-    Dispatch(newproject({ id: store.getState().projectModal.id, name: name }));
+    //
+    Dispatch(newproject({ id:store.getState().projectModal.id , name: name }));
     dispatch(calledOff());
   };
   return (
