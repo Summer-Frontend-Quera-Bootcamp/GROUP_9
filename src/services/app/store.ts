@@ -16,6 +16,7 @@ import subscription from "../features/workspace/subscriptionSlice";
 import workspacemembersReducer from "../features/workspace/workspacemembersSlice";
 import workspacemodalReducer from "../features/workspace/workspacemodalSlice";
 import projectModalReducer from "../features/modals/createProjectSlice";
+import taskmodalReducer from '../features/workspace/taskmodalSlice'
 // const listenerMiddleware = createListenerMiddleware();
 // listenerMiddleware.startListening({
 //   predicate: (action, currState, prevState) =>
@@ -63,6 +64,7 @@ const store = configureStore({
     workspacemembers: workspacemembersReducer,
     workspacemodal: workspacemodalReducer,
     projectModal: projectModalReducer,
+    taskmodal:taskmodalReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(localStorageMiddleware),

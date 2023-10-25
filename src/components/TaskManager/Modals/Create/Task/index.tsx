@@ -1,16 +1,21 @@
 import { useState } from "react";
-import AvatarDotted from "../../Information/Task/AvatarDotted";
+import AvatarDotted from "../../../../../assets/Icons/TaskManager/Modals/Task/Information/AvatarDotted";
 import PriorityModal from "./PriorityModal";
 import TagModal from "./TagModal";
 import { GrayRectangle } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/Rectangle";
 import { SecondaryModalCloseButtonIcon } from "../../../../../assets/Icons/CommonComponents/Modal/ModalCloseButton";
 import { UploadFileIcon } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/UploadFile";
+import { useSelector } from "react-redux";
 
-const NewProject = () => {
-  const [priorityShow, setPriorityShow] = useState(false);
-  const [tagShow, setTagShow] = useState(false);
+const Newtaskmodal = () => {
+  const display= useSelector(state=>state.taskmodal.firstmodal);
+  
+  const [priorityShow, setPriorityShow] = useState(true);
+  const [tagShow, setTagShow] = useState(true);
+  console.log("display is :",display);
   return (
-    <div className="w-[1153px] h-auto p-l m-auto shadow-NewProjectModal rounded-[20px]">
+    
+    <div className={`w-[1153px] h-auto p-l m-auto visible shadow-NewProjectModal rounded-[20px]`}>
       <div className="w-full h-auto mb-xl flex justify-between items-cente">
         <div className="flex items-center">
           <div className="ml-[13px]">{GrayRectangle}</div>
@@ -80,4 +85,4 @@ const NewProject = () => {
   );
 };
 
-export default NewProject;
+export default Newtaskmodal;

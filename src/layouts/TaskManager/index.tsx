@@ -2,6 +2,7 @@
 
 // <======== Component-Import ========> //
 import NewProjectModal from "../../components/TaskManager/Modals/Create/Project";
+import Newtaskmodal from "../../components/TaskManager/Modals/Create/Task";
 import NewSpaceModalNameSelection from "../../components/TaskManager/Modals/Create/Workspace/Step1NameSelection";
 import NewSpaceModalColorSelection from "../../components/TaskManager/Modals/Create/Workspace/Step2ColorSelection";
 import NewSpaceModalReview from "../../components/TaskManager/Modals/Create/Workspace/Step3Review";
@@ -18,6 +19,7 @@ const TaskManager: React.FC = (): JSX.Element => {
       <NewSpaceModalNameSelection/>
       <NewSpaceModalColorSelection/>
       <NewSpaceModalReview/>
+      <Newtaskmodal/>
       {/* ============ Main-Body ============ */}
       <Sidebar />
       <Outlet />
