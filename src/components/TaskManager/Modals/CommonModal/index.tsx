@@ -6,7 +6,6 @@ import { PrimaryModalCloseButtonIcon } from "../../../../assets/Icons/CommonComp
 
 // <======== Constants ========> //
 
-
 interface IModalProps extends React.PropsWithChildren {
   title:
     | "ساختن پروژه جدید"
@@ -30,7 +29,7 @@ const Modal: React.FC<IModalProps> = ({
   visibility = "invisible",
   padding = "p-m",
   rounded = "rounded-[8px]",
-  gap= "gap-xl",
+  gap = "gap-xl",
   children,
 }): JSX.Element => {
   return (
