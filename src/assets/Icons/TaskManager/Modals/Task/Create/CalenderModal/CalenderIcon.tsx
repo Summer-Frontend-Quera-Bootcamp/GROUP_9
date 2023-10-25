@@ -1,4 +1,4 @@
-export const CalendeComponentrIcon = (
+export const CalenderComponentIcon = (
   <svg
     width="30"
     height="30"
