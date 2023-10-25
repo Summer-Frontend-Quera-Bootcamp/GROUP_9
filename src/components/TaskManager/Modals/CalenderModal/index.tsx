@@ -38,8 +38,8 @@ const CalenderModal: React.FC<CalenderProps> = ({
 
   return show ? (
     <>
-      <div className="m-auto p-[20px] w-[936px] h-[632px] fixed mr-[180px] z-50 shadow-calendar rounded-[20px] bg-White">
-        <div className="flex justify-start items-center gap-[18.75rem] mb-[30px] ">
+      <div className="m-auto p-[20px] w-[1000px] h-[632px] fixed mr-[180px] z-50 shadow-calendar rounded-[20px] bg-White">
+        <div className="flex justify-start items-center gap-[18.75rem] mb-[30px] ml-[100px]">
           <span className="flex items-center justify-center gap-xs">
             {CalenderStartTimeIcon}
             <h2 className="font-IranYekan500 text-Black text-HeadingS">
@@ -126,7 +126,7 @@ const CalenderModal: React.FC<CalenderProps> = ({
               </p>
             </div>
           </div>
-          <div className="w-[689px]">
+          <div className="w-[689px] mr-xl">
             <FullCalendar
               plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
               initialView="dayGridMonth"

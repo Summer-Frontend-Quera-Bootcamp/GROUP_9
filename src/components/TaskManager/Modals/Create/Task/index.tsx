@@ -9,6 +9,10 @@ import { UploadFileIcon } from "../../../../../assets/Icons/TaskManager/Modals/T
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../../../services/app/hooks";
 import CalenderModal from "../../CalenderModal";
+import {
+  hidefirstasktmodal,
+  showfirstasktmodal,
+} from "../../../../../services/features/workspace/taskmodalSlice";
 
 const Newtaskmodal = () => {
   const display = useSelector((state) => state.taskmodal.firstmodal);
@@ -21,6 +25,11 @@ const Newtaskmodal = () => {
   //   console.log("clicked");
   //   dispatch(showtagmodal());
   // };
+
+  const handleclick = () => {
+    console.log("clicked");
+    dispatch(hidefirstasktmodal());
+  };
   return (
     <div
       className={`w-[1153px] h-auto relative bg-White p-l m-auto shadow-NewProjectModal rounded-[20px] ${display} z-40`}
@@ -33,10 +42,7 @@ const Newtaskmodal = () => {
             عنوان تسک
           </div>
         </div>
-        <div
-          className="hover:cursor-pointer"
-          onClick={() => setPriorityShow(!priorityShow)}
-        >
+        <div className="hover:cursor-pointer" onClick={handleclick}>
           {SecondaryModalCloseButtonIcon}
         </div>
       </div>

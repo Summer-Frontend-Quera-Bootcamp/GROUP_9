@@ -29,6 +29,7 @@ const initialState:InitialState={
     members: '',
     created_at: "",
     firstmodal:"hidden",
+
     tagmodal:"hidden",
     prioritymodal:"hidden",
     calendermodal:"hidden",
@@ -41,6 +42,9 @@ const taskmodalSlice = createSlice({
   reducers: {
     showfirstasktmodal:(state)=>{
       state.firstmodal="visible";
+    },
+    hidefirstasktmodal:(state)=>{
+      state.firstmodal="hidden";
     },
     // showtagmodal: (state)=>{
     //   state.firstmodal="hidden"
@@ -57,4 +61,4 @@ const taskmodalSlice = createSlice({
 });
 
 export default taskmodalSlice.reducer;
-export const { showfirstasktmodal } = taskmodalSlice.actions;
+export const { showfirstasktmodal, hidefirstasktmodal } = taskmodalSlice.actions;
