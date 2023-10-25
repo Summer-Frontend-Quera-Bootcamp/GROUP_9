@@ -65,7 +65,7 @@ const Input: React.FC<IInputProps> = ({
         type={type}
         {...hook(name)}
         id={name}
-        className="w-full h-[40px] p-[5px] rounded-[6px] bg-inherite border border-[#AAA]"
+        className="w-full h-[40px] p-[5px] rounded-[6px] bg-inherite border border-[#AAA] font-IranYekan500 text-BodyS"
         onChange={handler}
       />
       {error[name] && (

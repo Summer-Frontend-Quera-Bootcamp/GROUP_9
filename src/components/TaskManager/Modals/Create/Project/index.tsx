@@ -16,16 +16,18 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useDispatch } from "react-redux";
-import {
-  calledOff,
-  textAdded,
-} from "../../../../../services/features/modals/createProjectSlice";
-import store from "../../../../../services/app/store";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../../../services/app/hooks";
+
+// <======== Store ========> //
+import store from "../../../../../services/app/store";
+// <======== Slices ========> //
 import { newproject } from "../../../../../services/features/workspace/projectsSlice";
+// <======== Features ========> //
+import { calledOff, textAdded } from "../../../../../services/features/modals/createProjectSlice";
+
+
 const NewProjectModal: React.FC = (): JSX.Element => {
-  const color = ColorList.get("Brand");
   const dispatch = useDispatch();
   const Dispatch = useAppDispatch();
   const [name, setName] = useState("");
@@ -43,7 +45,6 @@ const NewProjectModal: React.FC = (): JSX.Element => {
     console.log(data);
   };
   const handleCreate = () => {
-    //
     Dispatch(newproject({ id: store.getState().projectModal.id, name: name }));
     dispatch(calledOff());
     dispatch(textAdded(name));
@@ -51,6 +52,7 @@ const NewProjectModal: React.FC = (): JSX.Element => {
   const handleClose = () => {
     dispatch(calledOff());
   };
+  const color = ColorList.get("Brand");
   return (
     <Modal
       close={handleClose}
