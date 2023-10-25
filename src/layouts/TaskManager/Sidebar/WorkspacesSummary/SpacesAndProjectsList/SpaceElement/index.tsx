@@ -26,13 +26,21 @@ interface IWorkspaceElementProps {
 }
 
 const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
-  const color = ColorList.get(workspace.color);
+  const [color, setColor] = useState<any>();
   const [projects, setProjects] = useState([]);
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(fetchprojects(workspace.id)).then((res) =>
       setProjects(res.payload)
     );
+
+    setColor(
+      workspace.color === "Green"
+        ? ColorList.get("Green")
+        : ColorList.get("Blue")
+    );
+    console.log(workspace.color);
   }, []);
   const Dispatch = useDispatch();
   const handleClick = () => {
