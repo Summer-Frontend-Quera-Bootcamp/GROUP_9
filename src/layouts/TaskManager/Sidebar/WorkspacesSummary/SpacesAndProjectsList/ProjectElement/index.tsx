@@ -8,9 +8,10 @@ import { Projects } from "../../../../../../interfaces/TaskManager/index";
 
 // <======== Hooks ========> //
 import { useState } from "react";
+import {InitialState} from '../../../../../../services/features/workspace/projectsSlice'
 
 interface IProjectElementProps {
-  project: Projects;
+  project: InitialState;
 }
 
 const ProjectElement: React.FC<IProjectElementProps> = ({

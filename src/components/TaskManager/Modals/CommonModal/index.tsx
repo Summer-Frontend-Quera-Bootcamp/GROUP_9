@@ -16,6 +16,8 @@ interface IModalProps extends React.PropsWithChildren {
     | "به اشتراک‌گذاری تسک"
     | "به اشتراک‌گذاری ورک‌اسپیس";
   isBackButton?: boolean;
+  handleclick?:()=>void;
+  close?:()=>void;
   //Classes
   visibility?: "visible" | "invisible";
   padding?: "p-m" | "p-[20px]";
@@ -29,7 +31,9 @@ const Modal: React.FC<IModalProps> = ({
   visibility = "invisible",
   padding = "p-m",
   rounded = "rounded-[8px]",
-  gap = "gap-xl",
+  gap= "gap-xl",
+  handleclick,
+  close,
   children,
 }): JSX.Element => {
   return (
@@ -40,14 +44,14 @@ const Modal: React.FC<IModalProps> = ({
         className={`relative w-[500px] ${padding} ${rounded} bg-White flex flex-col ${gap} justify-center items-center`}
       >
         <header className="w-full flex justify-between items-center">
-          <div className="p-[2px] rounded-[4px] hover:bg-Gray-Secondary cursor-pointer">
+          <div onClick={close} className="p-[2px] rounded-[4px] hover:bg-Gray-Secondary cursor-pointer">
             {PrimaryModalCloseButtonIcon}
           </div>
           <p className="font-IranYekan800 text-[24px] leading-[32px]">
             {title}
           </p>
           {isBackButton ? (
-            <div className="p-[2px] rounded-[4px] hover:bg-Gray-Secondary cursor-pointer">
+            <div onClick={handleclick} className="p-[2px] rounded-[4px] hover:bg-Gray-Secondary cursor-pointer">
               {ModalArrowLeftButtonIcon}
             </div>
           ) : (
