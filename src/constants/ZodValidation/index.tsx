@@ -10,7 +10,7 @@ export const schema: ZodType<FormData> = z.object({
   userName: z
     .string()
     .min(5, "نام‌کاربری نمی‌تواند کمتر از 5 حرف باشد!")
-    .max(20, "نام‌کاربری نمی‌تواند بیشتر از 20 حرف باشد!"),
+    .max(150, "نام‌کاربری نمی‌تواند بیشتر از 20 حرف باشد!"),
   email: z.string().email({message: "ایمیل وارد شده صحیح نمی‌باشد!"}),
   password: z
     .string()
