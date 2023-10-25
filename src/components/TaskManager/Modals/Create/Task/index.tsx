@@ -5,17 +5,23 @@ import TagModal from "./TagModal";
 import { GrayRectangle } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/Rectangle";
 import { SecondaryModalCloseButtonIcon } from "../../../../../assets/Icons/CommonComponents/Modal/ModalCloseButton";
 import { UploadFileIcon } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/UploadFile";
+import { showtagmodal } from "../../../../../services/features/workspace/taskmodalSlice";
 import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../../../../services/app/hooks";
 
 const Newtaskmodal = () => {
   const display = useSelector((state) => state.taskmodal.firstmodal);
-
+  const dispatch = useAppDispatch();
   const [priorityShow, setPriorityShow] = useState(true);
   const [tagShow, setTagShow] = useState(true);
   console.log("display is :", display);
+  const handleclick = () => {
+    console.log("clicked");
+    dispatch(showtagmodal());
+  };
   return (
     <div
-      className={`w-[1153px] h-auto p-l m-auto visible shadow-NewProjectModal rounded-[20px]`}
+      className={`w-[1153px] h-auto bg-White p-l m-auto shadow-NewProjectModal rounded-[20px] ${display} z-50`}
     >
       <div className="w-full h-auto mb-xl flex justify-between items-cente">
         <div className="flex items-center">
@@ -76,7 +82,10 @@ const Newtaskmodal = () => {
             <AvatarDotted iconName="tag" />
           </div>
         </div>
-        <button className="w-[125px] h-l bg-Brand-Primary font-IranYekan400 text-[12px] text-White py-[7px] rounded-[4px]">
+        <button
+          onClick={handleclick}
+          className="w-[125px] h-l bg-Brand-Primary font-IranYekan400 text-[12px] text-White py-[7px] rounded-[4px]"
+        >
           ساختن تسک
         </button>
       </div>
