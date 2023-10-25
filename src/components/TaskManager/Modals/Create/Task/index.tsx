@@ -5,24 +5,27 @@ import TagModal from "./TagModal";
 import { GrayRectangle } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/Rectangle";
 import { SecondaryModalCloseButtonIcon } from "../../../../../assets/Icons/CommonComponents/Modal/ModalCloseButton";
 import { UploadFileIcon } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/UploadFile";
-import { showtagmodal } from "../../../../../services/features/workspace/taskmodalSlice";
+// import { showtagmodal } from "../../../../../services/features/workspace/taskmodalSlice";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../../../services/app/hooks";
+import CalenderModal from "../../CalenderModal";
 
 const Newtaskmodal = () => {
   const display = useSelector((state) => state.taskmodal.firstmodal);
   const dispatch = useAppDispatch();
-  const [priorityShow, setPriorityShow] = useState(true);
-  const [tagShow, setTagShow] = useState(true);
+  const [priorityShow, setPriorityShow] = useState(false);
+  const [tagShow, setTagShow] = useState(false);
+  const [calenderShow, setCalenderShow] = useState(false);
   console.log("display is :", display);
-  const handleclick = () => {
-    console.log("clicked");
-    dispatch(showtagmodal());
-  };
+  // const handleclick = () => {
+  //   console.log("clicked");
+  //   dispatch(showtagmodal());
+  // };
   return (
     <div
-      className={`w-[1153px] h-auto bg-White p-l m-auto shadow-NewProjectModal rounded-[20px] ${display} z-50`}
+      className={`w-[1153px] h-auto relative bg-White p-l m-auto shadow-NewProjectModal rounded-[20px] ${display} z-40`}
     >
+      <CalenderModal show={calenderShow} />
       <div className="w-full h-auto mb-xl flex justify-between items-cente">
         <div className="flex items-center">
           <div className="ml-[13px]">{GrayRectangle}</div>
@@ -30,7 +33,10 @@ const Newtaskmodal = () => {
             عنوان تسک
           </div>
         </div>
-        <div className="hover:cursor-pointer">
+        <div
+          className="hover:cursor-pointer"
+          onClick={() => setPriorityShow(!priorityShow)}
+        >
           {SecondaryModalCloseButtonIcon}
         </div>
       </div>
@@ -72,7 +78,10 @@ const Newtaskmodal = () => {
           >
             <AvatarDotted iconName="priority" />
           </div>
-          <div className="w-[50px] h-[50px]">
+          <div
+            className="w-[50px] h-[50px]"
+            onClick={() => setCalenderShow(!calenderShow)}
+          >
             <AvatarDotted iconName="calender" />
           </div>
           <div
@@ -82,13 +91,11 @@ const Newtaskmodal = () => {
             <AvatarDotted iconName="tag" />
           </div>
         </div>
-        <button
-          onClick={handleclick}
-          className="w-[125px] h-l bg-Brand-Primary font-IranYekan400 text-[12px] text-White py-[7px] rounded-[4px]"
-        >
+        <button className="w-[125px] h-l bg-Brand-Primary font-IranYekan400 text-[12px] text-White py-[7px] rounded-[4px]">
           ساختن تسک
         </button>
       </div>
+
       <PriorityModal show={priorityShow} />
       <TagModal show={tagShow} />
     </div>

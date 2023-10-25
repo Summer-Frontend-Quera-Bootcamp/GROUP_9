@@ -13,6 +13,7 @@ export type InitialState = {
     firstmodal:"hidden"|"visible",
     tagmodal:"hidden"|"visible",
     prioritymodal:"hidden"|'visible',
+    calendermodal:"hidden"|'visible',
     submit:false
 
 };
@@ -30,6 +31,7 @@ const initialState:InitialState={
     firstmodal:"hidden",
     tagmodal:"hidden",
     prioritymodal:"hidden",
+    calendermodal:"hidden",
     submit:false
 }
 
@@ -40,10 +42,10 @@ const taskmodalSlice = createSlice({
     showfirstasktmodal:(state)=>{
       state.firstmodal="visible";
     },
-    showtagmodal: (state)=>{
-      state.firstmodal="hidden"
-      state.tagmodal="visible"
-    }
+    // showtagmodal: (state)=>{
+    //   state.firstmodal="hidden"
+    //   state.tagmodal="visible"
+    // }
     // stepoen: (state, action) => {
     //   state.name = action.payload;
     //   state.modalone="invisible",
@@ -55,4 +57,4 @@ const taskmodalSlice = createSlice({
 });
 
 export default taskmodalSlice.reducer;
-export const { showfirstasktmodal, showtagmodal } = taskmodalSlice.actions;
+export const { showfirstasktmodal } = taskmodalSlice.actions;
