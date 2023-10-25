@@ -13,6 +13,11 @@ import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../../../../services/app/hooks";
 import { fetchprojects } from "../../../../../../services/features/workspace/projectsSlice";
 import ProjectElement from "../ProjectElement";
+import { useDispatch } from "react-redux";
+import {
+  called,
+  setId,
+} from "../../../../../../services/features/modals/createProjectSlice";
 
 // <======== Hooks ========> //
 
@@ -29,6 +34,11 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
       setProjects(res.payload)
     );
   }, []);
+  const Dispatch = useDispatch();
+  const handleClick = () => {
+    Dispatch(setId(workspace.id));
+    Dispatch(called());
+  };
   return (
     <>
       <dt
@@ -47,7 +57,10 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
           })
         : null}
 
-      <button className="w-full min-h-[36px] border-[2px] border-Brand-Primary rounded-[8px] font-IranYekan400 text-BodyS text-Brand-Primary flex justify-center items-center hover:bg-Brand-Primary hover:text-White">
+      <button
+        onClick={handleClick}
+        className="w-full min-h-[36px] border-[2px] border-Brand-Primary rounded-[8px] font-IranYekan400 text-BodyS text-Brand-Primary flex justify-center items-center hover:bg-Brand-Primary hover:text-White"
+      >
         ساختن پروژه جدید
       </button>
     </>
