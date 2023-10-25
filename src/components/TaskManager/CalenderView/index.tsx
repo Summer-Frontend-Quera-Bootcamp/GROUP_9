@@ -133,6 +133,26 @@ import "./index.css";
 interface CalenderViewProps {}
 
 const CalenderView: React.FC<CalenderViewProps> = () => {
+  const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
+  const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
+
+  const handleDateRangeSelect = (dateInfo: DateRangeInput) => {
+    const startDate = new Date(dateInfo.startStr);
+    const endDate = new Date(dateInfo.endStr);
+
+    setSelectedStartDate(startDate);
+    setSelectedEndDate(endDate);
+  };
+
+  let startDay = selectedStartDate?.toLocaleString("fa", {
+    day: "numeric",
+    month: "long",
+  });
+  let endDay = selectedEndDate?.toLocaleString("fa", {
+    day: "numeric",
+    month: "long",
+  });
+
   return (
     <div className="w-3/4 ml-m float-left pl-[27px] mt-[100px] overflow-y-scroll overflow-x-hidden">
       <FullCalendar
@@ -143,7 +163,19 @@ const CalenderView: React.FC<CalenderViewProps> = () => {
         contentHeight={"700px"}
         firstDay={6}
         selectable={true}
+        selectAllow={(info) => {
+          return info.start < info.end;
+        }}
+        select={handleDateRangeSelect}
       />
+      <div>
+        {selectedStartDate && selectedEndDate && (
+          <>
+            <p>زمان شروع: {startDay}</p>
+            <p>زمان پایان: {endDay}</p>
+          </>
+        )}
+      </div>
     </div>
   );
 };
