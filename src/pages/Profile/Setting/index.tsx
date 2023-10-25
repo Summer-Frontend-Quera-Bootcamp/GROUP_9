@@ -1,10 +1,16 @@
+import { useState } from "react";
 import ColorInput from "../../../components/common/ColorInput";
 import { ColorList } from "../../../constants/ColorList";
 import ProfilePage from "../../../layouts/Profile";
 
 const Setting = () => {
-  const pullColor = (color: string) => {
-    console.log(color);
+  const [selected, setSelected] = useState("Brand");
+  const pullColor = (Color: string) => {
+    console.log(Color);
+    setSelected(Color);
+  };
+  const handleSubmit = () => {
+    localStorage.setItem("theme", selected);
   };
   const color = ColorList.get("Brand");
   return (
@@ -21,6 +27,7 @@ const Setting = () => {
             </div>
           </div>
           <button
+            onClick={handleSubmit}
             className={`w-full py-xs px-s rounded-[6px] ${color?.bgPrimary} font-IranYekan800 text-[14px] text-White flex justify-center items-center cursor-pointer`}
           >
             ثبت تغییرات
