@@ -7,7 +7,7 @@ import ProfileSidebar from "./Sidebar";
 
 interface IProfileProps extends React.PropsWithChildren {}
 
-const Profile: React.FC<IProfileProps> = ({ children }): JSX.Element => {
+const ProfilePage: React.FC<IProfileProps> = ({ children }): JSX.Element => {
   return (
     <>
       <ProfileSidebar />
@@ -18,4 +18,4 @@ const Profile: React.FC<IProfileProps> = ({ children }): JSX.Element => {
   );
 };
 
-export default Profile;
+export default ProfilePage;

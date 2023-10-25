@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { ColorList } from "../../../constants/ColorList";
-import Profile from "../../../layouts/Profile";
+import ProfilePage from "../../../layouts/Profile";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schema } from "../../../constants/ZodValidation";
 import Input from "../../../components/common/Input";
@@ -19,7 +19,7 @@ const UserInformation = () => {
 
   const color = ColorList.get("Brand");
   return (
-    <Profile>
+    <ProfilePage>
       <>
         <header>
           <h2 className="font-IranYekan700 text-[31px]">اطلاعات حساب</h2>
@@ -72,9 +72,9 @@ const UserInformation = () => {
               ثبت تغییرات
             </button>
           </form>
-        </main>{" "}
+        </main>
       </>
-    </Profile>
+    </ProfilePage>
   );
 };
 

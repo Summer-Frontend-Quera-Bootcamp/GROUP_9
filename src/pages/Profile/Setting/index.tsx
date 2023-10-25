@@ -1,6 +1,6 @@
 import ColorInput from "../../../components/common/ColorInput";
 import { ColorList } from "../../../constants/ColorList";
-import Profile from "../../../layouts/Profile";
+import ProfilePage from "../../../layouts/Profile";
 
 const Setting = () => {
   const pullColor = (color: string) => {
@@ -8,7 +8,7 @@ const Setting = () => {
   };
   const color = ColorList.get("Brand");
   return (
-    <Profile>
+    <ProfilePage>
       <>
         <header>
           <h2 className="font-IranYekan700 text-[31px]">تنظیمات</h2>
@@ -27,7 +27,7 @@ const Setting = () => {
           </button>
         </main>
       </>
-    </Profile>
+    </ProfilePage>
   );
 };
 
