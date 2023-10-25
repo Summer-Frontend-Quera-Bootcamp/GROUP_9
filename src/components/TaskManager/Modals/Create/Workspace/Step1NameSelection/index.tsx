@@ -12,15 +12,27 @@ import { ColorList } from "../../../../../../constants/ColorList";
 import { schema } from "../../../../../../constants/ZodValidation";
 
 // <======== Hooks ========> //
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import { useState } from "react";
+import { useAppDispatch } from "../../../../../../services/app/hooks";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  closemodal,
+  stepoen,
+} from "../../../../../../services/features/workspace/workspacemodalSlice";
 
 const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
   const color = ColorList.get("Brand");
+  const dispatch = useDispatch();
+  const Dispatch = useAppDispatch();
+  const visible = useSelector((state) => state.workspacemodal.modalone);
+  //console.log("hey : ", visible);
+  const workname = useSelector((state) => state.workspacemodal.name);
+  const [name, setName] = useState("");
 
-  const handleSpaceNameChange = () => {
-    null;
+  const handleSpaceNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   };
 
   const {
@@ -30,22 +42,40 @@ const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const submitData = (data: FormData) => {
-    console.log(data);
+    console.log("data is : ", data);
+  };
+
+  const handleCreate = () => {
+    dispatch(stepoen(name));
+    //console.log(workname);
+  };
+
+  const handleclose = () => {
+    dispatch(closemodal());
   };
 
   return (
-    <Modal title="ساختن ورک‌اسپیس جدید" gap="gap-[20px]" visibility="invisible">
+    <Modal
+      title="ساختن ورک‌اسپیس جدید"
+      gap="gap-[20px]"
+      visibility={visible}
+      close={() => handleclose()}
+    >
       <main className="w-full">
-        <form className="w-full flex flex-col gap-xl" onSubmit={handleSubmit(submitData)}>
+        <form
+          className="w-full flex flex-col gap-xl"
+          onSubmit={handleSubmit(submitData)}
+        >
           <Input
             type="text"
-            name="workspaceName"
+            name="newworkspacename"
             label="نام ورک‌اسپیس"
             hook={register}
             error={errors}
             handler={handleSpaceNameChange}
           />
           <button
+            onClick={handleCreate}
             className={`w-full h-xl p-[10px] rounded-[6px] ${color?.bgPrimary} ${color?.hover} font-IranYekan800 text-[14px] text-White flex justify-center items-center`}
           >
             ادامه

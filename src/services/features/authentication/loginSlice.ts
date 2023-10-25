@@ -4,12 +4,16 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 type InitialState = {
   loading: boolean;
   success: any;
+  access: string;
+  refresh: string;
   error: string;
 };
 
 const initialState: InitialState = {
   loading: false,
   success: "",
+  access: "",
+  refresh: "",
   error: "",
 };
 
@@ -37,12 +41,16 @@ const userSlice = createSlice({
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
       state.loading = false;
       state.success = action.payload;
+      state.access = action.payload.access;
+      state.refresh = action.payload.refresh;
       state.error = "";
+      console.log(action.payload.username);
     });
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.loading = false;
       state.success = "";
-      state.error = action.error.message || "Something went wrong";
+      state.access = "";
+      state.error = String(action.payload) || "Something went wrong";
     });
   },
 });

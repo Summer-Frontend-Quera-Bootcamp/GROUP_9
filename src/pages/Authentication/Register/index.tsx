@@ -8,13 +8,15 @@ import AuthenticationForm from "../../../components/Athentication/Form";
 import React, { useState } from "react";
 import { registerUsers } from "../../../services/features/authentication/registerSlice";
 import { useAppDispatch } from "../../../services/app/hooks";
-
+import store from "../../../services/app/store";
+import { useDispatch } from "react-redux";
+import { showToast } from "../../../services/features/authentication/toastSlice";
 const Register = () => {
   const dispatch = useAppDispatch();
+  const Dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -32,9 +34,13 @@ const Register = () => {
     dispatch(registerUsers({ username, email, password }))
       .then((response) => {
         console.log(response);
+        store.getState().register.error
+          ? (Dispatch(showToast(response.payload)),
+            setTimeout(() => Dispatch(showToast("")), 3000))
+          : null;
       })
       .catch((error) => {
-        setError(error.message || "Something went wrong");
+        console.log(error);
       });
   };
   return (

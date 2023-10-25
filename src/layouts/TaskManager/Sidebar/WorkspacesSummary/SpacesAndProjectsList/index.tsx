@@ -6,13 +6,18 @@ import ProjectElement from "./ProjectElement";
 
 // <======== Interfaces ========> //
 import { Workspaces } from "../../../../../interfaces";
+import {
+  InitialState,
+  editworkspace,
+  fetchworkspace,
+} from "../../../../../services/features/workspace/workspaceSlice";
 
 // <======== Constants ========> //
 
 // <======== Hooks ========> //
 
 interface ISpacesAndProjectsListProps {
-  SpacesList: Workspaces[];
+  SpacesList: InitialState[];
 }
 
 const SpacesAndProjectsList: React.FC<ISpacesAndProjectsListProps> = ({
@@ -23,18 +28,7 @@ const SpacesAndProjectsList: React.FC<ISpacesAndProjectsListProps> = ({
       {SpacesList?.map((space) => {
         return (
           <>
-            <WorkspaceElement workspace={space}/>
-            {space.projects?.length ? (
-                space.projects?.map((project) => {
-                    return (
-                        <ProjectElement project={project}/>
-                    )
-                })
-            ) : (
-                <button className="w-full min-h-[36px] border-[2px] border-Brand-Primary rounded-[8px] font-IranYekan400 text-BodyS text-Brand-Primary flex justify-center items-center hover:bg-Brand-Primary hover:text-White">
-                  ساختن پروژه جدید
-                </button>
-            )}
+            <WorkspaceElement workspace={space} />
           </>
         );
       })}

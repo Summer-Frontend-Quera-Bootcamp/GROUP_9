@@ -8,13 +8,28 @@ import { WorkSpacePlusButtonIcon } from "../../../../assets/Icons/TaskManager/La
 import SearchBox from "../../../../components/common/SearchBox";
 import SpacesAndProjectsList from "./SpacesAndProjectsList";
 
+import { useEffect, useState } from "react";
+import { fetchworkspace } from "../../../../services/features/workspace/workspaceSlice";
+import { useAppDispatch } from "../../../../services/app/hooks";
+import { showfirstmodal } from "../../../../services/features/workspace/workspacemodalSlice";
+import { useSelector } from "react-redux";
+
 // <======== Constants ========> //
-import { workspaces } from "../../../../constants";
+// import { workspaces } from "../../../../constants";
 
 // <======== Hooks ========> //
 
-
 const WorkSpacesSummary: React.FC = (): JSX.Element => {
+  const workspaceslist = useSelector((state: any) => state.workspace);
+  const dispatch = useAppDispatch();
+  const [workspaces, setWorkspaces] = useState([]);
+  useEffect(() => {
+    dispatch(fetchworkspace()).then((e) => setWorkspaces(e.payload));
+  }, [workspaceslist]);
+
+  const handleClick = () => {
+    dispatch(showfirstmodal());
+  };
   return (
     <>
       <div className="absolute top-[2px] left-[0px]">
@@ -30,11 +45,16 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
           <SearchBox placeholder="جستجو کنید" backgroundColor="[#F6F7F9]" />
         </div>
         <div className="w-full dlHeight mt-s flex flex-col gap-s overflow-hidden">
-          <button className="w-full h-[36px] bg-[#D3D3D3] rounded-[6px] font-IranYekan400 text-BodyXS flex justify-center items-center gap-[4px]">
+          <button
+            onClick={handleClick}
+            className="w-full h-[36px] bg-[#D3D3D3] rounded-[6px] font-IranYekan400 text-BodyXS flex justify-center items-center gap-[4px]"
+          >
             {WorkSpacePlusButtonIcon}
             ساختن اسپیس جدید
           </button>
-          <SpacesAndProjectsList SpacesList={workspaces}/>
+          <SpacesAndProjectsList
+            SpacesList={workspaces.sort((a: any, b: any) => a.id - b.id)}
+          />
         </div>
       </details>
     </>

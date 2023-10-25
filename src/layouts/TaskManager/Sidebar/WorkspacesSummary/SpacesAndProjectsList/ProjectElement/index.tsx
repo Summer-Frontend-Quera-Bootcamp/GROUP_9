@@ -4,14 +4,14 @@
 import ProjectMoreButton from "./MoreButton";
 
 // <======== Interfaces ========> //
-import { Projects } from "../../../../../../interfaces";
+import { Projects } from "../../../../../../interfaces/TaskManager/index";
 
 // <======== Hooks ========> //
 import { useState } from "react";
-
+import {InitialState} from '../../../../../../services/features/workspace/projectsSlice'
 
 interface IProjectElementProps {
-  project: Projects;
+  project: InitialState;
 }
 
 const ProjectElement: React.FC<IProjectElementProps> = ({
@@ -37,7 +37,7 @@ const ProjectElement: React.FC<IProjectElementProps> = ({
       onMouseOut={handleMouseOut}
     >
       <p className="ml-auto font-IranYekan500 text-BodyM cursor-pointer">
-        {project.title}
+        {project.name}
       </p>
       {moreButton}
     </dd>

@@ -9,12 +9,17 @@ import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { fetchUsers } from "../../../services/features/authentication/loginSlice";
 import { useAppDispatch } from "../../../services/app/hooks";
-
+import { showToast } from "../../../services/features/authentication/toastSlice";
+import { useDispatch } from "react-redux";
+import store from "../../../services/app/store";
+import { useNavigate } from "react-router-dom";
+import { AXIOS } from "../../../config/axios.config";
 const Login: React.FC = (): JSX.Element => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const Dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
   };
@@ -26,10 +31,19 @@ const Login: React.FC = (): JSX.Element => {
   const handleSubmit = () => {
     dispatch(fetchUsers({ username, password }))
       .then((response) => {
-        console.log(response);
+        // console.log(response);
+        const access = store.getState().user.access;
+        const refresh = store.getState().user.refresh;
+        console.log("access is : ", access);
+        console.log("refresh is :", refresh);
+        AXIOS.defaults.headers.common.Authorization = `Bearer ${access}`;
+        store.getState().user.error
+          ? (Dispatch(showToast(response.payload)),
+            setTimeout(() => Dispatch(showToast("error")), 3000))
+          : navigate("/taskmanager/ListView");
       })
       .catch((error) => {
-        setError(error.message || "Something went wrong");
+        console.log(error);
       });
   };
   return (

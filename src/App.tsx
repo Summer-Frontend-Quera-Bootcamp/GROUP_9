@@ -19,9 +19,29 @@ import UserInformation from "./pages/Profile/PersonalInfo";
 
 // <======== Hooks ========> //
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+<<<<<<< HEAD
 import Setting from "./pages/Profile/Setting";
 
+=======
+import { useEffect } from "react";
+import { useAppDispatch } from "./services/app/hooks";
+import { fetchAccess } from "./services/features/authentication/refreshSlice";
+import { AXIOS } from "./config/axios.config";
+>>>>>>> mahdi3
 const App = () => {
+  const dispatch = useAppDispatch();
+  //reHydration on state change:
+  useEffect(() => {
+    AXIOS.get("workspaces/")
+      //.then(() => console.log("no error"))
+      .catch((error) =>
+        error.message === "Request failed with status code 401"
+          ? dispatch(
+              fetchAccess({ refresh: String(localStorage.getItem("refresh")) })
+            )
+          : null
+      );
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

@@ -9,17 +9,41 @@ import Profile from "../../../../../common/MembersCard/Profile";
 // <======== Constants ========> //
 import { ColorList } from "../../../../../../constants/ColorList";
 import { workspaces } from "../../../../../../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch } from "../../../../../../services/app/hooks";
+import { closemodal, reset, showsecondmodal } from "../../../../../../services/features/workspace/workspacemodalSlice";
+import { fetchworkspace, newworkspace } from "../../../../../../services/features/workspace/workspaceSlice";
 
 // <======== Hooks ========> //
 
 
 const NewSpaceModalReview: React.FC = (): JSX.Element => {
+  const dispatch = useDispatch();
+  const Dispatch = useAppDispatch();
+  const workspace = useSelector(state=>state.workspace);
+  const visible = useSelector(state=>state.workspacemodal.modalthree);
   const color = ColorList.get("Brand");
-  const workspaceName = "تیم طراحی";
-  const workspaceColor = ColorList.get("Lime");
+  const workspaceName =useSelector(state=>state.workspacemodal.name);
+  const workspaceColor = useSelector(state=>state.workspacemodal.color);
   const member = workspaces[0].members[0];
+
+  const handleCreate=()=>{
+    dispatch(newworkspace({name:workspaceName,color:workspaceColor}));
+    dispatch(fetchworkspace());
+    dispatch(closemodal());
+    console.log("workspace is : ",workspace)
+}
+
+const handleback=()=>{
+  dispatch(showsecondmodal());
+}
+
+const handleclose=()=>{
+  dispatch(closemodal());
+}
+
   return (
-    <Modal title="مرور اطلاعات" visibility="invisible" isBackButton={true}>
+    <Modal title="مرور اطلاعات" visibility={visible} isBackButton={true} handleclick={()=>handleback()} close={()=>handleclose()}>
       <main className="w-full flex flex-col justify-center items-center gap-xl">
         <div className="w-full px-[12px] py-s border-[0.5px] border-[#AAA] rounded-[8px] flex flex-col gap-s justify-center items-start">
           <div className="w-full h-[34px] flex justify-between items-center">
@@ -29,7 +53,7 @@ const NewSpaceModalReview: React.FC = (): JSX.Element => {
           <div className="w-full h-[34px] flex justify-between items-center">
             <p className="font-IranYekan800 text-[14px]">رنگ ورک‌اسپیس</p>
             <div
-              className={`w-[15px] h-[15px] rounded-[2px] ${workspaceColor?.bgPrimary}`}
+              className={`w-[15px] h-[15px] rounded-[2px] ${workspaceColor}`}
             ></div>
           </div>
           <div className="w-full h-[34px] flex justify-between items-center">
@@ -38,6 +62,7 @@ const NewSpaceModalReview: React.FC = (): JSX.Element => {
           </div>
         </div>
         <button
+          onClick={handleCreate}
           className={`w-full h-xl p-[10px] rounded-[6px] ${color?.bgPrimary} ${color?.hover} font-IranYekan800 text-[14px] text-White flex justify-center items-center`}
         >
           ساختن ورک‌اسپیس

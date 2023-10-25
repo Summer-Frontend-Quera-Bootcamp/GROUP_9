@@ -6,16 +6,17 @@ import WorkspaceMoreModal from "./Modal";
 
 // <======== Hooks ========> //
 import { useState } from "react";
-
-
-const SpaceMoreButton = () => {
+interface IProps {
+  id: number;
+}
+const SpaceMoreButton = ({ id }: IProps) => {
   const [content, setContent] = useState(<>{MoreButtonIcon}</>);
 
   const handleMouseOver = () => {
     setContent(
       <>
         {MoreButtonIcon}
-        <WorkspaceMoreModal />
+        <WorkspaceMoreModal id={id} />
       </>
     );
   };
