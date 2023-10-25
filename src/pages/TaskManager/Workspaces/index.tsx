@@ -10,13 +10,15 @@ import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../services/app/hooks";
 import { fetchworkspace } from "../../../services/features/workspace/workspaceSlice";
 import { Workspaces } from "../../../interfaces/TaskManager";
+import { useSelector } from "react-redux";
 
 const WorkspacesPage = () => {
   const dispatch = useAppDispatch();
+  const workspaceslist = useSelector((state: any) => state.workspace);
   const [workspaces, setWorkspaces] = useState<Workspaces[]>([]);
   useEffect(() => {
     dispatch(fetchworkspace()).then((e) => setWorkspaces(e.payload));
-  }, []);
+  }, [workspaceslist]);
   return (
     <div className="WHWorkspaces fixed right-[340px] py-[64px] pr-l overflow-x-hidden overflow-y-scroll">
       {workspaces?.map((item: Workspaces) => (

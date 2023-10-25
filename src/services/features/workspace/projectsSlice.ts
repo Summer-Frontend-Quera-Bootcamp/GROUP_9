@@ -71,11 +71,11 @@ const projectSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchprojects.fulfilled, (state, action) => {
       state = action.payload;
-      console.log("get projects",state)
+      //console.log("get projects",state)
     });
     builder.addCase(newproject.fulfilled, (state, action) => {
       state.push(action.payload);
-      console.log("new projects", state);
+      //console.log("new projects", state);
     });
     builder.addCase(editproject.fulfilled, (state, action) => {
       state.forEach((space, index) => {
@@ -83,7 +83,7 @@ const projectSlice = createSlice({
           state.splice(index, 1);
         }
       });
-      console.log("edit projects", state);
+      //console.log("edit projects", state);
     });
     builder.addCase(deleteproject.fulfilled, (state, action) => {
       state.forEach((space, index) => {
@@ -91,7 +91,7 @@ const projectSlice = createSlice({
           state.splice(index, 1);
         }
       });
-      console.log("delete projects", state);
+      //console.log("delete projects", state);
     });
   },
 });

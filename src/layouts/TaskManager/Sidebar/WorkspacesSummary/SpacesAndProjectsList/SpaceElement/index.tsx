@@ -13,6 +13,11 @@ import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../../../../services/app/hooks";
 import { fetchprojects } from "../../../../../../services/features/workspace/projectsSlice";
 import ProjectElement from "../ProjectElement";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  called,
+  setId,
+} from "../../../../../../services/features/modals/createProjectSlice";
 
 // <======== Hooks ========> //
 
@@ -21,14 +26,25 @@ interface IWorkspaceElementProps {
 }
 
 const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
-  const color = ColorList.get(workspace.color);
+  const [color, setColor] = useState<any>();
   const [projects, setProjects] = useState([]);
   const dispatch = useAppDispatch();
+  const projectsChange = useSelector((state: any) => state.projectModal.text);
   useEffect(() => {
     dispatch(fetchprojects(workspace.id)).then((res) =>
       setProjects(res.payload)
     );
-  }, []);
+    setColor(
+      workspace.color === "Green"
+        ? ColorList.get("Green")
+        : ColorList.get("Blue")
+    );
+  }, [projectsChange]);
+  const Dispatch = useDispatch();
+  const handleClick = () => {
+    Dispatch(setId(workspace.id));
+    Dispatch(called());
+  };
   return (
     <>
       <dt
@@ -47,7 +63,10 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
           })
         : null}
 
-      <button className="w-full min-h-[36px] border-[2px] border-Brand-Primary rounded-[8px] font-IranYekan400 text-BodyS text-Brand-Primary flex justify-center items-center hover:bg-Brand-Primary hover:text-White">
+      <button
+        onClick={handleClick}
+        className="w-full min-h-[36px] border-[2px] border-Brand-Primary rounded-[8px] font-IranYekan400 text-BodyS text-Brand-Primary flex justify-center items-center hover:bg-Brand-Primary hover:text-White"
+      >
         ساختن پروژه جدید
       </button>
     </>

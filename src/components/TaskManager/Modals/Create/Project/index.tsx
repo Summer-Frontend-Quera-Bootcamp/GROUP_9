@@ -16,7 +16,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useDispatch } from "react-redux";
-import { calledOff } from "../../../../../services/features/modals/createProjectSlice";
+import {
+  calledOff,
+  textAdded,
+} from "../../../../../services/features/modals/createProjectSlice";
 import store from "../../../../../services/app/store";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../../../services/app/hooks";
@@ -29,9 +32,7 @@ const NewProjectModal: React.FC = (): JSX.Element => {
   const handleProjectNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
-  const projects = useSelector(state=>state.project)
   const visibility = useSelector((state: any) => state.projectModal.visibility);
-  console.log(store.getState().projectModal.visibility);
   const {
     register,
     handleSubmit,
@@ -43,12 +44,20 @@ const NewProjectModal: React.FC = (): JSX.Element => {
   };
   const handleCreate = () => {
     //
-    Dispatch(newproject({ id:store.getState().projectModal.id , name: name }));
+    Dispatch(newproject({ id: store.getState().projectModal.id, name: name }));
+    dispatch(calledOff());
+    dispatch(textAdded(name));
+  };
+  const handleClose = () => {
     dispatch(calledOff());
   };
-
   return (
-    <Modal title="ساختن پروژه جدید" gap="gap-[20px]" visibility={visibility}>
+    <Modal
+      close={handleClose}
+      title="ساختن پروژه جدید"
+      gap="gap-[20px]"
+      visibility={visibility}
+    >
       <main className="w-full">
         <form
           className="w-full flex flex-col gap-xl"
