@@ -17,15 +17,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useAppDispatch } from "../../../../../../services/app/hooks";
 import { useDispatch, useSelector } from "react-redux";
-import { closemodal, stepoen } from "../../../../../../services/features/workspace/workspacemodalSlice";
+import {
+  closemodal,
+  stepoen,
+} from "../../../../../../services/features/workspace/workspacemodalSlice";
 
 const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
   const color = ColorList.get("Brand");
   const dispatch = useDispatch();
   const Dispatch = useAppDispatch();
-  const visible = useSelector(state=>state.workspacemodal.modalone);
-  console.log("hey : ",visible)
-  const workname = useSelector(state=>state.workspacemodal.name)
+  const visible = useSelector((state) => state.workspacemodal.modalone);
+  //console.log("hey : ", visible);
+  const workname = useSelector((state) => state.workspacemodal.name);
   const [name, setName] = useState("");
 
   const handleSpaceNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,21 +41,26 @@ const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
     formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const submitData = (data:FormData) => {
-    console.log("data is : ",data);
+  const submitData = (data: FormData) => {
+    console.log("data is : ", data);
   };
 
-  const handleCreate=()=>{
-      dispatch(stepoen(name));
-      console.log(workname);
-  }
+  const handleCreate = () => {
+    dispatch(stepoen(name));
+    //console.log(workname);
+  };
 
-  const handleclose=()=>{
+  const handleclose = () => {
     dispatch(closemodal());
-  }
-  
+  };
+
   return (
-    <Modal title="ساختن ورک‌اسپیس جدید" gap="gap-[20px]" visibility={visible} close={()=>handleclose()}>
+    <Modal
+      title="ساختن ورک‌اسپیس جدید"
+      gap="gap-[20px]"
+      visibility={visible}
+      close={() => handleclose()}
+    >
       <main className="w-full">
         <form
           className="w-full flex flex-col gap-xl"

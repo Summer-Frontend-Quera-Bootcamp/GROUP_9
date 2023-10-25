@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../../../../../services/app/hooks";
 import { fetchprojects } from "../../../../../../services/features/workspace/projectsSlice";
 import ProjectElement from "../ProjectElement";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   called,
   setId,
@@ -29,19 +29,17 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
   const [color, setColor] = useState<any>();
   const [projects, setProjects] = useState([]);
   const dispatch = useAppDispatch();
-
+  const projectsChange = useSelector((state: any) => state.projectModal.text);
   useEffect(() => {
     dispatch(fetchprojects(workspace.id)).then((res) =>
       setProjects(res.payload)
     );
-
     setColor(
       workspace.color === "Green"
         ? ColorList.get("Green")
         : ColorList.get("Blue")
     );
-    console.log(workspace.color);
-  }, []);
+  }, [projectsChange]);
   const Dispatch = useDispatch();
   const handleClick = () => {
     Dispatch(setId(workspace.id));

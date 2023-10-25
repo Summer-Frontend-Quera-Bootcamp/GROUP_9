@@ -20,16 +20,16 @@ import { useSelector } from "react-redux";
 // <======== Hooks ========> //
 
 const WorkSpacesSummary: React.FC = (): JSX.Element => {
-  const workspaceslist = useSelector(state=>state.workspace);
+  const workspaceslist = useSelector((state: any) => state.workspace);
   const dispatch = useAppDispatch();
   const [workspaces, setWorkspaces] = useState([]);
   useEffect(() => {
     dispatch(fetchworkspace()).then((e) => setWorkspaces(e.payload));
   }, [workspaceslist]);
 
-  const handleClick=()=>{
+  const handleClick = () => {
     dispatch(showfirstmodal());
-  }
+  };
   return (
     <>
       <div className="absolute top-[2px] left-[0px]">
@@ -45,11 +45,16 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
           <SearchBox placeholder="جستجو کنید" backgroundColor="[#F6F7F9]" />
         </div>
         <div className="w-full dlHeight mt-s flex flex-col gap-s overflow-hidden">
-          <button onClick={handleClick} className="w-full h-[36px] bg-[#D3D3D3] rounded-[6px] font-IranYekan400 text-BodyXS flex justify-center items-center gap-[4px]">
+          <button
+            onClick={handleClick}
+            className="w-full h-[36px] bg-[#D3D3D3] rounded-[6px] font-IranYekan400 text-BodyXS flex justify-center items-center gap-[4px]"
+          >
             {WorkSpacePlusButtonIcon}
             ساختن اسپیس جدید
           </button>
-          <SpacesAndProjectsList SpacesList={workspaces.sort((a,b)=>a.id-b.id)} />
+          <SpacesAndProjectsList
+            SpacesList={workspaces.sort((a: any, b: any) => a.id - b.id)}
+          />
         </div>
       </details>
     </>
