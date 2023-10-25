@@ -15,7 +15,7 @@ export const fetchworkspace = createAsyncThunk(
   "workspace/fetchworkspace",
   () => {
     return AXIOS.get("workspaces/").then((response) => {
-      console.log(response.data);
+      //console.log(response.data);
       return response.data;
     });
   }
@@ -64,7 +64,7 @@ const workspaceSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchworkspace.fulfilled, (state, action) => {
       state = action.payload;
-      console.log("get");
+      //console.log("get");
     });
     builder.addCase(newworkspace.fulfilled, (state, action) => {
       state.push(action.payload);

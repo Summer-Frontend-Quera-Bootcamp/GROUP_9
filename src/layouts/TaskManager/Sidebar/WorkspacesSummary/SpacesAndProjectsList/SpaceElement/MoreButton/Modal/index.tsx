@@ -10,16 +10,31 @@ import { ColumnPlusButtonIcon } from "../../../../../../../../assets/Icons/TaskM
 
 // <======== Constants ========> //
 import { ColorList } from "../../../../../../../../constants/ColorList";
+import {
+  called,
+  setId,
+} from "../../../../../../../../services/features/modals/createProjectSlice";
 
 // <======== Hooks ========> //
+import { useDispatch } from "react-redux";
+interface IProps {
+  id: number;
+}
+const WorkspaceMoreModal = ({ id }: IProps) => {
+  const color = ColorList.get("Brand");
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(setId(id));
+    dispatch(called());
+  };
 
-
-const WorkspaceMoreModal = () => {
-  const color = ColorList.get("Brand")
   return (
     <div className="absolute top-[16px] left-[0px] w-[210px] p-[12px] rounded-[8px] shadow-moreModal bg-White flex flex-col gap-s items-start z-20">
       <div className="w-full flex flex-col gap-xs items-start">
-        <div className="w-full h-l pl-[12px] pr-[4px] rounded-[8px] flex gap-xs justify-start items-center hover:bg-[#F0F1F3] cursor-pointer">
+        <div
+          onClick={handleClick}
+          className="w-full h-l pl-[12px] pr-[4px] rounded-[8px] flex gap-xs justify-start items-center hover:bg-[#F0F1F3] cursor-pointer"
+        >
           {ColumnPlusButtonIcon}
           <p className="h-[24px] font-IranYekan400 text-BodyS cursor-pointer">
             ساختن پروژه جدید
@@ -50,7 +65,9 @@ const WorkspaceMoreModal = () => {
           </p>
         </div>
       </div>
-      <button className={`w-full px-[12px] py-[6px] rounded-[6px] ${color?.bgPrimary} ${color?.hover} flex gap-[4px] justify-start items-center`}>
+      <button
+        className={`w-full px-[12px] py-[6px] rounded-[6px] ${color?.bgPrimary} ${color?.hover} flex gap-[4px] justify-start items-center`}
+      >
         {WhiteShareButtonIcon}
         <p className="font-IranYekan400 text-BodyXS text-White cursor-pointer">
           اشتراک‌گذاری

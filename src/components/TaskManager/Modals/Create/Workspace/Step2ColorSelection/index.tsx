@@ -11,20 +11,43 @@ import ColorInput from "../../../../../common/ColorInput";
 
 // <======== Hooks ========> //
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch } from "../../../../../../services/app/hooks";
+import { closemodal, showfirstmodal, steptwo } from "../../../../../../services/features/workspace/workspacemodalSlice";
 
 
 const NewSpaceModalColorSelection: React.FC = (): JSX.Element => {
+  const visible = useSelector(state=>state.workspacemodal.modaltwo);
+  const dispatch = useDispatch();
+  const Dispatch = useAppDispatch();
+  const color_ = useSelector(state=>state.workspacemodal.color);
   const [divColor, setDivColor] = useState<string | undefined>("bg-[#7D828C]");
   const pullColor = (color: string) => {
     setDivColor(ColorList.get(color)?.bgPrimary);
     console.log(divColor);
   };
   const color = ColorList.get("Brand");
+
+  const handleCreate=()=>{
+    dispatch(steptwo(divColor));
+    console.log(color_);
+}
+
+const handleback=()=>{
+  dispatch(showfirstmodal());
+}
+
+const handleclose=()=>{
+  dispatch(closemodal());
+}
+
   return (
     <Modal
       title="انتخاب رنگ ورک‌اسپیس"
-      visibility="invisible"
+      visibility={visible}
       isBackButton={true}
+      handleclick={()=>handleback()}
+      close={()=>handleclose()}
     >
       <main className="w-full flex flex-col justify-center items-center gap-xl">
         <div className="w-full flex gap-s justify-start items-start">
@@ -41,6 +64,7 @@ const NewSpaceModalColorSelection: React.FC = (): JSX.Element => {
           </div>
         </div>
         <button
+        onClick={handleCreate}
           className={`w-full h-xl p-[10px] rounded-[6px] ${color?.bgPrimary} ${color?.hover} font-IranYekan800 text-[14px] text-White flex justify-center items-center`}
         >
           ادامه
