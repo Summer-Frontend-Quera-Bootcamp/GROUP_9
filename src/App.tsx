@@ -20,7 +20,6 @@ import UserInformation from "./pages/Profile/PersonalInfo";
 // <======== Hooks ========> //
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Setting from "./pages/Profile/Setting";
-
 import { useEffect } from "react";
 import { useAppDispatch } from "./services/app/hooks";
 import { fetchAccess } from "./services/features/authentication/refreshSlice";
@@ -57,9 +56,15 @@ const App = () => {
           <Route path="calenderview" element={<CalenderViewPage />} />
         </Route>
         // --------------------- ProfilePage --------------------- //
-        <Route path="/profile/userinformatiton" element={<AccountInformation/>} />
-        <Route path="/profile/accountinformation" element={<UserInformation/>} />
-        <Route path="/profile/setting" element={<Setting/>} />
+        <Route
+          path="/profile/userinformatiton"
+          element={<AccountInformation />}
+        />
+        <Route
+          path="/profile/accountinformation"
+          element={<UserInformation />}
+        />
+        <Route path="/profile/setting" element={<Setting />} />
       </Routes>
     </BrowserRouter>
   );

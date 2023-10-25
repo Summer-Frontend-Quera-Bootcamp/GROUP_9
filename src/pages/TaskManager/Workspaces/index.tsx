@@ -18,7 +18,11 @@ const WorkspacesPage = () => {
   const [workspaces, setWorkspaces] = useState<Workspaces[]>([]);
   useEffect(() => {
     dispatch(fetchworkspace()).then((e) => setWorkspaces(e.payload));
+<<<<<<< HEAD
   }, [workspaceslist]);
+=======
+  }, [, workspaceslist]);
+>>>>>>> khosro4
   return (
     <div className="WHWorkspaces fixed right-[340px] py-[64px] pr-l overflow-x-hidden overflow-y-scroll">
       {workspaces?.map((item: Workspaces) => (

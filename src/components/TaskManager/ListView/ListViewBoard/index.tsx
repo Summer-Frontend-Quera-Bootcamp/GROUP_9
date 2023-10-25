@@ -51,7 +51,13 @@ const ListViewProjectBoard: React.FC<IBoardProps> = ({
       </thead>
       <tbody className="flex flex-col gap-[11px]">
         {board.tasks?.map((task) => {
-          return <ListViewProjectTask task={task} boardColor={board.color} />;
+          return (
+            <ListViewProjectTask
+              key={task.id}
+              task={task}
+              boardColor={board.color}
+            />
+          );
         })}
       </tbody>
     </table>

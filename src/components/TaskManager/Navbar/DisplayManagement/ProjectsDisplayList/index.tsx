@@ -11,7 +11,6 @@ import { NormalListIcon } from "../../../../../assets/Icons/TaskManager/Layout/N
 
 // <======== Hooks ========> //
 
-
 interface IProjectsDisplayProps {
   activePage?: "BoardView" | "ListView" | "CalenderView";
 }
@@ -52,7 +51,7 @@ const ProjectsDisplayList: React.FC<IProjectsDisplayProps> = ({
     <>
       {Pages?.map((item) => {
         return (
-          <Link to={`/taskmanager/${item.name}`}>
+          <Link key={item.title} to={`/taskmanager/${item.name}`}>
             <li className={"flex items-center pl-s gap-[5px] cursor-pointer"}>
               {activePage === item.name ? item.activeIcon : item.normalIcon}
               {activePage === item.name ? item.underline : null}

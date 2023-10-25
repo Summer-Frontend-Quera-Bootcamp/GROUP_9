@@ -10,10 +10,12 @@ import { registerUsers } from "../../../services/features/authentication/registe
 import { useAppDispatch } from "../../../services/app/hooks";
 import store from "../../../services/app/store";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { showToast } from "../../../services/features/authentication/toastSlice";
 const Register = () => {
   const dispatch = useAppDispatch();
   const Dispatch = useDispatch();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,7 +39,7 @@ const Register = () => {
         store.getState().register.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("")), 3000))
-          : null;
+          : navigate("/login");
       })
       .catch((error) => {
         console.log(error);
