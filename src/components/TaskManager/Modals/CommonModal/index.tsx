@@ -6,7 +6,6 @@ import { PrimaryModalCloseButtonIcon } from "../../../../assets/Icons/CommonComp
 
 // <======== Constants ========> //
 
-
 interface IModalProps extends React.PropsWithChildren {
   title:
     | "ساختن پروژه جدید"

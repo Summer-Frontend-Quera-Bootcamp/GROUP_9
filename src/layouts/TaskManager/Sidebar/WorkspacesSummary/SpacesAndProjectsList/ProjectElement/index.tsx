@@ -4,7 +4,7 @@
 import ProjectMoreButton from "./MoreButton";
 
 // <======== Interfaces ========> //
-import { Projects } from "../../../../../../interfaces";
+import { Projects } from "../../../../../../interfaces/TaskManager/index";
 
 // <======== Hooks ========> //
 import { useState } from "react";

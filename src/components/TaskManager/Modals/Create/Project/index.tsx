@@ -46,6 +46,7 @@ const NewProjectModal: React.FC = (): JSX.Element => {
     Dispatch(newproject({ id:store.getState().projectModal.id , name: name }));
     dispatch(calledOff());
   };
+
   return (
     <Modal title="ساختن پروژه جدید" gap="gap-[20px]" visibility={visibility}>
       <main className="w-full">
