@@ -18,6 +18,7 @@ const UserInformation = () => {
   };
 
   const color = ColorList.get("Brand");
+
   return (
     <ProfilePage>
       <>

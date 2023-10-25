@@ -16,6 +16,7 @@ import subscription from "../features/workspace/subscriptionSlice";
 import workspacemembersReducer from "../features/workspace/workspacemembersSlice";
 import workspacemodalReducer from "../features/workspace/workspacemodalSlice";
 import projectModalReducer from "../features/modals/createProjectSlice";
+import profileReducer from "../features/profile/profileSlice";
 // const listenerMiddleware = createListenerMiddleware();
 // listenerMiddleware.startListening({
 //   predicate: (action, currState, prevState) =>
@@ -31,7 +32,8 @@ const localStorageMiddleware = ({ getState }: any) => {
     const result = next(action);
     getState().user.access && getState().user.refresh
       ? (localStorage.setItem("access", getState().user.access),
-        localStorage.setItem("refresh", getState().user.refresh))
+        localStorage.setItem("refresh", getState().user.refresh),
+        localStorage.setItem("id", getState().user.id))
       : getState().refresh.access
       ? localStorage.setItem("access", getState().refresh.access)
       : getState().user.access
@@ -63,6 +65,7 @@ const store = configureStore({
     workspacemembers: workspacemembersReducer,
     workspacemodal: workspacemodalReducer,
     projectModal: projectModalReducer,
+    profile: profileReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(localStorageMiddleware),

@@ -59,7 +59,7 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
       </dt>
       {projects?.length
         ? projects?.map((project) => {
-            return <ProjectElement project={project} />;
+            return <ProjectElement key={project.id} project={project} />;
           })
         : null}
 

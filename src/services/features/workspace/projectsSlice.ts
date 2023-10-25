@@ -1,4 +1,4 @@
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { AXIOS } from "../../../config/axios.config";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
