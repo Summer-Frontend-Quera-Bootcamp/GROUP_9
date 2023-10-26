@@ -94,6 +94,7 @@ const Newtaskmodal = () => {
           })
         })
       }
+      dispatch(hidefirstasktmodal());
     });
       }
 
