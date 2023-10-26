@@ -11,11 +11,13 @@ import { forgetPassword } from "../../../services/features/authentication/forgot
 import store from "../../../services/app/store";
 import { showToast } from "../../../services/features/authentication/toastSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 //import { fetchAccess } from "../../../services/features/authentication/refreshSlice";
 const ForgetPassword = () => {
   const dispatch = useAppDispatch();
   const Dispatch = useDispatch();
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -30,7 +32,7 @@ const ForgetPassword = () => {
         store.getState().forget.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("")), 3000))
-          : null;
+          : navigate("/Success");
       })
       .catch((error) => {
         console.log(error);

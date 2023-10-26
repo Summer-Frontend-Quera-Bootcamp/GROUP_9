@@ -39,7 +39,7 @@ const ResetPassword = () => {
         store.getState().reset.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("")), 3000))
-          : navigate("/Success");
+          : navigate("/Login");
       })
       .catch((error) => {
         console.log(error);
