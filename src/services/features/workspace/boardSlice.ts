@@ -13,8 +13,8 @@ export type InitialState = {
 
 const initialState: InitialState[] = [];
 
-export const fetchboards = createAsyncThunk<any,any>(
-  "board/fetch",
+export const fetchboards = createAsyncThunk(
+  "boards/fetch",
   (board:{workspace_id:number,project_id:number}) => {
     axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
     `
@@ -24,6 +24,16 @@ export const fetchboards = createAsyncThunk<any,any>(
   }
 );
 
+export const fetchboard = createAsyncThunk(
+  "board/fetch",
+  (board:{workspace_id:number,project_id:number,board_id:number}) => {
+    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
+    `
+    return axios
+      .get(`https://quera.iran.liara.run/workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/`)
+      .then((response) => response.data)
+  }
+);
 export const newboard = createAsyncThunk<any,any>(
   "board/new",
   (board:{workspace_id:number,project_id:number,name:string,order:number,is_archive:boolean,color:string} , { rejectWithValue }) => {
@@ -79,6 +89,11 @@ const boardSlice = createSlice({
     builder.addCase(fetchboards.fulfilled, (state, action) => {
       state=action.payload;
       console.log("get boards",state)
+    });
+    builder.addCase(fetchboard.fulfilled, (state, action) => {
+      
+      console.log("get board",action.payload);
+      return action.payload;
     });
     builder.addCase(newboard.fulfilled, (state, action) => {
       state.push(action.payload);

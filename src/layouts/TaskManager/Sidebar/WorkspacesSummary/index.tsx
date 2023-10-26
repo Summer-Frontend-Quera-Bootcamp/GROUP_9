@@ -53,7 +53,7 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
             ساختن اسپیس جدید
           </button>
           <SpacesAndProjectsList
-            SpacesList={workspaces.sort((a: any, b: any) => a.id - b.id)}
+            SpacesList={workspaces.sort((a: any, b: any) => a?.id - b?.id)}
           />
         </div>
       </details>

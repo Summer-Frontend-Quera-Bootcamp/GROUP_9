@@ -18,6 +18,7 @@ import {
   called,
   setId,
 } from "../../../../../../services/features/modals/createProjectSlice";
+import { current_workspace } from "../../../../../../services/features/workspace/currentitemsSlice";
 
 // <======== Hooks ========> //
 
@@ -29,6 +30,7 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
   const [color, setColor] = useState<any>();
   const [projects, setProjects] = useState([]);
   const dispatch = useAppDispatch();
+  const currentspace = useSelector((state:any)=>state.current.workspace_id);
   const projectsChange = useSelector((state: any) => state.projectModal.text);
   useEffect(() => {
     dispatch(fetchprojects(workspace.id)).then((res) =>
@@ -45,11 +47,18 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
     Dispatch(setId(workspace.id));
     Dispatch(called());
   };
+
+  const handleClickonspace=()=>{
+    Dispatch(current_workspace(workspace.id));
+    console.log("current space is : ",currentspace);
+  }
   return (
     <>
       <dt
         key={workspace.id}
-        className="w-full p-[4px] rounded-[4px] flex items-center gap-xs"
+        onClick={handleClickonspace}
+        className={`w-full p-[4px] rounded-[4px] hover:bg-[#e5e7ea] flex items-center gap-xs`}
+        
       >
         <div
           className={`w-[20px] h-[20px] ${color?.bgPrimary} rounded-[4px]`}
@@ -59,7 +68,7 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
       </dt>
       {projects?.length
         ? projects?.map((project) => {
-            return <ProjectElement project={project} />;
+            return <ProjectElement project={project} id={workspace.id} />;
           })
         : null}
 
