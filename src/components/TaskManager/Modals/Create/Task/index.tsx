@@ -67,10 +67,10 @@ const Newtaskmodal = () => {
         <div>برای</div>
         <div className="w-[34px] h-[34px] m-[2px]">
           {/* <AvatarDotted iconName="user"> */}
-            <select className="w-full appearance-none h-full pr-auto pl-auto flex justify-center items-center cursor-pointer  border border-[#C1C1C1] border-dashed rounded-full ">
+            <select className="w-[40px] appearance-none h-[40px] flex flex-row  justify-center items-center  cursor-pointer  border border-[#C1C1C1] border-dashed rounded-full pl-0 ">
             {members?.map(member=>{
             return (
-              <option label={}  value={member.user.id}>{member.user.username}</option>
+              <option  label={`${member.user.username.split(" ").map(sec=>sec[0].toUpperCase()).join("")}`}  value={member.user.id}>{member.user.username}</option>
             )
           })}
             </select>
