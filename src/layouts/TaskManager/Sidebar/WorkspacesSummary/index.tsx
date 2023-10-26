@@ -37,7 +37,7 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
       <div className="absolute top-[2px] left-[0px]">
         {SummaryOpenArrowIcon}
       </div>
-      <details className="relative h-full">
+      <details className="relative h-full" open>
         <summary
           className={`w-full font-IranYekan800 text-BoldM marker:content-[''] select-none cursor-pointer`}
         >

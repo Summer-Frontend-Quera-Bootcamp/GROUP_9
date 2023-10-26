@@ -53,13 +53,13 @@ const ResetPassword = () => {
         inputItems={[
           {
             type: "password",
-            name: "password1",
+            name: "newPassword",
             label: "رمز عبور جدید را وارد کنید",
             handler: handlePassword1Change,
           },
           {
             type: "password",
-            name: "password2",
+            name: "setNewpassword",
             label: "تکرار رمز عبور جدید",
             handler: handlePassword2Change,
           },

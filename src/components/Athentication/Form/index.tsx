@@ -25,8 +25,8 @@ interface IFormProps extends React.PropsWithChildren {
     name:
       | "userName"
       | "password"
-      | "password1"
-      | "password2"
+      | "newPassword"
+      | "setNewpassword"
       | "fullName"
       | "email";
     label:
