@@ -18,7 +18,7 @@ import workspacemodalReducer from "../features/workspace/workspacemodalSlice";
 import projectModalReducer from "../features/modals/createProjectSlice";
 import taskmodalReducer from '../features/workspace/taskmodalSlice'
 import profileReducer from "../features/profile/profileSlice";
-
+import changepasswordReduer from "../features/profile/changePasswordSlice";
 
 const localStorageMiddleware = ({ getState }: any) => {
   return (next: any) => (action: AnyAction) => {
@@ -61,6 +61,7 @@ const store = configureStore({
     projectModal: projectModalReducer,
     taskmodal: taskmodalReducer,
     profile: profileReducer,
+    changepassword: changepasswordReduer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(localStorageMiddleware),

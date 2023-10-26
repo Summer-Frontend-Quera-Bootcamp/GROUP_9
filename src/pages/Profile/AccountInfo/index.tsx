@@ -38,8 +38,8 @@ const AccountInformation = () => {
         phone_number: phoneNumber,
       })
     );
-    localStorage.setItem("first_name", firstName)
-    localStorage.setItem("last_name", lastName)
+    localStorage.setItem("first_name", firstName);
+    localStorage.setItem("last_name", lastName);
   };
 
   const color = ColorList.get("Brand");
