@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AvatarDotted from "../../Information/Task/AvatarDotted";
 import PriorityModal from "./PriorityModal";
 import TagModal from "./TagModal";
@@ -13,19 +13,28 @@ import {
   hidefirstasktmodal,
   showfirstasktmodal,
 } from "../../../../../services/features/workspace/taskmodalSlice";
+import { fetchprojects } from "../../../../../services/features/workspace/projectsSlice";
+import { fetchworkspacemembers } from "../../../../../services/features/workspace/workspacemembersSlice";
 
 const Newtaskmodal = () => {
   const display = useSelector((state) => state.taskmodal.firstmodal);
+  const space = useSelector((state)=>state.current.workspace_id);
+  const spacemembers = useSelector((state)=>state.workspacemembers);
+  const projects = useSelector((state)=>state.project);
   const dispatch = useAppDispatch();
+  const [project,setProject] = useState();
+  const [members,setMembers] = useState();
   const [priorityShow, setPriorityShow] = useState(false);
   const [tagShow, setTagShow] = useState(false);
   const [calenderShow, setCalenderShow] = useState(false);
   console.log("display is :", display);
-  // const handleclick = () => {
-  //   console.log("clicked");
-  //   dispatch(showtagmodal());
-  // };
 
+  useEffect(()=>{
+    dispatch(fetchworkspacemembers({id:space})).then(d=>setMembers(d.payload));
+    dispatch(fetchprojects(space)).then((d)=>setProject(d.payload));
+  },[space,projects,spacemembers])
+
+  console.log("space is : ",space," projects in task modal is : ",members)
   const handleclick = () => {
     console.log("clicked");
     dispatch(hidefirstasktmodal());
@@ -48,12 +57,24 @@ const Newtaskmodal = () => {
       </div>
       <div className="gap-xs text-Black text-[16px] font-IranYekan500 w-full h-[38px] mb-xl flex justify-start items-center">
         <div>در</div>
-        <div className="hover:cursor-pointer w-[158px] h-full p-[5px] px-xs border border-[#E9EBF0] rounded-[6px]">
-          پروژه اول
-        </div>
+        <select className="hover:cursor-pointer w-[158px] h-full p-[5px] px-xs border border-[#E9EBF0] rounded-[6px]">
+          {project?.map(project_=>{
+            return (
+              <option value={project_.id}>{project_.name}</option>
+            )
+          })}
+        </select>
         <div>برای</div>
         <div className="w-[34px] h-[34px] m-[2px]">
-          <AvatarDotted iconName="user" />
+          {/* <AvatarDotted iconName="user"> */}
+            <select className="w-full appearance-none h-full pr-auto pl-auto flex justify-center items-center cursor-pointer  border border-[#C1C1C1] border-dashed rounded-full ">
+            {members?.map(member=>{
+            return (
+              <option label={}  value={member.user.id}>{member.user.username}</option>
+            )
+          })}
+            </select>
+          {/* </AvatarDotted> */}
         </div>
       </div>
       <textarea

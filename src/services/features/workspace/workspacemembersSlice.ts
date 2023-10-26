@@ -22,7 +22,7 @@ export const fetchworkspacemembers = createAsyncThunk(
   "workspacemembers/fetchmembers",
   (workspace:{id:number}) => {
     return AXIOS
-      .get(`workspaces/${workspace.id}/`)
+      .get(`workspaces/${workspace.id}/members`)
       .then((response) => response.data)
   }
 );
@@ -31,7 +31,7 @@ export const newworkspacemembers = createAsyncThunk<any,any>(
   "workspacemembers/newmembers",
   (workspace:{id:number,username:string,email:string,first_name:string,last_name:string,phone_number:string,thumbnail:string,is_super_access:boolean} , { rejectWithValue }) => {
     return AXIOS
-      .post(`workspaces/${workspace.id}/`, {
+      .post(`workspaces/${workspace.id}/members`, {
         user: {
             username:workspace.username ,
             email:workspace.email ,

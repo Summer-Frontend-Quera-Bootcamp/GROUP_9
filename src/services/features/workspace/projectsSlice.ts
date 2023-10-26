@@ -11,7 +11,7 @@ const initialState: InitialState[] = [];
 
 export const fetchprojects = createAsyncThunk<any, any>(
   "projects/fetchprojecta",
-  (id: number) => {
+  (id:number) => {
     return AXIOS.get(`/workspaces/${id}/projects/`).then(
       (response) => response.data
     );
