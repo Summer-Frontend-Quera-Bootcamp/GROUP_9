@@ -24,7 +24,7 @@ const TaskCol:React.FC<Iprops>=({id}):JSX.Element=>{
    dispatch(fetchboard({workspace_id:space,project_id:project,board_id:id})).then((e) => setBoard(e.payload));
    dispatch(fetchtasks({workspace_id:space,project_id:project,board_id:id}))
   },[])
-  console.log("hey hey ",board);
+  console.log("board",board);
   return (
 
         <section  key={board?.id} className="h-full overflow-y-hidden overflow-x-hidden flex-shrink-0">

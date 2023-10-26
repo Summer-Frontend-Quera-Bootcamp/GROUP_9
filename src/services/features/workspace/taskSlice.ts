@@ -32,13 +32,13 @@ export const newtask = createAsyncThunk<any,any>(
   (board:{workspace_id:number,project_id:number,board_id:number,name:string,description:string,priority:number,attachment:string,thumbnail:string,order:number} , { rejectWithValue }) => {
 
     return AXIOS
-      .post(`workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/tasks/`, {
+      .post(`/workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/tasks/`, {
         name:board.name,
         order:board.order,
         description:board.description,
         priority:board.priority,
         thumbnail:board.thumbnail,
-        attachment:board.attachment
+        attachment:board.attachment,
       })
       .then((response) => response.data)
       .catch((error) => rejectWithValue(error.response.data.detail));
@@ -86,7 +86,11 @@ const taskSlice = createSlice({
     });
     builder.addCase(newtask.fulfilled, (state, action) => {
       state.push(action.payload);
-      console.log("new task",state)
+      console.log("new task",action.payload)
+    });
+    builder.addCase(newtask.rejected, (state, action) => {
+      // state.push(action.payload);
+      console.log("new task",action.payload)
     });
     builder.addCase(edittask.fulfilled, (state, action) => {
       state.forEach((space,index)=>{

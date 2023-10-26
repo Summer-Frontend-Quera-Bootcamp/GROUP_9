@@ -12,23 +12,42 @@ import CalenderModal from "../../CalenderModal";
 import {
   hidefirstasktmodal,
   setDescription,
+  setname,
+  showcalender,
   showfirstasktmodal,
+  showpriority,
+  showtag,
 } from "../../../../../services/features/workspace/taskmodalSlice";
 import { fetchprojects } from "../../../../../services/features/workspace/projectsSlice";
 import { fetchworkspacemembers } from "../../../../../services/features/workspace/workspacemembersSlice";
+import { newtask } from "../../../../../services/features/workspace/taskSlice";
+import { fetchboards, newboard } from "../../../../../services/features/workspace/boardSlice";
 
 const Newtaskmodal = () => {
 
   const display = useSelector((state) => state.taskmodal.firstmodal);
   const space = useSelector((state)=>state.current.workspace_id);
+  const project_id = useSelector(state=>state.current.project_id)
   const spacemembers = useSelector((state)=>state.workspacemembers);
   const projects = useSelector((state)=>state.project);
 
   const dispatch = useAppDispatch();
+  const priority = useSelector((state:any)=>state.taskmodal.prioritymodal);
+  const tag = useSelector((state:any)=>state.taskmodal.tagmodal);
+  const calender = useSelector((state:any)=>state.taskmodal.calendermodal);
+
+  const priorityvalue = useSelector((state:any)=>state.taskmodal.priority);
+  const name = useSelector((state:any)=>state.taskmodal.name);
+  const description = useSelector((state:any)=>state.taskmodal.description);
+  const deadline = useSelector((state:any)=>state.taskmodal.deadline);
+  const attachment = useSelector((state:any)=>state.taskmodal.attachment);
+  const thumbnail = useSelector((state:any)=>state.taskmodal.thumbnail);
+  const order = useSelector((state:any)=>state.taskmodal.order);
+  //const boards = useSelector((state)=>state.board);
 
   const [project,setProject] = useState();
   const [members,setMembers] = useState();
-  const [priorityShow, setPriorityShow] = useState(false);
+  const [boards,setBoards] = useState(useSelector((state)=>state.board))
   const [tagShow, setTagShow] = useState(false);
   const [calenderShow, setCalenderShow] = useState(false);
   const [file,setFile] = useState<File>();
@@ -48,12 +67,35 @@ const Newtaskmodal = () => {
     dispatch(setDescription(e.target.value));
   }
 
+  const titlechange =(e: ChangeEvent<HTMLInputElement>)=>{
+    dispatch(setname(e.target.value));
+  }
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setFile(e.target.files[0]);
     }
     console.log("file is :",file);
   };
+
+  const handlenewtask=()=>{
+    dispatch(fetchboards({workspace_id:space,project_id:project_id})).then((e)=>{
+      setBoards(e.payload)
+      console.log("%%%%%%%%%%%%%%%%%%%%%%% :",boards)
+      if(boards.length){
+        
+        dispatch(newtask({workspace_id:space,project_id:project_id,board_id:boards[0].id,name:"ali",description:"hi ali this is ",priority:0,attachment:"af",thumbnail:"fasd",order:1}))
+      }
+      else{
+        console.log("boards in else :",boards)
+        dispatch(newboard({workspace_id:space,project_id:project_id,name:"To Do",order:0,is_archive:false,color:"Blue"})).then(()=>{
+          dispatch(fetchboards({workspace_id:space,project_id:project_id})).then(()=>{
+            setBoards(e.payload);
+            dispatch(newtask({workspace_id:space,project_id:project_id,board_id:boards[0].id,name:"ali",description:"hi ali this is ",priority:0,attachment:"af",thumbnail:"fasd",order:1}))
+          })
+        })
+      }
+    });
+      }
 
   return (
     <div
@@ -63,9 +105,9 @@ const Newtaskmodal = () => {
       <div className="w-full h-auto mb-xl flex justify-between items-cente">
         <div className="flex items-center">
           <div className="ml-[13px]">{GrayRectangle}</div>
-          <div className="text-[24px] text-Black font-IranYekan500">
-            عنوان تسک
-          </div>
+          <input type="text" onChange={titlechange} className="text-[24px] .placeholder_Black text-Black font-IranYekan500" placeholder="عنوان تسک">
+            
+          </input>
         </div>
         <div className="hover:cursor-pointer" onClick={handleclick}>
           {SecondaryModalCloseButtonIcon}
@@ -118,31 +160,31 @@ const Newtaskmodal = () => {
       <div className=" w-full h-auto flex justify-between items-center">
         <div className="flex gap-m">
           <div
-            onClick={() => setPriorityShow(!priorityShow)}
+            onClick={() => dispatch(showpriority())}
             className="w-[50px] h-[50px]"
           >
             <AvatarDotted iconName="priority" />
           </div>
           <div
             className="w-[50px] h-[50px]"
-            onClick={() => setCalenderShow(!calenderShow)}
+            onClick={() => dispatch(showcalender())}
           >
             <AvatarDotted iconName="calender" />
           </div>
           <div
-            onClick={() => setTagShow(!tagShow)}
+            onClick={() => dispatch(showtag())}
             className="w-[50px] h-[50px]"
           >
             <AvatarDotted iconName="tag" />
           </div>
         </div>
-        <button className="w-[125px] h-l bg-Brand-Primary font-IranYekan400 text-[12px] text-White py-[7px] rounded-[4px]">
+        <button onClick={handlenewtask} className="w-[125px] h-l bg-Brand-Primary font-IranYekan400 text-[12px] text-White py-[7px] rounded-[4px]">
           ساختن تسک
         </button>
       </div>
 
-      <PriorityModal show={priorityShow} />
-      <TagModal show={tagShow} />
+      <PriorityModal show={priority} />
+      <TagModal show={tag} />
     </div>
   );
 };

@@ -21,12 +21,20 @@ const BoardViewPage: React.FC = (): JSX.Element => {
   const dispatch =useDispatch();
   const project = useSelector((state:any)=>state.current.project_id);
   const space = useSelector((state:any)=>state.current.workspace_id);
-  const boards = useSelector((state:any)=>state.board);
+  //const boards = useSelector((state)=>state.board);
   console.log("space :",space," project : ",project)
+
+  const [boards,setBoards]= useState()
+
   useEffect(()=>{
-    dispatch(fetchboards({workspace_id:space,project_id:project}));
-  },[space])
-  console.log("hey hey ",boards);
+    //.then((e)=>setBoards(e.payload));
+    dispatch(fetchboards({workspace_id:space,project_id:project})).then((e)=>{
+      setBoards(e.payload);
+      console.log("boards",boards);
+    });
+  },[project]);
+
+  
 
   const boardsitem = boards?.map(item=>{
     console.log(item);
@@ -39,7 +47,9 @@ const BoardViewPage: React.FC = (): JSX.Element => {
   return (
     <>
       <Navbar activePage="BoardView" />
+      <div dir="ltr" className="w-[1118px] max-h-[513px] absolute left-[0px] top-[165px] flex-nowrap bg-White flex flex-row gap-[30px] pr-[20px] pl-[20px] pt-[20px] overflow-x-auto">
       {boardsitem}
+      </div>
       <NewTaskBtn />
     </>
   );

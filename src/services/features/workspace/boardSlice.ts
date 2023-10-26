@@ -1,5 +1,6 @@
-import axios from "axios";
+import axios, { Axios } from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { AXIOS } from "../../../config/axios.config";
 
 export type InitialState = {
         id: number,
@@ -13,13 +14,13 @@ export type InitialState = {
 
 const initialState: InitialState[] = [];
 
-export const fetchboards = createAsyncThunk(
-  "boards/fetch",
+export const fetchboards = createAsyncThunk<any,{workspace_id:number,project_id:number}>(
+  "board/fetchall",
   (board:{workspace_id:number,project_id:number}) => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .get(`https://quera.iran.liara.run/workspaces/${board.workspace_id}/projects/${board.project_id}/boards/`)
+    // axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
+    // `
+    return AXIOS
+      .get(`workspaces/${board.workspace_id}/projects/${board.project_id}/boards/`)
       .then((response) => response.data)
   }
 );
@@ -27,20 +28,20 @@ export const fetchboards = createAsyncThunk(
 export const fetchboard = createAsyncThunk(
   "board/fetch",
   (board:{workspace_id:number,project_id:number,board_id:number}) => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .get(`https://quera.iran.liara.run/workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/`)
+    // axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
+    // `
+    return AXIOS
+      .get(`workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/`)
       .then((response) => response.data)
   }
 );
-export const newboard = createAsyncThunk<any,any>(
+export const newboard = createAsyncThunk<any,{workspace_id:number,project_id:number,name:string,order:number,is_archive:boolean,color:string}>(
   "board/new",
   (board:{workspace_id:number,project_id:number,name:string,order:number,is_archive:boolean,color:string} , { rejectWithValue }) => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .post(`https://quera.iran.liara.run/workspaces/${board.workspace_id}/projects/${board.project_id}/boards/`, {
+    // axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
+    // `
+    return AXIOS
+      .post(`workspaces/${board.workspace_id}/projects/${board.project_id}/boards/`, {
         name:board.name,
         order:board.order,
         is_archive:board.is_archive,
@@ -54,10 +55,10 @@ export const newboard = createAsyncThunk<any,any>(
 export const editboard = createAsyncThunk<any,any>(
   "board/edit",
   (board:{workspace_id:number,project_id:number,board_id:number,name:string,order:number,is_archive:boolean,color:string} , { rejectWithValue }) => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .post(`https://quera.iran.liara.run/workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/`, {
+    // axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
+    // `
+    return AXIOS
+      .post(`workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/`, {
         name:board.name,
         order:board.order,
         is_archive:board.is_archive,
@@ -72,10 +73,10 @@ export const editboard = createAsyncThunk<any,any>(
 export const deleteboard = createAsyncThunk<any,any>(
   "board/delete",
   (board:{workspace_id:number,project_id:number,board_id:number} , { rejectWithValue }) => {
-    axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
-    `
-    return axios
-      .delete(`https://quera.iran.liara.run/workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/`)
+    // axios.defaults.headers.common.Authorization=`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk4MDAwNTIxLCJpYXQiOjE2OTc5Nzg5MjEsImp0aSI6ImE4ZDAwZjhmZWFmZjQ4Yzg5N2VkMDAyZTA1ODRiNGZhIiwidXNlcl9pZCI6MTM4fQ.QRpO1JPBf6V0JTJu3_q8JXnjfzctzOTbsOMkZ3I0zVw
+    // `
+    return AXIOS
+      .delete(`workspaces/${board.workspace_id}/projects/${board.project_id}/boards/${board.board_id}/`)
       .then((response) => response.data)
       .catch((error) => rejectWithValue(error.response.data.detail));
   }
@@ -88,7 +89,7 @@ const boardSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchboards.fulfilled, (state, action) => {
       state=action.payload;
-      console.log("get boards",state)
+      console.log("get boards",state,action.payload)
     });
     builder.addCase(fetchboard.fulfilled, (state, action) => {
       
