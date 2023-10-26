@@ -1,3 +1,4 @@
+import { AXIOS } from "./config/axios.config";
 // <======== Assest-Import ========> //
 
 // <======== Component-Import ========> //
@@ -14,30 +15,31 @@ import BoardViewPage from "./pages/TaskManager/BoardView";
 import CalenderViewPage from "./pages/TaskManager/CalenderView";
 import WorkspacesPage from "./pages/TaskManager/Workspaces";
 // --------------------- ProfilePage --------------------- //
+import ProfilePage from "./layouts/Profile";
 import AccountInformation from "./pages/Profile/AccountInfo";
 import UserInformation from "./pages/Profile/PersonalInfo";
+import Setting from "./pages/Profile/Setting";
 
 // <======== Hooks ========> //
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Setting from "./pages/Profile/Setting";
 import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAppDispatch } from "./services/app/hooks";
+
+// <======== Features ========> //
 import { fetchAccess } from "./services/features/authentication/refreshSlice";
-import { AXIOS } from "./config/axios.config";
-import ProfilePage from "./layouts/Profile";
+
+
 const App = () => {
   const dispatch = useAppDispatch();
   //reHydration on state change:
   useEffect(() => {
-    AXIOS.get("workspaces/")
-      //.then(() => console.log("no error"))
-      .catch((error) =>
-        error.message === "Request failed with status code 401"
-          ? dispatch(
-              fetchAccess({ refresh: String(localStorage.getItem("refresh")) })
-            )
-          : null
-      );
+    AXIOS.get("workspaces/").catch((error) =>
+      error.message === "Request failed with status code 401"
+        ? dispatch(
+            fetchAccess({ refresh: String(localStorage.getItem("refresh")) })
+          )
+        : null
+    );
   }, []);
   return (
     <BrowserRouter>

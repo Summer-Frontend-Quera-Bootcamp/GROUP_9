@@ -7,7 +7,7 @@ import { NothingPriorityIconXS } from "../../../../assets/Icons/TaskManager/Moda
 import { DescriptionIcon } from "../../../../assets/Icons/TaskManager/Pages/ListView/Task/Description";
 
 // <======== Component-Import ========> //
-import MembersCard from "../../../common/MembersCard";
+import Profile from "../../../common/MembersCard/Profile";
 
 // <======== Intefaces ========> //
 import { Tasks } from "../../../../interfaces";
@@ -33,8 +33,8 @@ const ListViewProjectTask: React.FC<ITaskProps> = ({
         <div className={`w-s h-s ${color?.bgPrimary} rounded-[3px]`}></div>
         <p className="font-IranYekan400 text-BodyXS">{task.title}</p>
       </td>
-      <td className="w-[70px]">
-        <MembersCard MembersList={task.members} />
+      <td className="w-[70px] flex justify-center">
+        <Profile Member={{username: String(localStorage.getItem("user_name"))}} />
       </td>
       <td className="w-[70px] px-[10px] font-IranYekan400 text-BodyXS flex justify-center items-center">
         {task.deadline}

@@ -5,7 +5,6 @@ import { schema } from "../../../constants/ZodValidation";
 import { ColorList } from "../../../constants/ColorList";
 import Input from "../../../components/common/Input";
 import Profile from "../../../components/common/MembersCard/Profile";
-import { workspaces } from "../../../constants";
 import { useState } from "react";
 import { useAppDispatch } from "../../../services/app/hooks";
 import { editprofile } from "../../../services/features/profile/profileSlice";

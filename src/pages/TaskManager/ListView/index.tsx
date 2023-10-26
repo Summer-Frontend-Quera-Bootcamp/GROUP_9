@@ -8,9 +8,15 @@ import NewTaskBtn from "../../../components/TaskManager/NewTaskButton";
 import ListViewProjectContainer from "../../../components/TaskManager/ListView/ProjectContainer";
 
 // <======== Hooks ========> //
+import { useEffect, useState } from "react";
 
 
 const ListViewPage: React.FC = (): JSX.Element => {
+  const [projectName, setProjectName] = useState(" ");
+  useEffect(() => {
+    setProjectName(String(localStorage.getItem("projectName")));
+    console.log(projectName);
+  }, [localStorage.projectName])
   return (
     <>
       <Navbar activePage="ListView" />
@@ -19,7 +25,7 @@ const ListViewPage: React.FC = (): JSX.Element => {
         <header className="h-l flex gap-xs items-center">
           {BigCircleArrowBottomIcon}
           <h2 className="font-IranYekan800 text-HeadingXS flex items-center">
-            پروژه اول
+            {projectName}
           </h2>
         </header>
         <ListViewProjectContainer />

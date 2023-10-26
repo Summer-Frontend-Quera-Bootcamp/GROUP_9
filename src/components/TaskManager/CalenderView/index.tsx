@@ -7,7 +7,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 
 const CalenderView: React.FC = () => {
   return (
-    <div className="w-3/4 ml-m float-left mt-[100px] mb-xs -z-10 calandar1">
+    <div id="CalenderContainer" className="fixed top-[187px] right-[356px] float-left mb-xs calandar1 overflow-y-scroll">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin]}
         initialView="dayGridMonth"

@@ -26,7 +26,7 @@ const Profile: React.FC<IProfileProps> = ({
   const color = ColorList.get(String(localStorage.theme));
   return (
     <div
-      className={`${width} h-full mr-[-8px] first:ml-[0px] pt-[9px] pb-[7px] px-xs rounded-full ${color?.bgSecondary} flex justify-center items-center`}
+      className={`${width} h-full mr-[-8px] first:mr-[0px] pt-[9px] pb-[7px] px-xs rounded-full ${color?.bgSecondary} flex justify-center items-center`}
     >
       {Member?.thumbnail ? (
         <img src={Member.thumbnail} />

@@ -12,6 +12,9 @@ const BoardViewPage: React.FC = (): JSX.Element => {
     <>
       <Navbar activePage="BoardView" />
       <NewTaskBtn />
+      <div className="fixed top-[181px] right-[356px] w-[250px] py-[8px] p-[12px] rounded-[16px] shadow-boardHeader font-IranYekan500 text-[16px] flex justify-start items-center cursor-pointer">
+        + ساختن برد جدید
+      </div>
     </>
   );
 };

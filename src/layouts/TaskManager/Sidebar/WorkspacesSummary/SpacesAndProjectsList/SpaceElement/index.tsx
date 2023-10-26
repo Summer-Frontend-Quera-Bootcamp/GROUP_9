@@ -19,6 +19,7 @@ import {
 } from "../../../../../../services/features/modals/createProjectSlice";
 import { RootState } from "../../../../../../services/app/store";
 import { Projects } from "../../../../../../interfaces/TaskManager";
+import { useNavigate } from "react-router-dom";
 
 // <======== Hooks ========> //
 
@@ -27,6 +28,7 @@ interface IWorkspaceElementProps {
 }
 
 const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
+  const navigate = useNavigate();
   const color = ColorList.get(workspace.color);
   const [projects, setProjects] = useState<Projects[]>([]);
   const dispatch = useAppDispatch();
@@ -48,6 +50,10 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
     Dispatch(setId(workspace.id));
     Dispatch(called());
   };
+  const handleSelect = (name: string) => {
+    navigate("/taskmanager/listview");
+    localStorage.setItem("projectName", name);
+  };
   return (
     <>
       <dt
@@ -63,11 +69,13 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
       {projects?.length ? (
         projects?.map((project) => {
           return (
-            <ProjectElement
-              id={workspace.id}
-              key={project.id}
-              project={project}
-            />
+            <div onClick={() => handleSelect(String(project.name))}>
+              <ProjectElement
+                id={workspace.id}
+                key={project.id}
+                project={project}
+              />
+            </div>
           );
         })
       ) : (

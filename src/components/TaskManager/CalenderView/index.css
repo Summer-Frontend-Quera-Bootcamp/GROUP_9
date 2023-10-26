@@ -1,6 +1,8 @@
-body {
-  overflow: visible !important;
+#CalenderContainer {
+  width: calc(100vw - 406px);
+  height: calc(100vh - 245.5px);
 }
+
 @font-face {
   font-family: IranYekan;
   src: url(../../../assets/Fonts/IRANYEKANREGULARFANUM.TTF);
@@ -57,7 +59,6 @@ body {
   flex-direction: row-reverse;
   justify-content: start;
   align-items: center;
-  padding: 10px;
 }
 
 .fc-header-title {
@@ -75,6 +76,9 @@ body {
   flex: 0 0 auto;
   order: 2;
   margin-left: 2px;
+}
+.fc {
+  position: relative;
 }
 .fc .fc-toolbar {
   align-items: center;
@@ -176,11 +180,10 @@ body {
 }
 
 .fc .fc-toolbar.fc-header-toolbar {
-  padding-top: 15px;
   position: fixed;
+  top: 116.8px;
+  right: 636px;
   z-index: 50;
-  left: 19%;
-  margin-left: 400px;
 }
 thead {
   border: none !important;
@@ -200,7 +203,4 @@ th {
 .fc .fc-highlight:last-child {
   background: #4bece2;
   border-radius: 4px;
-}
-.fc .fc-scrollgrid-liquid {
-  margin-top: 5rem;
 }

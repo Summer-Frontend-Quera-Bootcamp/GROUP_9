@@ -13,12 +13,14 @@ import { useEffect, useState } from "react";
 import { fetchprojects } from "../../../../services/features/workspace/projectsSlice";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../services/app/store";
+import { useNavigate } from "react-router-dom";
 
 interface IProjectCardContainer {
   workspace: Workspaces;
 }
 
 const ProjectCardContainer = ({ workspace }: IProjectCardContainer) => {
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [projects, setProjects] = useState<Projects[]>([]);
   const projectsChange = useSelector(
@@ -34,6 +36,10 @@ const ProjectCardContainer = ({ workspace }: IProjectCardContainer) => {
       )
     );
   }, [, projectsChange, projectsDelete]);
+  const handleSelect = (name: string) => {
+    navigate("/taskmanager/listview");
+    localStorage.setItem("projectName", name);
+  };
   return (
     <>
       <header className="font-IranYekan800 text-[24px] text-Gray-Darker">
@@ -43,11 +49,13 @@ const ProjectCardContainer = ({ workspace }: IProjectCardContainer) => {
         {projects?.length ? (
           projects?.map((item: Projects) => {
             return (
-              <ProjectCard
-                key={item.id}
-                project={item}
-                workspaceColor={String(workspace.color)}
-              />
+              <div onClick={() => handleSelect(String(item.name))}>
+                <ProjectCard
+                  key={item.id}
+                  project={item}
+                  workspaceColor={String(workspace.color)}
+                />
+              </div>
             );
           })
         ) : (

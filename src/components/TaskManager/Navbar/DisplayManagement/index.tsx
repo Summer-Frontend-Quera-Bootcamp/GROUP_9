@@ -5,6 +5,7 @@ import { ShareIcon } from "../../../../assets/Icons/CommonIcon/ShareIcon";
 import ProjectsDisplayList from "./ProjectsDisplayList";
 
 // <======== Hooks ========> //
+import { useEffect, useState } from "react";
 
 
 interface IDisplayProps {
@@ -14,11 +15,16 @@ interface IDisplayProps {
 const DisplayManagement: React.FC<IDisplayProps> = ({
   activePage,
 }): JSX.Element => {
+  const [projectName, setProjectName] = useState(" ");
+  useEffect(() => {
+    setProjectName(String(localStorage.getItem("projectName")));
+    console.log(projectName);
+  }, [localStorage.projectName])
   return (
     <nav className="relative flex items-center justify-between w-full mb-s py-s border-b-[0.5px] border-GrayLight">
       <ul className="flex items-center justify-between divide-x-[2px] divide-[#999] gap-s">
         <h2 className="text-black font-IranYekan800 text-HeadingXS leading-8">
-          پروژه اول
+          {projectName}
         </h2>
         <div className="border-x h-[22px] w-[3px]"></div>
         <ProjectsDisplayList activePage={activePage} />

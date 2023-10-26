@@ -11,7 +11,7 @@ import { workspaces } from "../../../../constants";
 const ListViewProjectContainer: React.FC = (): JSX.Element => {
   return (
     <main className="w-full h-full mt-[31px] pb-[140px] pr-[23px] flex flex-col gap-xl overflow-x-hidden overflow-y-scroll">
-      {workspaces[1].projects[0].boards?.map((board) => {
+      {workspaces[3].projects[0].boards?.map((board) => {
         return <ListViewProjectBoard key={board.title} board={board} />;
       })}
     </main>
