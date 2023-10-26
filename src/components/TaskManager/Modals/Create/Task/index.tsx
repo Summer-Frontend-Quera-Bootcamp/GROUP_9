@@ -83,14 +83,14 @@ const Newtaskmodal = () => {
       console.log("%%%%%%%%%%%%%%%%%%%%%%% :",boards)
       if(boards.length){
         
-        dispatch(newtask({workspace_id:space,project_id:project_id,board_id:boards[0].id,name:"ali",description:"hi ali this is ",priority:0,attachment:"af",thumbnail:"fasd",order:1}))
+        dispatch(newtask({workspace_id:space,project_id:project_id,board_id:boards[0].id,name:"ali",description:"hi ali this is ",priority:0,attachment:null,thumbnail:null,order:1}))
       }
       else{
         console.log("boards in else :",boards)
         dispatch(newboard({workspace_id:space,project_id:project_id,name:"To Do",order:0,is_archive:false,color:"Blue"})).then(()=>{
           dispatch(fetchboards({workspace_id:space,project_id:project_id})).then(()=>{
             setBoards(e.payload);
-            dispatch(newtask({workspace_id:space,project_id:project_id,board_id:boards[0].id,name:"ali",description:"hi ali this is ",priority:0,attachment:"af",thumbnail:"fasd",order:1}))
+            dispatch(newtask({workspace_id:space,project_id:project_id,board_id:boards[0].id,name:"ali",description:"hi ali this is ",priority:0,attachment:null,thumbnail:null,order:1}))
           })
         })
       }

@@ -19,7 +19,7 @@ const TaskCol:React.FC<Iprops>=({id}):JSX.Element=>{
   const project = useSelector((state:any)=>state.current.project_id);
   const space = useSelector((state:any)=>state.current.workspace_id);
   const tasks = useSelector((state:any)=>state.task);
-  console.log("space :",space," project : ",project);
+  console.log("space :",space," project : ",project,tasks);
   useEffect(()=>{
    dispatch(fetchboard({workspace_id:space,project_id:project,board_id:id})).then((e) => setBoard(e.payload));
    dispatch(fetchtasks({workspace_id:space,project_id:project,board_id:id}))
