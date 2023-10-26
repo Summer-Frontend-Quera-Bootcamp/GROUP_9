@@ -24,7 +24,7 @@ const MiniModalSearch = ({
   const handleKey = (e: KeyboardEvent) => {
     e.key === "Enter" ? setNewTag(true) : null;
   };
-  let tags = MiniModalSearchArray.filter((str) => {
+  const tags = MiniModalSearchArray.filter((str) => {
     return str.TagFrame.title.includes(state);
   });
   return (

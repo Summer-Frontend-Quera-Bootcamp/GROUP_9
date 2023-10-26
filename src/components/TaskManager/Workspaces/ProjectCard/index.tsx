@@ -9,21 +9,14 @@ import { Projects } from "../../../../interfaces/TaskManager";
 import { ColorList } from "../../../../constants/ColorList";
 
 // <======== Hooks ========> //
-import { useEffect, useState } from "react";
+
 interface IProjectCardProps {
   project: Projects;
   workspaceColor: string;
 }
 
 const ProjectCard = ({ project, workspaceColor }: IProjectCardProps) => {
-  const [color, setColor] = useState<any>();
-  useEffect(() => {
-    setColor(
-      workspaceColor === "Green"
-        ? ColorList.get("Green")
-        : ColorList.get("Blue")
-    );
-  }, []);
+  const color = ColorList.get(workspaceColor);
   return (
     <>
       <div

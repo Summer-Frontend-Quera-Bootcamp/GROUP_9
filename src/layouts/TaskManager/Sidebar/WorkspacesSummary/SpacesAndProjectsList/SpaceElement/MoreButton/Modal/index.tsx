@@ -23,7 +23,6 @@ interface IProps {
 const WorkspaceMoreModal = ({ id }: IProps) => {
   const color = ColorList.get("Brand");
   const dispatch = useDispatch();
-
   const handleClick = () => {
     dispatch(setId(id));
     dispatch(called());

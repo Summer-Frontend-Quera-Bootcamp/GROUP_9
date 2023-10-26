@@ -17,6 +17,7 @@ interface IInputProps {
     | "ایمیل خود را وارد کنید"
     | "رمز عبور جدید را وارد کنید"
     | "نام پروژه"
+    | "نام بورد"
     | "نام ورک‌اسپیس"
     | "نام"
     | "نام‌خانوادگی"
@@ -32,6 +33,7 @@ interface IInputProps {
     | "password2"
     | "fullName"
     | "email"
+    | "boardName"
     | "projectName"
     | "workspaceName"
     | "firstName"
@@ -65,7 +67,7 @@ const Input: React.FC<IInputProps> = ({
         type={type}
         {...hook(name)}
         id={name}
-        className="w-full h-[40px] p-[5px] rounded-[6px] bg-inherite border border-[#AAA]"
+        className="w-full h-[40px] p-[5px] rounded-[6px] bg-inherite border border-[#AAA] font-IranYekan500 text-BodyS"
         onChange={handler}
       />
       {error[name] && (

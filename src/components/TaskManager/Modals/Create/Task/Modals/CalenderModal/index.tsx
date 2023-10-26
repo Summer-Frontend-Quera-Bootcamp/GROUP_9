@@ -7,15 +7,12 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin, { DateRangeInput } from "@fullcalendar/interaction";
 import "../../CalenderView/index.css";
 import "./index.css";
-import { CalenderStartTimeIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Create/CalenderModal/StartTime";
-import { CalenderEndTimeIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Create/CalenderModal/EndTime";
-interface CalenderProps {
-  show?: boolean;
-}
+import { CalenderStartTimeIcon } from "../../../../../../../assets/Icons/TaskManager/Modals/Task/Create/CalenderModal/StartTime";
+import { CalenderEndTimeIcon } from "../../../../../../../assets/Icons/TaskManager/Modals/Task/Create/CalenderModal/EndTime";
 
-const CalenderModal: React.FC<CalenderProps> = ({
-  show = false,
-}: CalenderProps) => {
+interface CalenderProps {}
+
+const CalenderModal: React.FC<CalenderProps> = () => {
   const [selectedStartDate, setSelectedStartDate] = useState<Date | null>(null);
   const [selectedEndDate, setSelectedEndDate] = useState<Date | null>(null);
 
@@ -27,35 +24,29 @@ const CalenderModal: React.FC<CalenderProps> = ({
     setSelectedEndDate(endDate);
   };
 
-  let startDay = selectedStartDate?.toLocaleString("fa", {
+  const startDay = selectedStartDate?.toLocaleString("fa", {
     day: "numeric",
     month: "long",
   });
-  let endDay = selectedEndDate?.toLocaleString("fa", {
+  const endDay = selectedEndDate?.toLocaleString("fa", {
     day: "numeric",
     month: "long",
   });
 
-  return show ? (
+  return (
     <>
-      <div className="m-auto p-[20px] w-[1000px] h-[632px] fixed mr-[180px] z-50 shadow-calendar rounded-[20px] bg-White">
-        <div className="flex justify-start items-center gap-[18.75rem] mb-[30px] ml-[100px]">
+      <div className="m-auto p-[20px] w-[936px] h-[632px] mt-[51px] shadow-calendar rounded-[20px]">
+        <div className="flex justify-start items-center gap-[18.75rem] mb-[30px] ">
           <span className="flex items-center justify-center gap-xs">
             {CalenderStartTimeIcon}
             <h2 className="font-IranYekan500 text-Black text-HeadingS">
-              زمان شروع
-            </h2>
-            <h2 className="font-IranYekan500 text-Brand-Primary text-HeadingS">
-              {startDay}
+              زمان شروع:{startDay}
             </h2>
           </span>
           <span className="flex items-center justify-center gap-xs">
             {CalenderEndTimeIcon}
             <h2 className="font-IranYekan500 text-Black text-HeadingS">
-              زمان پایان
-            </h2>
-            <h2 className="font-IranYekan500 text-Brand-Primary text-HeadingS">
-              {endDay}
+              زمان پایان:{endDay}
             </h2>
           </span>
         </div>
@@ -126,7 +117,7 @@ const CalenderModal: React.FC<CalenderProps> = ({
               </p>
             </div>
           </div>
-          <div className="w-[689px] mr-xl">
+          <div className="w-[689px]">
             <FullCalendar
               plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
               initialView="dayGridMonth"
@@ -144,7 +135,7 @@ const CalenderModal: React.FC<CalenderProps> = ({
         </div>
       </div>
     </>
-  ) : null;
+  );
 };
 
 export default CalenderModal;

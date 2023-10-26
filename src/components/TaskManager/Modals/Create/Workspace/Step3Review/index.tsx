@@ -53,7 +53,7 @@ const handleclose=()=>{
           <div className="w-full h-[34px] flex justify-between items-center">
             <p className="font-IranYekan800 text-[14px]">رنگ ورک‌اسپیس</p>
             <div
-              className={`w-[15px] h-[15px] rounded-[2px] ${workspaceColor}`}
+              className={`w-[15px] h-[15px] rounded-[2px] bg-${workspaceColor}-Primary`}
             ></div>
           </div>
           <div className="w-full h-[34px] flex justify-between items-center">

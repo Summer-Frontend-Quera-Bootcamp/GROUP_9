@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { AnyAction, configureStore } from "@reduxjs/toolkit";
 import userReducer from "../features/authentication/loginSlice";
 import registerReducer from "../features/authentication/registerSlice";
 import resetReducer from "../features/authentication/resetSlice";
@@ -17,22 +17,17 @@ import workspacemembersReducer from "../features/workspace/workspacemembersSlice
 import workspacemodalReducer from "../features/workspace/workspacemodalSlice";
 import projectModalReducer from "../features/modals/createProjectSlice";
 import taskmodalReducer from '../features/workspace/taskmodalSlice'
-// const listenerMiddleware = createListenerMiddleware();
-// listenerMiddleware.startListening({
-//   predicate: (action, currState, prevState) =>
-//     action?.AxiosError?.message === "Request failed with status code 401",
-//   effect: (_, { dispatch, condition }) => {
-//     console.log(condition);
-//     dispatch(fetchAccess({ refresh: String(localStorage.getItem("refresh")) }));
-//   },
-// });
+import profileReducer from "../features/profile/profileSlice";
+
 
 const localStorageMiddleware = ({ getState }: any) => {
-  return (next: any) => (action: any) => {
+  return (next: any) => (action: AnyAction) => {
     const result = next(action);
     getState().user.access && getState().user.refresh
       ? (localStorage.setItem("access", getState().user.access),
-        localStorage.setItem("refresh", getState().user.refresh))
+        localStorage.setItem("refresh", getState().user.refresh),
+        localStorage.setItem("id", getState().user.id),
+        localStorage.setItem("user_name", getState().user.userName))
       : getState().refresh.access
       ? localStorage.setItem("access", getState().refresh.access)
       : getState().user.access
@@ -64,7 +59,8 @@ const store = configureStore({
     workspacemembers: workspacemembersReducer,
     workspacemodal: workspacemodalReducer,
     projectModal: projectModalReducer,
-    taskmodal:taskmodalReducer
+    taskmodal: taskmodalReducer,
+    profile: profileReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(localStorageMiddleware),

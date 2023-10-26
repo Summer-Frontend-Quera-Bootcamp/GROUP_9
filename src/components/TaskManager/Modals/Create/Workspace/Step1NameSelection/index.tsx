@@ -27,7 +27,6 @@ const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
   const Dispatch = useAppDispatch();
   const visible = useSelector((state) => state.workspacemodal.modalone);
-  //console.log("hey : ", visible);
   const workname = useSelector((state) => state.workspacemodal.name);
   const [name, setName] = useState("");
 
@@ -47,7 +46,6 @@ const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
 
   const handleCreate = () => {
     dispatch(stepoen(name));
-    //console.log(workname);
   };
 
   const handleclose = () => {

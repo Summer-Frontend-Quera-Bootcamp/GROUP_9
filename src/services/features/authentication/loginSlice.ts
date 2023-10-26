@@ -4,6 +4,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 type InitialState = {
   loading: boolean;
   success: any;
+  id: number;
+  userName: string;
   access: string;
   refresh: string;
   error: string;
@@ -12,9 +14,11 @@ type InitialState = {
 const initialState: InitialState = {
   loading: false,
   success: "",
+  id: 0,
   access: "",
   refresh: "",
   error: "",
+  userName: ""
 };
 
 export const fetchUsers = createAsyncThunk(
@@ -42,13 +46,16 @@ const userSlice = createSlice({
       state.loading = false;
       state.success = action.payload;
       state.access = action.payload.access;
+      state.id = action.payload.user_id;
+      state.userName = action.payload.user_name;
       state.refresh = action.payload.refresh;
       state.error = "";
-      console.log(action.payload.username);
+      console.log(action.payload.user_id);
     });
     builder.addCase(fetchUsers.rejected, (state, action) => {
       state.loading = false;
       state.success = "";
+      state.id = 0;
       state.access = "";
       state.error = String(action.payload) || "Something went wrong";
     });

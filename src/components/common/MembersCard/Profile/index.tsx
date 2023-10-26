@@ -3,35 +3,36 @@
 // <======== Component-Import ========> //
 
 // <======== Intefaces ========> //
-import { Members } from "../../../../interfaces";
+import { Account } from "../../../../interfaces/Account";
 
 // <======== Constants ========> //
 import { ColorList } from "../../../../constants/ColorList";
 
 // <======== Hooks ========> //
 
-
 interface IProfileProps {
-  Member: Members;
+  Member?: Account;
+  width?: "w-[100px]" | "w-[36px]";
+  fontSize?: "text-[35px]" | "text-BodyXS";
+  fontWeight?: "font-IranYekan500" | "font-IranYekan400";
 }
 
-const Profile: React.FC<IProfileProps> = ({ Member }): JSX.Element => {
-  const color = ColorList.get(Member.userColor);
-
-  const userNameList = Member.userName.split(" ");
-  const letter_one = userNameList[0].charAt(0);
-  const letter_two = userNameList[1].charAt(0);
+const Profile: React.FC<IProfileProps> = ({
+  Member,
+  width = "w-[36px]",
+  fontSize = "text-BodyXS",
+  fontWeight = "font-IranYekan400",
+}): JSX.Element => {
+  const color = ColorList.get(String(localStorage.theme));
   return (
     <div
-      className={`w-[36px] h-full ml-[-8px] last:ml-[0px] pt-[9px] pb-[7px] px-xs rounded-full ${color?.bgSecondary} flex justify-center items-center`}
+      className={`${width} h-full ml-[-8px] last:ml-[0px] pt-[9px] pb-[7px] px-xs rounded-full ${color?.bgSecondary} flex justify-center items-center`}
     >
-      {Member.userImage?.length ? (
-        <img src={Member.userImage} />
+      {Member?.thumbnail ? (
+        <img src={Member.thumbnail} />
       ) : (
-        <p
-          className={`font-IranYekan400 text-BodyXS ${color?.textPrimary}`}
-        >
-          {`${letter_one}${letter_two}`}
+        <p className={`${fontWeight} ${fontSize} ${color?.textPrimary}`}>
+          {}
         </p>
       )}
     </div>

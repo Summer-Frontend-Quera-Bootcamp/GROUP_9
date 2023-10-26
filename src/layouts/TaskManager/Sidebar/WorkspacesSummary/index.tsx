@@ -13,6 +13,8 @@ import { fetchworkspace } from "../../../../services/features/workspace/workspac
 import { useAppDispatch } from "../../../../services/app/hooks";
 import { showfirstmodal } from "../../../../services/features/workspace/workspacemodalSlice";
 import { useSelector } from "react-redux";
+import { RootState } from "../../../../services/app/store";
+import { Workspaces } from "../../../../interfaces/TaskManager";
 
 // <======== Constants ========> //
 // import { workspaces } from "../../../../constants";
@@ -20,12 +22,12 @@ import { useSelector } from "react-redux";
 // <======== Hooks ========> //
 
 const WorkSpacesSummary: React.FC = (): JSX.Element => {
-  const workspaceslist = useSelector((state: any) => state.workspace);
+  const workspaceslist = useSelector((state: RootState) => state.workspace);
   const dispatch = useAppDispatch();
   const [workspaces, setWorkspaces] = useState([]);
   useEffect(() => {
     dispatch(fetchworkspace()).then((e) => setWorkspaces(e.payload));
-  }, [workspaceslist]);
+  }, [, workspaceslist]);
 
   const handleClick = () => {
     dispatch(showfirstmodal());
@@ -53,7 +55,7 @@ const WorkSpacesSummary: React.FC = (): JSX.Element => {
             ساختن اسپیس جدید
           </button>
           <SpacesAndProjectsList
-            SpacesList={workspaces.sort((a: any, b: any) => a.id - b.id)}
+            SpacesList={workspaces.sort((a: Workspaces, b: Workspaces) => Number(a.id) - Number(b.id))}
           />
         </div>
       </details>

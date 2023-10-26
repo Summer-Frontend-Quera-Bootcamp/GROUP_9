@@ -4,7 +4,6 @@
 import SpaceMoreButton from "./MoreButton";
 
 // <======== Interfaces ========> //
-import { Workspaces } from "../../../../../../interfaces";
 
 // <======== Constants ========> //
 import { ColorList } from "../../../../../../constants/ColorList";
@@ -18,6 +17,8 @@ import {
   called,
   setId,
 } from "../../../../../../services/features/modals/createProjectSlice";
+import { RootState } from "../../../../../../services/app/store";
+import { Projects } from "../../../../../../interfaces/TaskManager";
 
 // <======== Hooks ========> //
 
@@ -26,20 +27,15 @@ interface IWorkspaceElementProps {
 }
 
 const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
-  const [color, setColor] = useState<any>();
-  const [projects, setProjects] = useState([]);
+  const color = ColorList.get(workspace.color);
+  const [projects, setProjects] = useState<Projects[]>([]);
   const dispatch = useAppDispatch();
-  const projectsChange = useSelector((state: any) => state.projectModal.text);
+  const projectsChange = useSelector((state: RootState) => state.projectModal.text);
   useEffect(() => {
     dispatch(fetchprojects(workspace.id)).then((res) =>
-      setProjects(res.payload)
+      setProjects(res.payload.sort((a: Projects, b: Projects) => Number(a.id) - Number(b.id)))
     );
-    setColor(
-      workspace.color === "Green"
-        ? ColorList.get("Green")
-        : ColorList.get("Blue")
-    );
-  }, [projectsChange]);
+  }, [, projectsChange]);
   const Dispatch = useDispatch();
   const handleClick = () => {
     Dispatch(setId(workspace.id));
@@ -57,18 +53,18 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
         <p className="ml-auto font-IranYekan500 text-BodyM">{workspace.name}</p>
         <SpaceMoreButton id={workspace.id} />
       </dt>
-      {projects?.length
-        ? projects?.map((project) => {
-            return <ProjectElement project={project} />;
-          })
-        : null}
-
-      <button
-        onClick={handleClick}
-        className="w-full min-h-[36px] border-[2px] border-Brand-Primary rounded-[8px] font-IranYekan400 text-BodyS text-Brand-Primary flex justify-center items-center hover:bg-Brand-Primary hover:text-White"
-      >
-        ساختن پروژه جدید
-      </button>
+      {projects?.length ? (
+        projects?.map((project) => {
+          return <ProjectElement key={project.id} project={project} />;
+        })
+      ) : (
+        <button
+          onClick={handleClick}
+          className="w-full min-h-[36px] border-[2px] border-Brand-Primary rounded-[8px] font-IranYekan400 text-BodyS text-Brand-Primary flex justify-center items-center hover:bg-Brand-Primary hover:text-White"
+        >
+          ساختن پروژه جدید
+        </button>
+      )}
     </>
   );
 };
