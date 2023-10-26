@@ -46,19 +46,16 @@ const taskmodalSlice = createSlice({
     hidefirstasktmodal:(state)=>{
       state.firstmodal="hidden";
     },
-    // showtagmodal: (state)=>{
-    //   state.firstmodal="hidden"
-    //   state.tagmodal="visible"
-    // }
-    // stepoen: (state, action) => {
-    //   state.name = action.payload;
-    //   state.modalone="invisible",
-    //   state.modaltwo="visible",
-    //   state.submit= false,
-    //   console.log("one : ",state)
-    // },
+    setpriority:(state,action)=>{
+      state.priority = action.payload;
+      console.log(action.payload)
+    },
+    setDescription:(state,action)=>{
+      state.description = action.payload;
+      console.log(action.payload)
+    }
   },
 });
 
 export default taskmodalSlice.reducer;
-export const { showfirstasktmodal, hidefirstasktmodal } = taskmodalSlice.actions;
+export const { showfirstasktmodal, hidefirstasktmodal,setDescription,setpriority } = taskmodalSlice.actions;

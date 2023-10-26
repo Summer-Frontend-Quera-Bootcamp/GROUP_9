@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import AvatarDotted from "../../Information/Task/AvatarDotted";
 import PriorityModal from "./PriorityModal";
 import TagModal from "./TagModal";
@@ -11,34 +11,50 @@ import { useAppDispatch } from "../../../../../services/app/hooks";
 import CalenderModal from "../../CalenderModal";
 import {
   hidefirstasktmodal,
+  setDescription,
   showfirstasktmodal,
 } from "../../../../../services/features/workspace/taskmodalSlice";
 import { fetchprojects } from "../../../../../services/features/workspace/projectsSlice";
 import { fetchworkspacemembers } from "../../../../../services/features/workspace/workspacemembersSlice";
 
 const Newtaskmodal = () => {
+
   const display = useSelector((state) => state.taskmodal.firstmodal);
   const space = useSelector((state)=>state.current.workspace_id);
   const spacemembers = useSelector((state)=>state.workspacemembers);
   const projects = useSelector((state)=>state.project);
+
   const dispatch = useAppDispatch();
+
   const [project,setProject] = useState();
   const [members,setMembers] = useState();
   const [priorityShow, setPriorityShow] = useState(false);
   const [tagShow, setTagShow] = useState(false);
   const [calenderShow, setCalenderShow] = useState(false);
-  console.log("display is :", display);
+  const [file,setFile] = useState<File>();
 
   useEffect(()=>{
     dispatch(fetchworkspacemembers({id:space})).then(d=>setMembers(d.payload));
     dispatch(fetchprojects(space)).then((d)=>setProject(d.payload));
   },[space,projects,spacemembers])
 
-  console.log("space is : ",space," projects in task modal is : ",members)
+
   const handleclick = () => {
     console.log("clicked");
     dispatch(hidefirstasktmodal());
   };
+
+  const handlediscription=(e:React.ChangeEvent<HTMLInputElement>)=>{
+    dispatch(setDescription(e.target.value));
+  }
+
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0]);
+    }
+    console.log("file is :",file);
+  };
+
   return (
     <div
       className={`w-[1153px] h-auto relative bg-White p-l m-auto shadow-NewProjectModal rounded-[20px] ${display} z-40`}
@@ -66,7 +82,7 @@ const Newtaskmodal = () => {
         </select>
         <div>برای</div>
         <div className="w-[34px] h-[34px] m-[2px]">
-          {/* <AvatarDotted iconName="user"> */}
+        
             <select className="w-[40px] appearance-none h-[40px] flex flex-row  justify-center items-center  cursor-pointer  border border-[#C1C1C1] border-dashed rounded-full pl-0 ">
             {members?.map(member=>{
             return (
@@ -74,12 +90,13 @@ const Newtaskmodal = () => {
             )
           })}
             </select>
-          {/* </AvatarDotted> */}
+          
         </div>
       </div>
       <textarea
         className="resize-none w-full h-[191px] mb-xl px-l py-[19px] font-IranYekan500 text-[16px] text-[#AEAEAE] border border-[#BDBDBD] rounded-[12px]"
         placeholder="توضیحاتی برای این تسک بنویسید"
+        onChange={handlediscription}
       ></textarea>
       <div className="gap-xs text-Black text-[16px] font-IranYekan500 w-full h-auto mb-xl flex justify-start items-center">
         <div>افزودن پیوست</div>
@@ -93,6 +110,7 @@ const Newtaskmodal = () => {
         <input
           className="hidden"
           type="file"
+          onChange={handleFileChange}
           name="NewWorkSpaceFileUpload"
           id="NewWorkSpaceFileUpload"
         ></input>
