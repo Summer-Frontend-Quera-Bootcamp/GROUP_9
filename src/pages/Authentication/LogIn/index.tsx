@@ -43,7 +43,7 @@ const Login: React.FC = (): JSX.Element => {
         AXIOS.defaults.headers.common.Authorization = `Bearer ${access}`;
         store.getState().user.error
           ? (Dispatch(showToast(response.payload)),
-            setTimeout(() => Dispatch(showToast("error")), 3000))
+            setTimeout(() => Dispatch(showToast("")), 3000))
           : navigate("/taskmanager");
       })
       .catch((error) => {

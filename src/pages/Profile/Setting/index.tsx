@@ -6,7 +6,6 @@ import ProfilePage from "../../../layouts/Profile";
 const Setting = () => {
   const [selected, setSelected] = useState("Brand");
   const pullColor = (Color: string) => {
-    console.log(Color);
     setSelected(Color);
   };
   const handleSubmit = () => {

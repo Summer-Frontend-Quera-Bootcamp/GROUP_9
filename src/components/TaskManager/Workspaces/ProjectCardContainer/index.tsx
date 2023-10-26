@@ -5,13 +5,14 @@ import ProjectCard from "../ProjectCard";
 import NewProjectCard from "../NewProjectCard";
 
 // <======== Intefaces ========> //
-import { Workspaces } from "../../../../interfaces/TaskManager";
+import { Projects, Workspaces } from "../../../../interfaces/TaskManager";
 
 // <======== Hooks ========> //
 import { useAppDispatch } from "../../../../services/app/hooks";
 import { useEffect, useState } from "react";
 import { fetchprojects } from "../../../../services/features/workspace/projectsSlice";
 import { useSelector } from "react-redux";
+import { RootState } from "../../../../services/app/store";
 
 interface IProjectCardContainer {
   workspace: Workspaces;
@@ -19,10 +20,10 @@ interface IProjectCardContainer {
 
 const ProjectCardContainer = ({ workspace }: IProjectCardContainer) => {
   const dispatch = useAppDispatch();
-  const [projects, setProjects] = useState<any>([]);
-  const projectsChange = useSelector((state: any) => state.projectModal.text);
+  const [projects, setProjects] = useState<Projects[]>([]);
+  const projectsChange = useSelector((state: RootState) => state.projectModal.text);
   useEffect(() => {
-    dispatch(fetchprojects(workspace.id)).then((e) => setProjects(e.payload));
+    dispatch(fetchprojects(workspace.id)).then((e) => setProjects(e.payload.sort((a: Projects, b: Projects) => Number(a.id) - Number(b.id))));
   }, [projectsChange]);
   return (
     <>
@@ -31,7 +32,7 @@ const ProjectCardContainer = ({ workspace }: IProjectCardContainer) => {
       </header>
       <main className="flex gap-l items-start">
         {projects?.length ? (
-          projects?.map((item: any) => {
+          projects?.map((item: Projects) => {
             return (
               <ProjectCard
                 key={item.id}

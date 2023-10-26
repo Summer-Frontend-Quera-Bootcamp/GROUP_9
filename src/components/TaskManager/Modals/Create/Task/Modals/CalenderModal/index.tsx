@@ -7,8 +7,9 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin, { DateRangeInput } from "@fullcalendar/interaction";
 import "../../CalenderView/index.css";
 import "./index.css";
-import { CalenderStartTimeIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Create/CalenderModal/StartTime";
-import { CalenderEndTimeIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Create/CalenderModal/EndTime";
+import { CalenderStartTimeIcon } from "../../../../../../../assets/Icons/TaskManager/Modals/Task/Create/CalenderModal/StartTime";
+import { CalenderEndTimeIcon } from "../../../../../../../assets/Icons/TaskManager/Modals/Task/Create/CalenderModal/EndTime";
+
 interface CalenderProps {}
 
 const CalenderModal: React.FC<CalenderProps> = () => {
@@ -23,11 +24,11 @@ const CalenderModal: React.FC<CalenderProps> = () => {
     setSelectedEndDate(endDate);
   };
 
-  let startDay = selectedStartDate?.toLocaleString("fa", {
+  const startDay = selectedStartDate?.toLocaleString("fa", {
     day: "numeric",
     month: "long",
   });
-  let endDay = selectedEndDate?.toLocaleString("fa", {
+  const endDay = selectedEndDate?.toLocaleString("fa", {
     day: "numeric",
     month: "long",
   });

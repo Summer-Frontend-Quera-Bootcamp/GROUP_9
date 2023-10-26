@@ -1,9 +1,9 @@
 // <======== Assest-Import ========> //
-import { EmergencyPriorityIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/Emergency";
-import { HighPriorityIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/High";
-import { IntermediatePriorityIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/Intermediate";
-import { LowPriorityIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/Low";
-import { NothingPriorityIcon } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/Nothing";
+import { EmergencyPriorityIconXS } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/Emergency";
+import { HighPriorityIconXS } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/High";
+import { IntermediatePriorityIconXS } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/Intermediate";
+import { LowPriorityIconXS } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/Low";
+import { NothingPriorityIconXS } from "../../../../assets/Icons/TaskManager/Modals/Task/Common/Priorities/Nothing";
 import { DescriptionIcon } from "../../../../assets/Icons/TaskManager/Pages/ListView/Task/Description";
 
 // <======== Component-Import ========> //
@@ -40,11 +40,11 @@ const ListViewProjectTask: React.FC<ITaskProps> = ({
         {task.deadline}
       </td>
       <td className="w-[70px] px-[10px] flex justify-center items-center">
-        {task.priority === "Emergency" && EmergencyPriorityIcon}
-        {task.priority === "High" && HighPriorityIcon}
-        {task.priority === "Intermediate" && IntermediatePriorityIcon}
-        {task.priority === "Low" && LowPriorityIcon}
-        {task.priority === "Nothing" && NothingPriorityIcon}
+        {task.priority === "Emergency" && EmergencyPriorityIconXS}
+        {task.priority === "High" && HighPriorityIconXS}
+        {task.priority === "Intermediate" && IntermediatePriorityIconXS}
+        {task.priority === "Low" && LowPriorityIconXS}
+        {task.priority === "Nothing" && NothingPriorityIconXS}
       </td>
       <td className="w-[70px] px-[10px] flex justify-center items-center">
         {DescriptionIcon}

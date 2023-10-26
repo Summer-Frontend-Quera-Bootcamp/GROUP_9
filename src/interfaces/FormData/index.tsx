@@ -12,6 +12,7 @@ export type FormData = {
   firstName?: string;
   lastName?: string;
 
+  boardName?: string;
   projectName?: string;
   workspaceName?: string;
 

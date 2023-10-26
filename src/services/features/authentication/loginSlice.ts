@@ -5,6 +5,7 @@ type InitialState = {
   loading: boolean;
   success: any;
   id: number;
+  userName: string;
   access: string;
   refresh: string;
   error: string;
@@ -17,6 +18,7 @@ const initialState: InitialState = {
   access: "",
   refresh: "",
   error: "",
+  userName: ""
 };
 
 export const fetchUsers = createAsyncThunk(
@@ -45,6 +47,7 @@ const userSlice = createSlice({
       state.success = action.payload;
       state.access = action.payload.access;
       state.id = action.payload.user_id;
+      state.userName = action.payload.user_name;
       state.refresh = action.payload.refresh;
       state.error = "";
       console.log(action.payload.user_id);

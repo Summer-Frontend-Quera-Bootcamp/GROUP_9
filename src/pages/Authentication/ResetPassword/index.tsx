@@ -8,13 +8,14 @@ import AuthenticationForm from "../../../components/Athentication/Form";
 import React, { useState, useEffect } from "react";
 import { resetPassword } from "../../../services/features/authentication/resetSlice";
 import { useAppDispatch } from "../../../services/app/hooks";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import store from "../../../services/app/store";
 import { useDispatch } from "react-redux";
 import { showToast } from "../../../services/features/authentication/toastSlice";
 const ResetPassword = () => {
   const dispatch = useAppDispatch();
   const Dispatch = useDispatch();
+  const navigate = useNavigate();
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [token, setToken] = useState<string | null>("");
@@ -38,7 +39,7 @@ const ResetPassword = () => {
         store.getState().reset.error
           ? (Dispatch(showToast(response.payload)),
             setTimeout(() => Dispatch(showToast("")), 3000))
-          : null;
+          : navigate("/Success");
       })
       .catch((error) => {
         console.log(error);
