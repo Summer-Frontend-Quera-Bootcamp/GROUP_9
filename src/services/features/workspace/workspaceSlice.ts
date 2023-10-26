@@ -1,7 +1,7 @@
-import axios from "axios";
+//import axios from "axios";
 import { AXIOS } from "../../../config/axios.config";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
+//import { act } from "react-dom/test-utils";
 
 export type InitialState = {
   id: number;
@@ -80,7 +80,7 @@ const workspaceSlice = createSlice({
       console.log("edit", action.payload);
     });
     builder.addCase(deleteworkspace.fulfilled, (state, action) => {
-      // state.push(action.payload);
+      state.push(action.payload);
       state.forEach((space, index) => {
         if (space.id == action.payload.id) {
           state.splice(index, 1);

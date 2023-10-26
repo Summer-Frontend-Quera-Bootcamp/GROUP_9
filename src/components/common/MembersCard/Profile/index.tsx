@@ -11,7 +11,7 @@ import { ColorList } from "../../../../constants/ColorList";
 // <======== Hooks ========> //
 
 interface IProfileProps {
-  Member?: Account;
+  Member: Account;
   width?: "w-[100px]" | "w-[36px]";
   fontSize?: "text-[35px]" | "text-BodyXS";
   fontWeight?: "font-IranYekan500" | "font-IranYekan400";
@@ -32,7 +32,7 @@ const Profile: React.FC<IProfileProps> = ({
         <img src={Member.thumbnail} />
       ) : (
         <p className={`${fontWeight} ${fontSize} ${color?.textPrimary}`}>
-          {}
+          {`${Member.username?.charAt(0)} ${Member.username?.charAt(1)}`}
         </p>
       )}
     </div>

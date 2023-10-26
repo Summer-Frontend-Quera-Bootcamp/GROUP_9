@@ -1,4 +1,4 @@
-import { AnyAction, configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../features/authentication/loginSlice";
 import registerReducer from "../features/authentication/registerSlice";
 import resetReducer from "../features/authentication/resetSlice";
@@ -16,12 +16,11 @@ import subscription from "../features/workspace/subscriptionSlice";
 import workspacemembersReducer from "../features/workspace/workspacemembersSlice";
 import workspacemodalReducer from "../features/workspace/workspacemodalSlice";
 import projectModalReducer from "../features/modals/createProjectSlice";
-import taskmodalReducer from '../features/workspace/taskmodalSlice'
+import taskmodalReducer from "../features/workspace/taskmodalSlice";
 import profileReducer from "../features/profile/profileSlice";
 
-
 const localStorageMiddleware = ({ getState }: any) => {
-  return (next: any) => (action: AnyAction) => {
+  return (next: any) => (action: any) => {
     const result = next(action);
     getState().user.access && getState().user.refresh
       ? (localStorage.setItem("access", getState().user.access),

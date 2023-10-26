@@ -30,12 +30,19 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
   const color = ColorList.get(workspace.color);
   const [projects, setProjects] = useState<Projects[]>([]);
   const dispatch = useAppDispatch();
-  const projectsChange = useSelector((state: RootState) => state.projectModal.text);
+  const projectsChange = useSelector(
+    (state: RootState) => state.projectModal.text
+  );
+  const projectsDelete = useSelector((state: RootState) => state.project);
   useEffect(() => {
     dispatch(fetchprojects(workspace.id)).then((res) =>
-      setProjects(res.payload.sort((a: Projects, b: Projects) => Number(a.id) - Number(b.id)))
+      setProjects(
+        res.payload.sort(
+          (a: Projects, b: Projects) => Number(a.id) - Number(b.id)
+        )
+      )
     );
-  }, [, projectsChange]);
+  }, [, projectsChange, projectsDelete]);
   const Dispatch = useDispatch();
   const handleClick = () => {
     Dispatch(setId(workspace.id));
@@ -55,7 +62,13 @@ const WorkspaceElement: React.FC<IWorkspaceElementProps> = ({ workspace }) => {
       </dt>
       {projects?.length ? (
         projects?.map((project) => {
-          return <ProjectElement key={project.id} project={project} />;
+          return (
+            <ProjectElement
+              id={workspace.id}
+              key={project.id}
+              project={project}
+            />
+          );
         })
       ) : (
         <button
