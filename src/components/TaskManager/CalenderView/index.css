@@ -178,6 +178,7 @@ body {
 .fc .fc-toolbar.fc-header-toolbar {
   padding-top: 15px;
   position: fixed;
+  z-index: 50;
   left: 19%;
   margin-left: 400px;
 }
@@ -193,9 +194,9 @@ th {
   background: #4bece2;
   border-radius: 4px;
 }
-.fc .fc-highlight {
+/* .fc .fc-highlight {
   background: red;
-}
+} */
 .fc .fc-highlight:last-child {
   background: #4bece2;
   border-radius: 4px;
