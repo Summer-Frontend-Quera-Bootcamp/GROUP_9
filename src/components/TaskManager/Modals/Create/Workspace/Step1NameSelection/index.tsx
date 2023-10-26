@@ -21,13 +21,14 @@ import {
   closemodal,
   stepoen,
 } from "../../../../../../services/features/workspace/workspacemodalSlice";
+import { RootState } from "../../../../../../services/app/store";
 
 const NewSpaceModalNameSelection: React.FC = (): JSX.Element => {
   const color = ColorList.get("Brand");
   const dispatch = useDispatch();
   const Dispatch = useAppDispatch();
-  const visible = useSelector((state) => state.workspacemodal.modalone);
-  const workname = useSelector((state) => state.workspacemodal.name);
+  const visible = useSelector((state: RootState) => state.workspacemodal.modalone);
+  const workname = useSelector((state: RootState) => state.workspacemodal.name);
   const [name, setName] = useState("");
 
   const handleSpaceNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
