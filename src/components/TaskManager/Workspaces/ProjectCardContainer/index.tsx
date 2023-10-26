@@ -21,10 +21,19 @@ interface IProjectCardContainer {
 const ProjectCardContainer = ({ workspace }: IProjectCardContainer) => {
   const dispatch = useAppDispatch();
   const [projects, setProjects] = useState<Projects[]>([]);
-  const projectsChange = useSelector((state: RootState) => state.projectModal.text);
+  const projectsChange = useSelector(
+    (state: RootState) => state.projectModal.text
+  );
+  const projectsDelete = useSelector((state: RootState) => state.project);
   useEffect(() => {
-    dispatch(fetchprojects(workspace.id)).then((e) => setProjects(e.payload.sort((a: Projects, b: Projects) => Number(a.id) - Number(b.id))));
-  }, [projectsChange]);
+    dispatch(fetchprojects(workspace.id)).then((e) =>
+      setProjects(
+        e.payload.sort(
+          (a: Projects, b: Projects) => Number(a.id) - Number(b.id)
+        )
+      )
+    );
+  }, [, projectsChange, projectsDelete]);
   return (
     <>
       <header className="font-IranYekan800 text-[24px] text-Gray-Darker">

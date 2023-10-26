@@ -10,6 +10,7 @@ import { ColumnPlusButtonIcon } from "../../../../../../../../assets/Icons/TaskM
 
 // <======== Constants ========> //
 import { ColorList } from "../../../../../../../../constants/ColorList";
+import { useAppDispatch } from "../../../../../../../../services/app/hooks";
 import {
   called,
   setId,
@@ -17,17 +18,23 @@ import {
 
 // <======== Hooks ========> //
 import { useDispatch } from "react-redux";
+import { deleteworkspace } from "../../../../../../../../services/features/workspace/workspaceSlice";
 interface IProps {
   id: number;
 }
 const WorkspaceMoreModal = ({ id }: IProps) => {
   const color = ColorList.get("Brand");
   const dispatch = useDispatch();
+  const Dispatch = useAppDispatch();
   const handleClick = () => {
     dispatch(setId(id));
     dispatch(called());
   };
-
+  const handleDelete = () => {
+    dispatch(setId(id));
+    Dispatch(deleteworkspace({ id: id }));
+    console.log("clicked");
+  };
   return (
     <div className="absolute top-[16px] left-[0px] w-[210px] p-[12px] rounded-[8px] shadow-moreModal bg-White flex flex-col gap-s items-start z-20">
       <div className="w-full flex flex-col gap-xs items-start">
@@ -58,7 +65,10 @@ const WorkspaceMoreModal = ({ id }: IProps) => {
             کپی لینک
           </p>
         </div>
-        <div className="w-full h-l pl-[12px] pr-[4px] rounded-[8px] flex gap-xs justify-start items-center hover:bg-[#FFE3E3] cursor-pointer">
+        <div
+          onClick={handleDelete}
+          className="w-full h-l pl-[12px] pr-[4px] rounded-[8px] flex gap-xs justify-start items-center hover:bg-[#FFE3E3] cursor-pointer"
+        >
           {RedRemoveButtonIcon}
           <p className="h-[24px] font-IranYekan400 text-BodyS text-Red-Primary cursor-pointer">
             حذف

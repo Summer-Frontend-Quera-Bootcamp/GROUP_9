@@ -6,6 +6,7 @@ type InitialState = {
   success: any;
   id: number;
   userName: string;
+  fullName: string;
   access: string;
   refresh: string;
   error: string;
@@ -15,10 +16,11 @@ const initialState: InitialState = {
   loading: false,
   success: "",
   id: 0,
+  userName: "",
+  fullName: "",
   access: "",
   refresh: "",
   error: "",
-  userName: ""
 };
 
 export const fetchUsers = createAsyncThunk(
@@ -47,7 +49,8 @@ const userSlice = createSlice({
       state.success = action.payload;
       state.access = action.payload.access;
       state.id = action.payload.user_id;
-      state.userName = action.payload.user_name;
+      state.userName = action.payload.username;
+      state.fullName = action.payload.first_name + action.payload.last_name;
       state.refresh = action.payload.refresh;
       state.error = "";
       console.log(action.payload.user_id);

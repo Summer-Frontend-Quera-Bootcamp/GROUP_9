@@ -49,13 +49,10 @@ export const editproject = createAsyncThunk<
 
 export const deleteproject = createAsyncThunk<
   any,
-  { id: number; project_id: number; name: string }
+  { id: number; project_id: number }
 >(
   "workspace/delete",
-  (
-    project: { id: number; project_id: number; name: string },
-    { rejectWithValue }
-  ) => {
+  (project: { id: number; project_id: number }, { rejectWithValue }) => {
     return AXIOS.delete(
       `workspaces/${project.id}/projects/${project.project_id}/`
     )
@@ -86,6 +83,7 @@ const projectSlice = createSlice({
       //console.log("edit projects", state);
     });
     builder.addCase(deleteproject.fulfilled, (state, action) => {
+      state.push(action.payload);
       state.forEach((space, index) => {
         if (space.id == action.payload.id) {
           state.splice(index, 1);

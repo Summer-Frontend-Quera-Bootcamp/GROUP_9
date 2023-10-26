@@ -11,17 +11,19 @@ import { useState } from "react";
 
 interface IProjectElementProps {
   project: Projects;
+  id: number;
 }
 
 const ProjectElement: React.FC<IProjectElementProps> = ({
   project,
+  id,
 }): JSX.Element => {
   const [moreButton, setMoreButton] = useState(<></>);
 
   const handleMouseOver = () => {
     setMoreButton(
       <>
-        <ProjectMoreButton />
+        <ProjectMoreButton workSpaceId={id} id={Number(project.id)} />
       </>
     );
   };

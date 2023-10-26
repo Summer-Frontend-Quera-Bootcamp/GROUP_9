@@ -1,5 +1,6 @@
 // <======== Assest-Import ========> //
 import { MoreButtonIcon } from "../../../../../../../assets/Icons/CommonIcon/MoreButton";
+import { Projects } from "../../../../../../../interfaces/TaskManager";
 
 // <======== Component-Import ========> //
 import ProjectMoreModal from "./Modal";
@@ -7,15 +8,18 @@ import ProjectMoreModal from "./Modal";
 // <======== Hooks ========> //
 import { useState } from "react";
 
-
-const ProjectMoreButton = () => {
+interface Props {
+  id: number;
+  workSpaceId: number;
+}
+const ProjectMoreButton = ({ id, workSpaceId }: Props) => {
   const [content, setContent] = useState(<>{MoreButtonIcon}</>);
 
   const handleMouseOver = () => {
     setContent(
       <>
         {MoreButtonIcon}
-        <ProjectMoreModal />
+        <ProjectMoreModal workSpaceId={workSpaceId} id={id} />
       </>
     );
   };
