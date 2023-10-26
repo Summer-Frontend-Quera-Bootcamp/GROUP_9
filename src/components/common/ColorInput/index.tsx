@@ -13,15 +13,17 @@ import { useState } from "react";
 
 
 interface IColorInputProps {
+  defaultColor?: string;
   isNoColorButton?: boolean;
   func: (color: string) => void;
 }
 
 const ColorInput: React.FC<IColorInputProps> = ({
+  defaultColor = "",
   isNoColorButton = false,
   func,
 }) => {
-  const [selectedColor, setSelectedColor] = useState<string>();
+  const [selectedColor, setSelectedColor] = useState<string>(defaultColor);
   const Colors = [
     "Indigo",
     "Blue",

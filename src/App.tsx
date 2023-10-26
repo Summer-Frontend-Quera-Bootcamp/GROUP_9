@@ -24,6 +24,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "./services/app/hooks";
 import { fetchAccess } from "./services/features/authentication/refreshSlice";
 import { AXIOS } from "./config/axios.config";
+import ProfilePage from "./layouts/Profile";
 const App = () => {
   const dispatch = useAppDispatch();
   //reHydration on state change:
@@ -56,15 +57,18 @@ const App = () => {
           <Route path="calenderview" element={<CalenderViewPage />} />
         </Route>
         // --------------------- ProfilePage --------------------- //
-        <Route
-          path="/profile/userinformatiton"
-          element={<AccountInformation />}
-        />
-        <Route
-          path="/profile/accountinformation"
-          element={<UserInformation />}
-        />
-        <Route path="/profile/setting" element={<Setting />} />
+        <Route path="/profile" element={<ProfilePage/>}>
+          <Route
+            index
+            path="userinformatiton"
+            element={<AccountInformation />}
+          />
+          <Route
+            path="accountinformation"
+            element={<UserInformation />}
+          />
+          <Route path="setting" element={<Setting />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

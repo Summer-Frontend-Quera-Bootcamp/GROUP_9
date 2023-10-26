@@ -2,10 +2,10 @@ import { ColorList } from "../../../../../constants/ColorList";
 
 
 interface IPlusButtonColorProps {
-  itemColor: string | undefined;
+  itemColor: string;
 }
 
-const WorkspacePlusButton: React.FC<IPlusButtonColorProps> = ({ itemColor = "Red" }): JSX.Element => {
+const WorkspacePlusButton: React.FC<IPlusButtonColorProps> = ({ itemColor }): JSX.Element => {
   const color = ColorList.get(itemColor)
   return (
     <>
