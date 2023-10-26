@@ -126,7 +126,7 @@ const CalenderModal: React.FC<CalenderProps> = ({
               </p>
             </div>
           </div>
-          <div className="w-[689px] mr-xl">
+          <div className="w-[689px] mr-xl calendar2">
             <FullCalendar
               plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
               initialView="dayGridMonth"

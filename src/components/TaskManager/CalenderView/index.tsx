@@ -10,7 +10,7 @@ interface CalenderViewProps {}
 
 const CalenderView: React.FC<CalenderViewProps> = () => {
   return (
-    <div className="w-3/4 ml-m float-left mt-[100px] calandar1">
+    <div className="w-3/4 ml-m float-left mt-[100px] mb-xs -z-10 calandar1">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin]}
         initialView="dayGridMonth"

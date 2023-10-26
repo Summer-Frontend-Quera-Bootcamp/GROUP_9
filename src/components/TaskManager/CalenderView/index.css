@@ -1,3 +1,6 @@
+body {
+  overflow: visible !important;
+}
 @font-face {
   font-family: IranYekan;
   src: url(../../../assets/Fonts/IRANYEKANREGULARFANUM.TTF);
@@ -174,6 +177,8 @@
 
 .fc .fc-toolbar.fc-header-toolbar {
   padding-top: 15px;
+  position: fixed;
+  left: 19%;
   margin-left: 400px;
 }
 thead {
@@ -194,4 +199,7 @@ th {
 .fc .fc-highlight:last-child {
   background: #4bece2;
   border-radius: 4px;
+}
+.fc .fc-scrollgrid-liquid {
+  margin-top: 5rem;
 }
