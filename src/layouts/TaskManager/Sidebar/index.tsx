@@ -6,11 +6,20 @@ import { ExitDoorIcon } from "../../../assets/Icons/TaskManager/Layout/Sidebar/E
 // <======== Component-Import ========> //
 import ProfileSection from "./ProfileSection";
 import WorkSpacesSummary from "./WorkspacesSummary";
+import { useNavigate } from "react-router-dom";
 
 // <======== Hooks ========> //
 
 
 const Sidebar: React.FC = (): JSX.Element => {
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    navigate("/Login");
+    localStorage.removeItem("access")
+    localStorage.removeItem("refresh")
+    localStorage.removeItem("user_name")
+    localStorage.removeItem("id")
+  }
   return (
     <aside className="w-[340px] h-full border-l-[0.5px] border-GrayLight bg-inherite fixed right-0 flex flex-col items-start">
       <header className="mt-[40px] mr-[50px] ml-[55px]">
@@ -25,7 +34,7 @@ const Sidebar: React.FC = (): JSX.Element => {
         <ProfileSection />
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row">
-            <button className="flex items-center gap-[4px] cursor-pointer">
+            <button onClick={handleLogout} className="flex items-center gap-[4px] cursor-pointer">
               {ExitDoorIcon}
               <p className="font-IranYekan500 text-BodyM text-[#818181] cursor-pointer">
                 خروج

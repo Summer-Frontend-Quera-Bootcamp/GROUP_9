@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Profile from "../../../../components/common/MembersCard/Profile";
 import store from "../../../../services/app/store";
 
 const ProfileSection: React.FC = (): JSX.Element => {
+  const navigate = useNavigate()
   return (
-    <div className="flex flex-row items-center gap-xs cursor-pointer">
+    <div onClick={() => navigate("/profile/userinformatiton")} className="flex flex-row items-center gap-xs cursor-pointer">
       <Profile
         Member={{
           username: store.getState().user.userName

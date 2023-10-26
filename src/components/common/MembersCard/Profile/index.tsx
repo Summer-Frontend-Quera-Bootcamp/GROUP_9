@@ -18,7 +18,7 @@ interface IProfileProps {
 }
 
 const Profile: React.FC<IProfileProps> = ({
-  Member,
+  Member = {username: localStorage.getItem("user_name")},
   width = "w-[36px]",
   fontSize = "text-BodyXS",
   fontWeight = "font-IranYekan400",
@@ -32,7 +32,7 @@ const Profile: React.FC<IProfileProps> = ({
         <img src={Member.thumbnail} />
       ) : (
         <p className={`${fontWeight} ${fontSize} ${color?.textPrimary}`}>
-          {`${Member.username?.charAt(0)} ${Member.username?.charAt(1)}`}
+          {`${Member.username?.charAt(0).toUpperCase()}${Member.username?.charAt(1).toUpperCase()}`}
         </p>
       )}
     </div>

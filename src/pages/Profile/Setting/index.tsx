@@ -20,7 +20,7 @@ const Setting = () => {
         <div className="w-full font-IranYekan400 text-[14px] flex flex-col gap-s">
           انتخاب تم
           <div className="flex flex-wrap gap-[12px] items-center">
-            <ColorInput func={pullColor} />
+            <ColorInput func={pullColor} defaultColor={String(localStorage.getItem("theme"))}/>
           </div>
         </div>
         <button

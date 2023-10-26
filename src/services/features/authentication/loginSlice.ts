@@ -50,7 +50,7 @@ const userSlice = createSlice({
       state.access = action.payload.access;
       state.id = action.payload.user_id;
       state.userName = action.payload.username;
-      state.fullName = action.payload.first_name + action.payload.last_name;
+      state.fullName = action.payload.first_name + " " + action.payload.last_name;
       state.refresh = action.payload.refresh;
       state.error = "";
       console.log(action.payload.user_id);

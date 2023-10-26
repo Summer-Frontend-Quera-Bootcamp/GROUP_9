@@ -57,16 +57,13 @@ const App = () => {
           <Route path="calenderview" element={<CalenderViewPage />} />
         </Route>
         // --------------------- ProfilePage --------------------- //
-        <Route path="/profile" element={<ProfilePage/>}>
+        <Route path="/profile" element={<ProfilePage />}>
           <Route
             index
             path="userinformatiton"
             element={<AccountInformation />}
           />
-          <Route
-            path="accountinformation"
-            element={<UserInformation />}
-          />
+          <Route path="accountinformation" element={<UserInformation />} />
           <Route path="setting" element={<Setting />} />
         </Route>
       </Routes>

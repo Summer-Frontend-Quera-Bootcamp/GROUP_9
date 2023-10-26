@@ -51,7 +51,7 @@ const AccountInformation = () => {
             width="w-[100px]"
             fontSize="text-[35px]"
             fontWeight="font-IranYekan500"
-            Member={workspaces[0].members[0]}
+            Member={{username: String(localStorage.getItem("user_name"))}}
           />
           <div className="flex flex-col gap-s items-center">
             <button

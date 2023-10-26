@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useAppDispatch } from "../../../../../../services/app/hooks";
 import { closemodal, reset, showsecondmodal } from "../../../../../../services/features/workspace/workspacemodalSlice";
 import { fetchworkspace, newworkspace } from "../../../../../../services/features/workspace/workspaceSlice";
+import { Account } from "../../../../../../interfaces/Account";
 
 // <======== Hooks ========> //
 
@@ -25,7 +26,6 @@ const NewSpaceModalReview: React.FC = (): JSX.Element => {
   const color = ColorList.get("Brand");
   const workspaceName =useSelector(state=>state.workspacemodal.name);
   const workspaceColor = useSelector(state=>state.workspacemodal.color);
-  const member = workspaces[0].members[0];
 
   const handleCreate=()=>{
     dispatch(newworkspace({name:workspaceName,color:workspaceColor}));
@@ -58,7 +58,7 @@ const handleclose=()=>{
           </div>
           <div className="w-full h-[34px] flex justify-between items-center">
             <p className="font-IranYekan800 text-[14px]">اعضا</p>
-            <Profile Member={member} />
+            <Profile Member={{username: String(localStorage.getItem("user_name"))}} />
           </div>
         </div>
         <button
