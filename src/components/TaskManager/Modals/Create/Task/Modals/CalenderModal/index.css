@@ -1,5 +1,5 @@
-.fc .fc-button-primary:disabled,
-.fc .fc-toolbar-title {
+.calendar2 > .fc .fc-button-primary:disabled,
+.calendar2 > .fc .fc-toolbar-title {
   background-color: white;
   border-color: none;
   font-family: IRANYekan;
@@ -9,27 +9,24 @@
   font-weight: 500;
   line-height: normal;
 }
-.fc-header-toolbar {
+.calendar2 > .fc-header-toolbar {
+  display: flex;
   flex-direction: row;
 }
-.fc .fc-toolbar {
+.calendar2 > .fc .fc-toolbar {
   justify-content: start;
 }
-.fc-toolbar-chunk {
+.calendar2 > .fc-toolbar-chunk {
   display: flex;
   flex-direction: row-reverse;
   margin-right: 1rem;
   gap: 4px;
 }
-.fc-theme-standard td,
-.fc-theme-standard th {
+.calendar2 > .fc-theme-standard td,
+.calendar2 > .fc-theme-standard th {
   border: none;
 }
-.fc .fc-toolbar.fc-header-toolbar {
-  padding-top: 15px;
-  margin-left: 0;
-}
-.fc .fc-col-header-cell-cushion {
+.calendar2 > .fc .fc-col-header-cell-cushion {
   /* display: none; */
   padding: 2px 4px;
   font-family: "IranYekan";
@@ -42,35 +39,38 @@
   font-weight: 500;
   line-height: normal;
 }
-.fc-theme-standard .fc-scrollgrid {
+.calendar2 > .fc-theme-standard .fc-scrollgrid {
   border: none;
 }
-.fc .fc-daygrid-day.fc-day-today {
+.calendar2 > .fc .fc-daygrid-day.fc-day-today {
   border-radius: 5px;
 }
-.fc .fc-toolbar.fc-header-toolbar {
-  margin-bottom: 2.5em;
-}
-.fc .fc-view-harness-active > .fc-view {
+.calendar2 > .fc .fc-view-harness-active > .fc-view {
   right: -30px;
 }
-.fc .fc-daygrid-body {
+.calendar2 > .fc .fc-daygrid-body {
   margin-top: 10px;
 }
-.fc .fc-daygrid-day.fc-day-today {
+.calendar2 > .fc .fc-daygrid-day.fc-day-today {
   border: none !important;
 }
 
-.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
+.calendar2 > .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
   padding: 5px 10px;
   position: relative;
   z-index: 4;
   border: 1px solid #208d8e;
   border-radius: 100px;
 }
-.shadow-calendar {
+.calendar2 > .shadow-calendar {
   box-shadow: 0 12px 32px 0px rgba(0, 0, 0, 0.25);
 }
-.border-top-calendar {
+.calendar2 > .border-top-calendar {
   border-top: 1px solid #e4e4e4;
+}
+
+.calendar2 > .fc .fc-toolbar.fc-header-toolbar {
+  position: absolute;
+  top: -65px;
+  right: 0px;
 }

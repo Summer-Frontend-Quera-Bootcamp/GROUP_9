@@ -18,24 +18,23 @@ import {
   showfirstmodal,
   steptwo,
 } from "../../../../../../services/features/workspace/workspacemodalSlice";
+import { RootState } from "../../../../../../services/app/store";
 
 const NewSpaceModalColorSelection: React.FC = (): JSX.Element => {
-  const visible = useSelector((state) => state.workspacemodal.modaltwo);
+  const visible = useSelector((state: RootState) => state.workspacemodal.modaltwo);
   const dispatch = useDispatch();
   const Dispatch = useAppDispatch();
   const [picked, setPicked] = useState("");
-  const color_ = useSelector((state) => state.workspacemodal.color);
+  const color_ = useSelector((state: RootState) => state.workspacemodal.color);
   const [divColor, setDivColor] = useState<string | undefined>("bg-[#7D828C]");
   const pullColor = (color: string) => {
     setDivColor(ColorList.get(color)?.bgPrimary);
     setPicked(color)
-    console.log(divColor);
   };
   const color = ColorList.get("Brand");
 
   const handleCreate = () => {
     dispatch(steptwo(picked));
-    console.log(color_);
   };
 
   const handleback = () => {

@@ -3,26 +3,34 @@ import AvatarDotted from "../../Information/Task/AvatarDotted";
 import { GrayRectangle } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/Rectangle";
 import { SecondaryModalCloseButtonIcon } from "../../../../../assets/Icons/CommonComponents/Modal/ModalCloseButton";
 import { UploadFileIcon } from "../../../../../assets/Icons/TaskManager/Modals/Task/Create/UploadFile";
-import { showtagmodal } from "../../../../../services/features/workspace/taskmodalSlice";
+// import { showtagmodal } from "../../../../../services/features/workspace/taskmodalSlice";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../../../../services/app/hooks";
+import { hidefirstasktmodal } from "../../../../../services/features/workspace/taskmodalSlice";
+import CalenderModal from "./Modals/CalenderModal";
 import TagModal from "./Modals/TagModal";
 import PriorityModal from "./Modals/PriorityModal";
+import { RootState } from "../../../../../services/app/store";
 
 const Newtaskmodal = () => {
-  const display = useSelector((state) => state.taskmodal.firstmodal);
+  const display = useSelector((state: RootState) => state.taskmodal.firstmodal);
   const dispatch = useAppDispatch();
-  const [priorityShow, setPriorityShow] = useState(true);
-  const [tagShow, setTagShow] = useState(true);
-  console.log("display is :", display);
+  const [priorityShow, setPriorityShow] = useState(false);
+  const [tagShow, setTagShow] = useState(false);
+  const [calenderShow, setCalenderShow] = useState(false);
+
+  const pullShowModal = (showModal: boolean) => {
+    setCalenderShow(showModal);
+  };
+
   const handleclick = () => {
-    console.log("clicked");
-    dispatch(showtagmodal());
+    dispatch(hidefirstasktmodal());
   };
   return (
     <div
       className={`fixed w-screen h-screen flex justify-center items-center ${display} z-40`}
     >
+      <CalenderModal show={calenderShow} func={pullShowModal}/>
       <div className="w-[1153px] bg-White p-l rounded-[20px] shadow-taskModal flex flex-col gap-xl items-start select-none">
         <header className="w-full flex justify-between items-center">
           <div className="flex gap-[13px] items-center">
@@ -31,9 +39,9 @@ const Newtaskmodal = () => {
               عنوان تسک
             </h6>
           </div>
-          <button className="rounded-[4px] hover:bg-Gray-Secondary">
+          <div className="hover:cursor-pointer" onClick={handleclick}>
             {SecondaryModalCloseButtonIcon}
-          </button>
+          </div>
         </header>
 
         <div className="w-full h-[38px] font-IranYekan500 text-[16px] flex gap-xs justify-start items-center">
@@ -95,7 +103,10 @@ const Newtaskmodal = () => {
               <AvatarDotted iconName="priority" />
               <PriorityModal show={priorityShow} />
             </div>
-            <div className="w-[50px] h-[50px]">
+            <div
+              className="w-[50px] h-[50px]"
+              onClick={() => setCalenderShow(!calenderShow)}
+            >
               <AvatarDotted iconName="calender" />
             </div>
             <div
